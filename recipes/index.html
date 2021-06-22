@@ -8,7 +8,7 @@ title: 食谱
   {% for page in site.pages %}
     {% if page.dir contains "recipes" and page.name != "index.html" %}
     <li>
-      <a href="{{ page.url }}">{{ page.title }}</a>
+      <a href="{{ site.url | append: page.url }}">{{ page.title }}</a>
     </li>
     {% endif %}
   {% endfor %}
