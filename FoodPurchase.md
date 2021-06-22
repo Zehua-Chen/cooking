@@ -34,20 +34,28 @@
 
 # 酱
 
-- Soybean Oil 是 GMO
+- Soybean Oil, Canola Oil 是 GMO
+  - Rogu 意面酱含有 Soybean Oil
 
 ## 意面酱
 
-避免成分中有糖的酱
-
-1. Rao's Homemade Sauce
-2. Lucini
-3. Ragu's
+- 避免成分中有糖的酱
+- 用 Tomato Puree 而不是西红柿的一般不好吃
+- 好吃的酱一般用 diced tomato/whole stew tomato
+- 推荐品牌:
+  1. Rao's Homemade Sauce
+  2. Lucini
+  3. 365 Organic Tomato Pasta Sauce
 
 # 面
 
-- 细粮: bleach flour
-- 粗粮容易吃饱, 对血糖影响较少
+- 容易提升血糖, 吃完不饱
+  - Bleach flour
+  - Refined wheat
+  - Corn flour
+  - White rice flour
+  - Enriched wheat
+- Whole Grain 容易吃饱, 对血糖影响较少
 
 ## 面包
 
@@ -61,7 +69,13 @@
 
 ## 面条
 
-Gluten free/whole grain
+- Gluten free/whole grain/whole beans
+  - Chick peas
+  - Red lentil flour
+- 推荐商家
+  1. Banza
+  2. Pow Pasta
+  3. Wholefood chick peas pasta
 
 # 营养
 
