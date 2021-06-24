@@ -1,18 +1,22 @@
-# 商家
+---
+title: 商家
+---
+
+# 商家 {#stores}
 
 - Costco 比 Walmart 种类多
 - 网购
   - https://www.crowdcow.com/
     - 价格较贵
 
-# 肉类
+# 肉类 {#meats}
 
 - **Blade Pasteurized**的牛肉必须全熟
   - 牛排不能买“Blade Pasteurized”
 - **Sodium Phosphate**，保鲜剂
   - 避免购买
 
-## 海鲜
+## 海鲜 {#sea-food}
 
 - `x - y ct`: 一磅里有`[x, y]`个
 - King mackerel, marlin, orange roughy, shark, swordfish, tilefish, ahi tuna,
@@ -22,22 +26,22 @@
 - 野生的一般问题不大
 - 鱼反复冷冻会导致肉质下降
 
-## 培根
+## 培根 {#bacon}
 
 - 有些培根腌料里加糖，避免购买
 - 商家
   - Apple Gate
 
-## 鸡蛋
+## 鸡蛋 {#eggs}
 
 - Pasture Raised 最好，其他的差别不大
 
-# 酱
+# 酱 {#sauce}
 
 - Soybean Oil, Canola Oil 是 GMO
   - Rogu 意面酱含有 Soybean Oil
 
-## 意面酱
+## 意面酱 {#spaghetti-sauce}
 
 - 避免成分中有糖的酱
 - 用 Tomato Puree 而不是西红柿的一般不好吃
@@ -47,7 +51,7 @@
   2. Lucini
   3. 365 Organic Tomato Pasta Sauce
 
-# 面
+# 面 {#wheat-products}
 
 - 容易提升血糖, 吃完不饱
   - Bleach flour
@@ -57,7 +61,7 @@
   - Enriched wheat
 - Whole Grain 容易吃饱, 对血糖影响较少
 
-## 面包
+## 面包 {#bread}
 
 找原料中有以下成分的
 
@@ -67,7 +71,7 @@
 - Oat Bread
 - Flax Bread
 
-## 面条
+## 面条 {#noodles}
 
 - Gluten free/whole grain/whole beans
   - Chick peas
@@ -77,7 +81,7 @@
   2. Pow Pasta
   3. Wholefood chick peas pasta
 
-# 营养
+# 营养 {#vitamins}
 
 - Vitamin C
 - Vitamin D
