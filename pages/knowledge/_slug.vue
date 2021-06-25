@@ -1,13 +1,13 @@
 <template>
   <article>
     <h1>{{ page.title }}</h1>
-    <TableOfContent :toc="page.toc" />
+    <TableOfContent :tree="tree" />
     <nuxt-content :document="page" />
   </article>
 </template>
 
 <script>
-import TableOfContent from "../../components/TableOfContent.vue";
+import TableOfContent, { makeTree } from "../../components/TableOfContent.vue";
 
 export default {
   components: { TableOfContent },
@@ -18,6 +18,11 @@ export default {
     return {
       page
     };
+  },
+  computed: {
+    tree() {
+      return makeTree(this.page.toc);
+    }
   }
 };
 </script>
