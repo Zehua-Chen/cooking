@@ -1,16 +1,15 @@
 <template>
-  <div>
-    <h1>Ass we can</h1>
-    <button v-on:click="fuck">fuck</button>
-  </div>
+  <article>
+    <ul>
+      <li>
+        <NuxtLink to="recipes/">菜谱</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="knowledge/ingredients">食材</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="knowledge/food-purchase">食品采购</NuxtLink>
+      </li>
+    </ul>
+  </article>
 </template>
-
-<script>
-export default {
-  methods: {
-    fuck() {
-      console.log("fuck");
-    }
-  }
-};
-</script>
