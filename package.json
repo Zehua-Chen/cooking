@@ -1,0 +1,20 @@
+{
+  "name": "cooking",
+  "version": "1.0.0",
+  "description": "My cooking notes",
+  "main": "index.js",
+  "repository": "https://github.com/Zehua-Chen/cooking.git",
+  "author": "Zehua-Chen <peterchen06242000@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@nuxt/content": "^1.14.0",
+    "nuxt": "^2.15.7"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  }
+}

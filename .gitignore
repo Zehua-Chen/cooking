@@ -1,3 +1,5 @@
 .vscode/
 
 _site/
+node_modules/
+.nuxt/
