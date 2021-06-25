@@ -1,13 +1,25 @@
 <template>
-  <ul>
+  <ul class="list">
     <span v-for="node in tree" :key="node.id">
       <li v-if="node.text">
-        <a :href="`#${node.id}`">{{ node.text }}</a>
+        <a class="link" :href="`#${node.id}`">{{ node.text }}</a>
       </li>
-      <table-of-content v-else :tree="node" />
+      <table-of-content v-else class="ps-3" :tree="node" />
     </span>
   </ul>
 </template>
+
+<style scoped>
+.list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.link {
+  text-decoration: none;
+}
+</style>
 
 <script>
 export default {

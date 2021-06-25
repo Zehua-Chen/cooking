@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mt-4">
     <h1>食谱</h1>
     <ul>
       <li v-for="recipe in recipes" :key="recipe.title">

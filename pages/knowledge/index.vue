@@ -1,9 +1,11 @@
 <template>
-  <ul>
-    <li v-for="article in articles" :key="article.title">
-      <NuxtLink v-bind:to="article.path">{{ article.title }}</NuxtLink>
-    </li>
-  </ul>
+  <div class="container mt-4">
+    <ul>
+      <li v-for="article in articles" :key="article.title">
+        <NuxtLink v-bind:to="article.path">{{ article.title }}</NuxtLink>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>

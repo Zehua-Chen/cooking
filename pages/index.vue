@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="container">
     <ul>
       <li>
         <NuxtLink to="recipes/">菜谱</NuxtLink>

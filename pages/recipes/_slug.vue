@@ -1,9 +1,14 @@
 <template>
-  <article>
-    <h1>目录</h1>
-    <TableOfContent :tree="tree" />
-    <nuxt-content :document="page" />
-  </article>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="d-none d-md-block col-md-3">
+        <TableOfContent :tree="tree" />
+      </div>
+      <div class="col-9">
+        <nuxt-content :document="page" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
