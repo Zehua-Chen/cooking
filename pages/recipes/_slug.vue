@@ -1,21 +1,12 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="d-none d-md-block col-md-3 pe-5">
-        <TableOfContent :toc="page.toc" />
-      </div>
-      <div class="col-9">
-        <nuxt-content :document="page" />
-      </div>
-    </div>
-  </div>
+  <Document :document="page" />
 </template>
 
 <script>
-import TableOfContent, { makeTree } from "../../components/TableOfContent.vue";
+import Document from "../../components/Document.vue";
 
 export default {
-  components: { TableOfContent },
+  components: { Document },
   async asyncData({ $content, params }) {
     const slug = params.slug || "borscht";
     const page = await $content("recipes/", slug).fetch();
@@ -23,11 +14,6 @@ export default {
     return {
       page
     };
-  },
-  computed: {
-    tree() {
-      return makeTree(this.page.toc);
-    }
   }
 };
 </script>

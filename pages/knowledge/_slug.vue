@@ -1,21 +1,12 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="d-none d-md-block col-md-3 ">
-        <TableOfContent class="pe-5" :toc="page.toc" />
-      </div>
-      <div class="col-9">
-        <nuxt-content :document="page" />
-      </div>
-    </div>
-  </div>
+  <Document :document="page" />
 </template>
 
 <script>
-import TableOfContent from "../../components/TableOfContent.vue";
+import Document from "../../components/Document.vue";
 
 export default {
-  components: { TableOfContent },
+  components: { Document },
   async asyncData({ $content, params }) {
     const slug = params.slug || "ingredients";
     const page = await $content("knowledge/", slug).fetch();

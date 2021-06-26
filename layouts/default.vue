@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <NuxtLink class="navbar-brand" to="/">烹饪</NuxtLink>
@@ -23,9 +23,21 @@
         </div>
       </div>
     </nav>
-    <Nuxt />
+    <Nuxt class="page-content" />
   </div>
 </template>
+
+<style scoped>
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex-grow: 1;
+}
+</style>
 
 <script>
 import NavLink from "../components/NavLink.vue";
