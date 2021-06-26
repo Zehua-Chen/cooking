@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-4">
     <div class="row">
-      <div class="d-none d-md-block col-md-3">
-        <TableOfContent :tree="tree" />
+      <div class="d-none d-md-block col-md-3 ">
+        <TableOfContent class="pe-5" :toc="page.toc" />
       </div>
       <div class="col-9">
         <nuxt-content :document="page" />
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TableOfContent, { makeTree } from "../../components/TableOfContent.vue";
+import TableOfContent from "../../components/TableOfContent.vue";
 
 export default {
   components: { TableOfContent },
@@ -23,11 +23,6 @@ export default {
     return {
       page
     };
-  },
-  computed: {
-    tree() {
-      return makeTree(this.page.toc);
-    }
   }
 };
 </script>

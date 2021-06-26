@@ -1,30 +1,21 @@
 <template>
-  <ul class="list">
-    <span v-for="node in tree" :key="node.id">
-      <li v-if="node.text">
-        <a class="link" :href="`#${node.id}`">{{ node.text }}</a>
-      </li>
-      <table-of-content v-else class="ps-3" :tree="node" />
-    </span>
-  </ul>
+  <div class="list-group">
+    <a
+      class="list-group-item list-group-item-action"
+      v-for="node in toc"
+      :key="node.id"
+      :class="{ 'ps-4': node.depth === 3 }"
+      :href="`#${node.id}`"
+    >
+      {{ node.text }}
+    </a>
+  </div>
 </template>
-
-<style scoped>
-.list {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-}
-
-.link {
-  text-decoration: none;
-}
-</style>
 
 <script>
 export default {
   name: "table-of-content",
-  props: { tree: { type: Array, required: true } }
+  props: { toc: { type: Array, required: true } }
 };
 
 export function makeTree(toc) {

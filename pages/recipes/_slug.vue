@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-4">
     <div class="row">
-      <div class="d-none d-md-block col-md-3">
-        <TableOfContent :tree="tree" />
+      <div class="d-none d-md-block col-md-3 pe-5">
+        <TableOfContent :toc="page.toc" />
       </div>
       <div class="col-9">
         <nuxt-content :document="page" />
