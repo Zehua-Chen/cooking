@@ -1,12 +1,12 @@
 <template>
-  <article>
-    <h1>{{ page.title }}</h1>
-    <nuxt-content :document="page" />
-  </article>
+  <Document :document="page" />
 </template>
 
 <script>
+import Document from "../../components/Document.vue";
+
 export default {
+  components: { Document },
   async asyncData({ $content, params }) {
     const slug = params.slug || "borscht";
     const page = await $content("recipes/", slug).fetch();
