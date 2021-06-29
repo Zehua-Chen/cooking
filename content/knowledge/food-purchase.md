@@ -59,6 +59,7 @@ title: 商家
   - Corn flour
   - White rice flour
   - Enriched wheat
+  - Enriched xxx product
 - Whole Grain 容易吃饱, 对血糖影响较少
 
 ### 面包
@@ -75,7 +76,8 @@ title: 商家
 
 - Gluten free/whole grain/whole beans
   - Chick peas
-  - Red lentil flour
+  - Red lentil
+  - Brown rice
 - 推荐商家
   1. Banza
   2. Pow Pasta
