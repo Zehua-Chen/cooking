@@ -2,23 +2,28 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col">
-        <div class="list-group">
-          <NuxtLink
-            class="list-group-item list-group-item-action"
+        <List>
+          <ListItem
+            variant="button"
+            component="nuxt-link"
             v-for="article in articles"
             :key="article.title"
-            :to="article.path"
+            :componentProps="{ to: article.path }"
           >
             {{ article.title }}
-          </NuxtLink>
-        </div>
+          </ListItem>
+        </List>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import List from "../../components/List.vue";
+import ListItem from "../../components/ListItem.vue";
+
 export default {
+  components: { List, ListItem },
   async asyncData({ $content }) {
     const articles = await $content("knowledge").fetch();
 
