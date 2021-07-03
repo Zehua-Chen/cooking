@@ -23,9 +23,7 @@
         </div>
       </div>
     </nav>
-    <main>
-      <Nuxt class="page-content" />
-    </main>
+    <Nuxt class="page-content" />
   </div>
 </template>
 
