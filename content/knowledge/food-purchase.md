@@ -10,6 +10,10 @@ title: 商家
     - 价格较贵
   - [Butcher Box](https://www.butcherbox.com/)
 
+## 蔬菜
+
+- 西红柿罐头在西红柿成熟季节制作, 所以其风味在非西红柿成熟季节比鲜西红柿的更足;
+
 ## 肉类
 
 - **Blade Pasteurized**的牛肉必须全熟
