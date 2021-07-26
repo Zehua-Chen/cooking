@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" :class="navbarColor">
       <div class="container-fluid">
         <NuxtLink class="navbar-brand" to="/">烹饪</NuxtLink>
         <button
@@ -54,14 +54,14 @@ export default {
         }
       ],
       link: [
-        {
-          href:
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
-          rel: "stylesheet",
-          integrity:
-            "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
-          crossorigin: "anonymous"
-        }
+        // {
+        //   href:
+        //     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+        //   rel: "stylesheet",
+        //   integrity:
+        //     "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
+        //   crossorigin: "anonymous"
+        // }
       ],
       script: [
         {
@@ -73,6 +73,16 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    navbarColor() {
+      return {
+        "navbar-light": this.$colorMode.value === "light",
+        "bg-light": this.$colorMode.value === "light",
+        "navbar-dark": this.$colorMode.value === "dark",
+        "bg-dark": this.$colorMode.value === "dark"
+      };
+    }
   }
 };
 </script>

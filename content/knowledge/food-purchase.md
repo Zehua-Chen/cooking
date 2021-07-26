@@ -8,6 +8,11 @@ title: 商家
 - 网购
   - https://www.crowdcow.com/
     - 价格较贵
+  - [Butcher Box](https://www.butcherbox.com/)
+
+## 蔬菜
+
+- 西红柿罐头在西红柿成熟季节制作, 所以其风味在非西红柿成熟季节比鲜西红柿的更足;
 
 ## 肉类
 
@@ -59,6 +64,7 @@ title: 商家
   - Corn flour
   - White rice flour
   - Enriched wheat
+  - Enriched xxx product
 - Whole Grain 容易吃饱, 对血糖影响较少
 
 ### 面包
@@ -75,7 +81,8 @@ title: 商家
 
 - Gluten free/whole grain/whole beans
   - Chick peas
-  - Red lentil flour
+  - Red lentil
+  - Brown rice
 - 推荐商家
   1. Banza
   2. Pow Pasta

@@ -4,7 +4,9 @@
       <TableOfContent class="pt-4 sticky-top toc" :toc="document.toc" />
     </div>
     <div class="container pt-4">
-      <nuxt-content :document="document" />
+      <article>
+        <nuxt-content :document="document" />
+      </article>
     </div>
   </div>
 </template>
