@@ -1,28 +1,10 @@
 <template>
   <div class="page">
-    <nav class="navbar navbar-expand-lg" :class="navbarColor">
-      <div class="container-fluid">
-        <NuxtLink class="navbar-brand" to="/">烹饪</NuxtLink>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <NavLink to="/">主页</NavLink>
-            <NavLink to="/recipes">食谱</NavLink>
-            <NavLink to="/knowledge">知识</NavLink>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Navbar home="烹饪">
+      <NavLink to="/">主页</NavLink>
+      <NavLink to="/recipes">食谱</NavLink>
+      <NavLink to="/knowledge">知识</NavLink>
+    </Navbar>
     <Nuxt class="page-content" />
   </div>
 </template>
@@ -40,10 +22,11 @@
 </style>
 
 <script>
+import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
 
 export default {
-  components: { NavLink },
+  components: { Navbar, NavLink },
   head() {
     return {
       title: "烹饪",
