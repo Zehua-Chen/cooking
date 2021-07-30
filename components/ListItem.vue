@@ -1,6 +1,6 @@
 <template>
   <component
-    class="list-group-item"
+    class="list-item"
     :class="[variantClass]"
     :is="component"
     v-bind="componentProps"
@@ -26,7 +26,8 @@ export default {
       }
     },
     component: {
-      type: [String, Object]
+      type: [String, Object],
+      required: true
     },
     componentProps: {
       type: Object
@@ -38,7 +39,7 @@ export default {
         case "plain":
           return "";
         case "button":
-          return "list-group-item-action";
+          return "list-item-action";
       }
     }
   }

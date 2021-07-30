@@ -1,11 +1,13 @@
 <template>
   <div class="page">
     <Navbar home="烹饪">
-      <NavLink to="/">主页</NavLink>
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
     <Nuxt class="page-content" />
+    <footer>
+      Made with Love by Zehua Chen
+    </footer>
   </div>
 </template>
 
@@ -17,6 +19,8 @@
 }
 
 .page-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 </style>

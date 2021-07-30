@@ -1,0 +1,27 @@
+// navbar
+
+.navbar {
+  // background: lightgray;
+  border-bottom: black solid 2px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+
+  &.active {
+    color: gray;
+  }
+}
+
+.navbar-item {
+  @extend .nav-link;
+
+  margin: 0px;
+  display: inline-block;
+  padding: 16px;
+}

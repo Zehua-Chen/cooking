@@ -1,7 +1,7 @@
 <template>
-  <div class="container d-flex">
+  <div class="document">
     <div class="me-4 pe-5 border-end d-none d-md-block">
-      <TableOfContent class="pt-4 sticky-top toc" :toc="document.toc" />
+      <TableOfContent class="pt-4 sidebar toc" :toc="document.toc" />
     </div>
     <div class="container pt-4">
       <article>
@@ -12,8 +12,14 @@
 </template>
 
 <style scoped>
+.document {
+  display: flex;
+  flex-grow: 1;
+}
+
 .toc {
   width: 250px;
+  margin: 32px;
 }
 </style>
 

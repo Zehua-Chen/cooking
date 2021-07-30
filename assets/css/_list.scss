@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+}
+
+.list-item {
+  display: block;
+  height: 24px;
+  padding: 8px;
+
+  &:hover {
+    background: lightgray;
+  }
+
+  &:first-child {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+.list-item-action {
+  text-decoration: none;
+  color: black;
+}
