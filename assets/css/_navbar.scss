@@ -2,7 +2,7 @@
 
 .navbar {
   // background: lightgray;
-  border-bottom: black solid 2px;
+  border-bottom: $border-color solid 2px;
 
   display: flex;
   flex-direction: row;

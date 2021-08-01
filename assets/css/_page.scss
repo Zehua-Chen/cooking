@@ -1,5 +1,8 @@
 // commandbar
 
+@import "./functions";
+@import "./button";
+
 $commandbar-height: 50px;
 
 .commandbar {
@@ -15,15 +18,6 @@ $commandbar-height: 50px;
 
   padding-left: 8px;
   padding-right: 8px;
-}
-
-.button {
-  background: white;
-  border: black solid 1px;
-  border-radius: $border-radius;
-  color: black;
-  text-decoration: none;
-  padding: space(2);
 }
 
 .command {

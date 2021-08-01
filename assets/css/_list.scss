@@ -1,14 +1,16 @@
+@import "./functions";
+
 .list {
   list-style: none;
 }
 
 .list-item {
   display: block;
-  height: 24px;
-  padding: 8px;
+  height: space(6);
+  padding: space(2);
 
   &:hover {
-    background: lightgray;
+    background: $hover;
   }
 
   &:first-child {

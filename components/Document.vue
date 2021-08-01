@@ -3,17 +3,16 @@
     <div class="me-4 pe-5 border-end d-none d-md-block">
       <TableOfContent class="pt-4 sidebar toc" :toc="document.toc" />
     </div>
-    <div class="container pt-4">
-      <article>
-        <nuxt-content :document="document" />
-      </article>
-    </div>
+    <article class="container pt-4">
+      <nuxt-content :document="document" />
+    </article>
   </div>
 </template>
 
 <style scoped>
 .document {
   display: flex;
+  flex-direction: row;
   flex-grow: 1;
 }
 

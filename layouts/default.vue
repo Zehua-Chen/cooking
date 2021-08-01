@@ -41,6 +41,20 @@ export default {
         }
       ],
       link: [
+        {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com"
+        },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: true
+        },
+        {
+          href:
+            "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap",
+          rel: "stylesheet"
+        }
         // {
         //   href:
         //     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
