@@ -1,4 +1,9 @@
-@import "./functions";
+@use "../functions" as *;
+@use "../defaults/colors" as default-colors;
+@use "../defaults/shapes" as default-shapes;
+
+$primary-hover: default-colors.$primary-hover !default;
+$border-radius: default-shapes.$border-radius !default;
 
 .list {
   list-style: none;
@@ -10,7 +15,7 @@
   padding: space(2);
 
   &:hover {
-    background: $hover;
+    background: $primary-hover;
   }
 
   &:first-child {

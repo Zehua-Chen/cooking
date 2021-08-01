@@ -1,7 +1,7 @@
 // commandbar
 
-@import "./functions";
-@import "./button";
+@use "../functions" as *;
+@use "./button" as *;
 
 $commandbar-height: 50px;
 
