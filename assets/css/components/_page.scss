@@ -1,9 +1,23 @@
 // commandbar
 
 @use "../functions" as *;
-@use "./button" as *;
+@use "../defaults/colors";
+@use "../defaults/shapes";
+
+$commandbar-height: 50px !default;
+$primary: $primary !default;
+$primary-hover: colors.$primary-hover !default;
+$primary-text: colors.$primary-tex !default;
+$border-radius: shapes.$border-radius !default;
 
 $commandbar-height: 50px;
+
+@use "./button" as * with (
+  $primary: $primary,
+  $primary-hover: $primary-hover,
+  $primary-text: $primary-text,
+  $border-radius: $border-radius
+);
 
 .commandbar {
   position: sticky;
