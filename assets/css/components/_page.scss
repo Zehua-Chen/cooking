@@ -5,19 +5,14 @@
 @use "../defaults/shapes";
 
 $commandbar-height: 50px !default;
-$primary: $primary !default;
+$primary: colors.$primary !default;
 $primary-hover: colors.$primary-hover !default;
-$primary-text: colors.$primary-tex !default;
+$primary-text: colors.$primary-text !default;
 $border-radius: shapes.$border-radius !default;
 
 $commandbar-height: 50px;
 
-@use "./button" as * with (
-  $primary: $primary,
-  $primary-hover: $primary-hover,
-  $primary-text: $primary-text,
-  $border-radius: $border-radius
-);
+@use "./button";
 
 .commandbar {
   position: sticky;
@@ -35,7 +30,12 @@ $commandbar-height: 50px;
 }
 
 .command {
-  @extend .button;
+  @include button.button(
+    $primary: $primary,
+    $primary-hover: $primary-hover,
+    $primary-text: $primary-text,
+    $border-radius: $border-radius
+  );
 }
 
 .sidebar {

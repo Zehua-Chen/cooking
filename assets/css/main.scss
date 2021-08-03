@@ -1,28 +1,20 @@
 // variables
 
-$primary: black !default;
-$primary-hover: lightgray !default;
-$primary-text: white !default;
-
-$hover: lightgray !default;
-$border-color: darkgray !default;
-$border-radius: 0px !default;
-
 @use "./functions";
 @use "./utils";
 @use "./defaults/colors" as default-colors;
 @use "./defaults/shapes" as default-shapes;
 @use "./defaults/fonts" as default-fonts;
 
-$primary: defaults-colors.$primary !default;
-$primary-hover: defaults-colors.$primary-hover !default;
-$primary-text: defaults-colors.$primary-text !default;
-$hover: defaults-colors.$hover !default;
-$border-color: defaults-colors.$border-color !default;
+$primary: default-colors.$primary !default;
+$primary-hover: default-colors.$primary-hover !default;
+$primary-text: default-colors.$primary-text !default;
+$hover: default-colors.$hover !default;
+$border-color: default-colors.$border-color !default;
 
 $font-family: default-fonts.$font-family !default;
 
-$border-radius: defaults-shapes.$border-radius !default;
+$border-radius: default-shapes.$border-radius !default;
 
 @use "./root" with ($font-family: $font-family);
 @use "./components/navbar" with ($border-color: $border-color);

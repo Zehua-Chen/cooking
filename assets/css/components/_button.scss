@@ -8,7 +8,7 @@ $primary-text: defaults-colors.$primary-text !default;
 
 $border-radius: defaults-shapes.$border-radius !default;
 
-.button {
+@mixin button($primary, $primary-hover, $primary-text, $border-radius) {
   background: $primary;
   border: $primary solid 1px;
   border-radius: $border-radius;
@@ -20,4 +20,13 @@ $border-radius: defaults-shapes.$border-radius !default;
     background: $primary-hover;
     border: $primary-hover solid 1px;
   }
+}
+
+.button {
+  @include button(
+    $primary: $primary,
+    $primary-hover: $primary-hover,
+    $primary-text: $primary-text,
+    $border-radius: $border-radius
+  );
 }
