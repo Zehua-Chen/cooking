@@ -2,7 +2,6 @@
   <List>
     <ListItem
       component="a"
-      class="list-group-item list-group-item-action"
       variant="button"
       v-for="node in toc"
       :componentProps="{ href: `#${node.id}` }"

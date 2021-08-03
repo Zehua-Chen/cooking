@@ -3,6 +3,10 @@
 @use "../defaults/shapes" as default-shapes;
 
 $primary-hover: default-colors.$primary-hover !default;
+
+$background: default-colors.$background !default;
+$background-hover: default-color.$background-hover !default;
+
 $border-radius: default-shapes.$border-radius !default;
 
 .list {
@@ -10,12 +14,13 @@ $border-radius: default-shapes.$border-radius !default;
 }
 
 .list-item {
+  background: $background;
   display: block;
   height: space(6);
   padding: space(2);
 
   &:hover {
-    background: $primary-hover;
+    background: $background-hover;
   }
 
   &:first-child {

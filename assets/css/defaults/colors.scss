@@ -1,6 +1,11 @@
-$primary: black;
-$primary-hover: lightgray;
+@use "sass:color";
+
+$primary: #000000;
+$primary-hover: color.adjust($primary, $lightness: 20%);
 $primary-text: white;
+
+$background: white;
+$background-hover: color.adjust($background, $lightness: -10%);
 
 $border-color: gray;
 

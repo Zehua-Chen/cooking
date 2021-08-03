@@ -9,7 +9,10 @@
 $primary: default-colors.$primary !default;
 $primary-hover: default-colors.$primary-hover !default;
 $primary-text: default-colors.$primary-text !default;
-$hover: default-colors.$hover !default;
+
+$background: default-colors.$background !default;
+$background-hover: default-colors.$background-hover !default;
+
 $border-color: default-colors.$border-color !default;
 
 $font-family: default-fonts.$font-family !default;
@@ -26,5 +29,10 @@ $border-radius: default-shapes.$border-radius !default;
   $border-radius: $border-radius
 );
 
-@use "./components/list" with ($border-radius: $border-radius);
+@use "./components/list" with (
+  $background: $background,
+  $background-hover: $background-hover,
+  $border-radius: $border-radius
+);
+
 @use "./components/page";
