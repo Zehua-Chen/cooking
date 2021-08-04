@@ -5,7 +5,7 @@ $border-color: black !default;
 @mixin styles($border-color) {
   .navbar {
     // background: lightgray;
-    border-bottom: $border-color solid 2px;
+    // border-bottom: $border-color solid 2px;
 
     display: flex;
     flex-direction: row;

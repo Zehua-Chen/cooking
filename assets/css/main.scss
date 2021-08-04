@@ -9,41 +9,41 @@
 @use "./components/list";
 @use "./components/page";
 
-$primary: black !default;
-$primary-hover: color.adjust($primary, $lightness: 20%) !default;
-$primary-text: white !default;
+$default-fonts: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-$background: white !default;
-$background-hover: color.adjust($background, $lightness: -10%) !default;
+@mixin styles(
+  $primary: black,
+  $primary-hover: color.adjust($primary, $lightness: 20%),
+  $primary-text: white,
+  $background: white,
+  $background-hover: color.adjust($background, $lightness: -10%),
+  $border-color: gray,
+  $font-family: $default-fonts,
+  $border-radius: 0px
+) {
+  @include root.styles($font-family: $font-family);
 
-$border-color: gray !default;
+  @include navbar.styles($border-color: $border-color);
 
-$font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !default;
+  @include button.styles(
+    $primary: $primary,
+    $primary-hover: $primary-hover,
+    $primary-text: $primary-text,
+    $border-radius: $border-radius
+  );
 
-$border-radius: 0px !default;
+  @include list.styles(
+    $primary-hover: $primary-hover,
+    $background: $background,
+    $background-hover: $background-hover,
+    $border-radius: $border-radius
+  );
 
-@include root.styles($font-family: $font-family);
-
-@include navbar.styles($border-color: $border-color);
-
-@include button.styles(
-  $primary: $primary,
-  $primary-hover: $primary-hover,
-  $primary-text: $primary-text,
-  $border-radius: $border-radius
-);
-
-@include list.styles(
-  $primary-hover: $primary-hover,
-  $background: $background,
-  $background-hover: $background-hover,
-  $border-radius: $border-radius
-);
-
-@include page.styles(
-  $primary: $primary,
-  $primary-hover: $primary-hover,
-  $primary-text: $primary-text,
-  $border-radius: $border-radius
-);
+  @include page.styles(
+    $primary: $primary,
+    $primary-hover: $primary-hover,
+    $primary-text: $primary-text,
+    $border-radius: $border-radius
+  );
+}
