@@ -1,9 +1,7 @@
-@use "./defaults/fonts";
-
-$font-family: fonts.$font-family !default;
-
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: $font-family;
+@mixin styles($font-family) {
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: $font-family;
+  }
 }

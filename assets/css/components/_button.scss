@@ -1,12 +1,4 @@
 @use "../functions" as *;
-@use "../defaults/colors" as default-colors;
-@use "../defaults/shapes" as default-shapes;
-
-$primary: defaults-colors.$primary !default;
-$primary-hover: defaults-colors.$primary-hover !default;
-$primary-text: defaults-colors.$primary-text !default;
-
-$border-radius: defaults-shapes.$border-radius !default;
 
 @mixin button($primary, $primary-hover, $primary-text, $border-radius) {
   background: $primary;
@@ -22,11 +14,13 @@ $border-radius: defaults-shapes.$border-radius !default;
   }
 }
 
-.button {
-  @include button(
-    $primary: $primary,
-    $primary-hover: $primary-hover,
-    $primary-text: $primary-text,
-    $border-radius: $border-radius
-  );
+@mixin styles($primary, $primary-hover, $primary-text, $border-radius) {
+  .button {
+    @include button(
+      $primary: $primary,
+      $primary-hover: $primary-hover,
+      $primary-text: $primary-text,
+      $border-radius: $border-radius
+    );
+  }
 }

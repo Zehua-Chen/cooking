@@ -1,38 +1,49 @@
 // variables
 
+@use "sass:color";
 @use "./functions";
 @use "./utils";
-@use "./defaults/colors" as default-colors;
-@use "./defaults/shapes" as default-shapes;
-@use "./defaults/fonts" as default-fonts;
+@use "./root";
+@use "./components/navbar";
+@use "./components/button";
+@use "./components/list";
+@use "./components/page";
 
-$primary: default-colors.$primary !default;
-$primary-hover: default-colors.$primary-hover !default;
-$primary-text: default-colors.$primary-text !default;
+$primary: black !default;
+$primary-hover: color.adjust($primary, $lightness: 20%) !default;
+$primary-text: white !default;
 
-$background: default-colors.$background !default;
-$background-hover: default-colors.$background-hover !default;
+$background: white !default;
+$background-hover: color.adjust($background, $lightness: -10%) !default;
 
-$border-color: default-colors.$border-color !default;
+$border-color: gray !default;
 
-$font-family: default-fonts.$font-family !default;
+$font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !default;
 
-$border-radius: default-shapes.$border-radius !default;
+$border-radius: 0px !default;
 
-@use "./root" with ($font-family: $font-family);
-@use "./components/navbar" with ($border-color: $border-color);
+@include root.styles($font-family: $font-family);
 
-@use "./components/button" with (
+@include navbar.styles($border-color: $border-color);
+
+@include button.styles(
   $primary: $primary,
   $primary-hover: $primary-hover,
   $primary-text: $primary-text,
   $border-radius: $border-radius
 );
 
-@use "./components/list" with (
+@include list.styles(
+  $primary-hover: $primary-hover,
   $background: $background,
   $background-hover: $background-hover,
   $border-radius: $border-radius
 );
 
-@use "./components/page";
+@include page.styles(
+  $primary: $primary,
+  $primary-hover: $primary-hover,
+  $primary-text: $primary-text,
+  $border-radius: $border-radius
+);

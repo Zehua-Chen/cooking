@@ -1,44 +1,39 @@
-// commandbar
-
 @use "../functions" as *;
-@use "../defaults/colors";
-@use "../defaults/shapes";
-
-$commandbar-height: 50px !default;
-$primary: colors.$primary !default;
-$primary-hover: colors.$primary-hover !default;
-$primary-text: colors.$primary-text !default;
-$border-radius: shapes.$border-radius !default;
-
-$commandbar-height: 50px;
-
 @use "./button";
 
-.commandbar {
-  position: sticky;
-  top: 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+@mixin styles(
+  $primary,
+  $primary-hover,
+  $primary-text,
+  $border-radius,
+  $commandbar-height: 50px
+) {
+  .commandbar {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-  height: $commandbar-height;
-  background: white;
-  border-bottom: black solid 1.5px;
+    height: $commandbar-height;
+    background: white;
+    border-bottom: black solid 1.5px;
 
-  padding-left: 8px;
-  padding-right: 8px;
-}
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 
-.command {
-  @include button.button(
-    $primary: $primary,
-    $primary-hover: $primary-hover,
-    $primary-text: $primary-text,
-    $border-radius: $border-radius
-  );
-}
+  .command {
+    @include button.button(
+      $primary: $primary,
+      $primary-hover: $primary-hover,
+      $primary-text: $primary-text,
+      $border-radius: $border-radius
+    );
+  }
 
-.sidebar {
-  position: sticky;
-  top: $commandbar-height;
+  .sidebar {
+    position: sticky;
+    top: $commandbar-height;
+  }
 }

@@ -1,40 +1,33 @@
 @use "../functions" as *;
-@use "../defaults/colors" as default-colors;
-@use "../defaults/shapes" as default-shapes;
 
-$primary-hover: default-colors.$primary-hover !default;
-
-$background: default-colors.$background !default;
-$background-hover: default-color.$background-hover !default;
-
-$border-radius: default-shapes.$border-radius !default;
-
-.list {
-  list-style: none;
-}
-
-.list-item {
-  background: $background;
-  display: block;
-  height: space(6);
-  padding: space(2);
-
-  &:hover {
-    background: $background-hover;
+@mixin styles($primary-hover, $background, $background-hover, $border-radius) {
+  .list {
+    list-style: none;
   }
 
-  &:first-child {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+  .list-item {
+    background: $background;
+    display: block;
+    height: space(6);
+    padding: space(2);
+
+    &:hover {
+      background: $background-hover;
+    }
+
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
   }
 
-  &:last-child {
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+  .list-item-action {
+    text-decoration: none;
+    color: black;
   }
-}
-
-.list-item-action {
-  text-decoration: none;
-  color: black;
 }
