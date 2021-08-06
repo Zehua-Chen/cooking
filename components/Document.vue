@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .document {
   display: flex;
   flex-direction: row;
@@ -19,6 +19,10 @@
 .toc {
   width: 250px;
   margin: 32px;
+
+  @media only screen and (max-width: 760px) {
+    display: none;
+  }
 }
 </style>
 
