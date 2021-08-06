@@ -1,29 +1,13 @@
 <template>
   <div class="page">
-    <nav class="navbar navbar-expand-lg" :class="navbarColor">
-      <div class="container-fluid">
-        <NuxtLink class="navbar-brand" to="/">烹饪</NuxtLink>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <NavLink to="/">主页</NavLink>
-            <NavLink to="/recipes">食谱</NavLink>
-            <NavLink to="/knowledge">知识</NavLink>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Navbar home="烹饪">
+      <NavLink to="/recipes">食谱</NavLink>
+      <NavLink to="/knowledge">知识</NavLink>
+    </Navbar>
     <Nuxt class="page-content" />
+    <footer class="bottom-bar border-top surface">
+      Made with Love by Zehua Chen
+    </footer>
   </div>
 </template>
 
@@ -35,15 +19,25 @@
 }
 
 .page-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+}
+
+.bottom-bar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 
 <script>
+import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
 
 export default {
-  components: { NavLink },
+  components: { Navbar, NavLink },
   head() {
     return {
       title: "烹饪",
@@ -54,6 +48,20 @@ export default {
         }
       ],
       link: [
+        {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com"
+        },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: true
+        },
+        {
+          href:
+            "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap",
+          rel: "stylesheet"
+        }
         // {
         //   href:
         //     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",

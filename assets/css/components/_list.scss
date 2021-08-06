@@ -1,0 +1,39 @@
+@use "../functions" as *;
+
+@mixin styles(
+  $primary-hover,
+  $background,
+  $background-hover,
+  $background-text,
+  $border-radius
+) {
+  .list {
+    list-style: none;
+  }
+
+  .list-item {
+    background: $background;
+    display: block;
+    height: space(6);
+    padding: space(2);
+
+    &:hover {
+      background: $background-hover;
+    }
+
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+
+  .list-item-action {
+    text-decoration: none;
+    color: $background-text;
+  }
+}

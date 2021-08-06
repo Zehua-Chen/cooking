@@ -1,19 +1,28 @@
 <template>
-  <div class="container d-flex">
-    <div class="me-4 pe-5 border-end d-none d-md-block">
-      <TableOfContent class="pt-4 sticky-top toc" :toc="document.toc" />
+  <div class="document">
+    <div class="me-4 pe-5 d-none d-md-block">
+      <TableOfContent class="pt-4 sidebar toc" :toc="document.toc" />
     </div>
-    <div class="container pt-4">
-      <article>
-        <nuxt-content :document="document" />
-      </article>
-    </div>
+    <article class="container pt-4">
+      <nuxt-content :document="document" />
+    </article>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.document {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
 .toc {
   width: 250px;
+  margin: 32px;
+
+  @media only screen and (max-width: 760px) {
+    display: none;
+  }
 }
 </style>
 
