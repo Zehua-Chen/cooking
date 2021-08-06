@@ -1,6 +1,6 @@
 <template>
   <div class="document">
-    <div class="me-4 pe-5 border-end d-none d-md-block">
+    <div class="me-4 pe-5 d-none d-md-block">
       <TableOfContent class="pt-4 sidebar toc" :toc="document.toc" />
     </div>
     <article class="container pt-4">

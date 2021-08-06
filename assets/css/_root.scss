@@ -1,7 +1,17 @@
-@mixin styles($font-family) {
+@mixin styles($background, $background-text, $link-color, $font-family) {
   body {
     padding: 0px;
     margin: 0px;
     font-family: $font-family;
+    background: $background;
+    color: $background-text;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  table {
+    width: 100%;
   }
 }

@@ -1,6 +1,12 @@
 @use "../functions" as *;
 
-@mixin styles($primary-hover, $background, $background-hover, $border-radius) {
+@mixin styles(
+  $primary-hover,
+  $background,
+  $background-hover,
+  $background-text,
+  $border-radius
+) {
   .list {
     list-style: none;
   }
@@ -28,6 +34,6 @@
 
   .list-item-action {
     text-decoration: none;
-    color: black;
+    color: $background-text;
   }
 }

@@ -1,22 +1,38 @@
 // utils
 @use "./functions" as *;
 
-.container {
-  padding: space(6);
-}
+@mixin styles($surface, $border-color, $border-width) {
+  .container {
+    // used for when containers are put inside flex boxes
+    flex-grow: 1;
+    padding: space(6);
+  }
 
-.border-end {
-  border-right: black solid 1px;
-}
+  .surface {
+    background: $surface;
+  }
 
-.ps-4 {
-  padding-left: space(4);
-}
+  .border-end {
+    border-right: $border-color solid $border-width;
+  }
 
-.pt-4 {
-  padding-top: space(4);
-}
+  .border-top {
+    border-top: $border-color solid $border-width;
+  }
 
-.pe-5 {
-  padding-right: space(4);
+  .ms-4 {
+    margin-left: space(4);
+  }
+
+  .ps-4 {
+    padding-left: space(4);
+  }
+
+  .pt-4 {
+    padding-top: space(4);
+  }
+
+  .pe-5 {
+    padding-right: space(4);
+  }
 }

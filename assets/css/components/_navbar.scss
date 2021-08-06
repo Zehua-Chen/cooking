@@ -2,7 +2,7 @@
 
 $border-color: black !default;
 
-@mixin styles($border-color) {
+@mixin styles($background-text, $border-color) {
   .navbar {
     // background: lightgray;
     // border-bottom: $border-color solid 2px;
@@ -13,7 +13,7 @@ $border-color: black !default;
   }
 
   .nav-link {
-    color: black;
+    color: $background-text;
     text-decoration: none;
 
     &.active {

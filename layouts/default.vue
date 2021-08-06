@@ -5,7 +5,7 @@
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
     <Nuxt class="page-content" />
-    <footer>
+    <footer class="bottom-bar border-top surface">
       Made with Love by Zehua Chen
     </footer>
   </div>
@@ -22,6 +22,13 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+.bottom-bar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 

@@ -5,10 +5,14 @@
   $primary,
   $primary-hover,
   $primary-text,
+  $border-color,
   $border-radius,
+  $border-width,
   $commandbar-height: 50px
 ) {
   .commandbar {
+    @extend .surface;
+
     position: sticky;
     top: 0px;
     display: flex;
@@ -16,10 +20,9 @@
     align-items: center;
 
     height: $commandbar-height;
-    background: white;
 
-    border-top: black solid 1.5px;
-    border-bottom: black solid 1.5px;
+    border-top: $border-color solid $border-width;
+    border-bottom: $border-color solid $border-width;
 
     padding-left: 8px;
     padding-right: 8px;

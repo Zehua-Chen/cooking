@@ -6,7 +6,7 @@
       v-for="node in toc"
       :componentProps="{ href: `#${node.id}` }"
       :key="node.id"
-      :class="{ 'ps-4': node.depth === 3 }"
+      :class="{ 'ms-4': node.depth === 3 }"
     >
       {{ node.text }}
     </ListItem>
