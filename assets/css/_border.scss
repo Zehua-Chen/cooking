@@ -1,13 +1,45 @@
+@mixin border-top($border-color, $border-width) {
+  border-top: $border-color solid $border-width;
+}
+
+@mixin border-bottom($border-color, $border-width) {
+  border-bottom: $border-color solid $border-width;
+}
+
+@mixin border-start($border-color, $border-width) {
+  border-left: $border-color solid $border-width;
+}
+
+@mixin border-end($border-color, $border-width) {
+  border-right: $border-color solid $border-width;
+}
+
 @mixin styles($border-color, $border-width) {
   .border-top {
-    border-top: $border-color solid $border-width;
+    @include border-top(
+      $border-color: $border-color,
+      $border-width: $border-width
+    );
   }
 
   .border-bottom {
-    border-bottom: $border-color solid $border-width;
+    @include border-bottom(
+      $border-color: $border-color,
+      $border-width: $border-width
+    );
+  }
+
+  .border-start {
+    @include border-start(
+      $border-color: $border-color,
+      $border-width: $border-width
+    );
   }
 
   .border-end {
-    border-right: $border-color solid $border-width;
+    @include border-end(
+      $border-color: $border-color,
+      $border-width: $border-width
+    );
   }
 }
