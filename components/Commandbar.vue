@@ -1,6 +1,6 @@
 <template>
-  <div class="list">
-    <slot />
+  <div class="commandbar">
+    <slot></slot>
   </div>
 </template>
 

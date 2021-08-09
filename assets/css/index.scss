@@ -1,0 +1,21 @@
+@use "sass:color";
+@use "./main";
+
+.light-mode {
+  @include main.styles();
+}
+
+.dark-mode {
+  $background: #212121;
+
+  @include main.styles(
+    $primary: #e0e0e0,
+    $primary-text: black,
+    $background: $background,
+    $background-hover: color.adjust($background, $lightness: 10%),
+    $background-text: white,
+    $surface: #424242,
+    $border-color: #616161,
+    $link-color: #b3e5fc
+  );
+}

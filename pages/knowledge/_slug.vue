@@ -1,12 +1,18 @@
 <template>
-  <Document :document="page" />
+  <div>
+    <Commandbar>
+      <NuxtLink class="command" to="/knowledge">Back</NuxtLink>
+    </Commandbar>
+    <Document :document="page" />
+  </div>
 </template>
 
 <script>
+import Commandbar from "../../components/Commandbar.vue";
 import Document from "../../components/Document.vue";
 
 export default {
-  components: { Document },
+  components: { Commandbar, Document },
   async asyncData({ $content, params }) {
     const slug = params.slug || "ingredients";
     const page = await $content("knowledge/", slug).fetch();
