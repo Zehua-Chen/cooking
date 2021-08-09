@@ -1,0 +1,13 @@
+@mixin styles($border-color, $border-width) {
+  .border-top {
+    border-top: $border-color solid $border-width;
+  }
+
+  .border-bottom {
+    border-bottom: $border-color solid $border-width;
+  }
+
+  .border-end {
+    border-right: $border-color solid $border-width;
+  }
+}

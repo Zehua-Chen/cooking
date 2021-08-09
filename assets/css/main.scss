@@ -1,9 +1,11 @@
 // variables
 
 @use "sass:color";
+@use "./border";
 @use "./functions";
 @use "./utils";
 @use "./root";
+@use "./text-align";
 @use "./components/navbar";
 @use "./components/button";
 @use "./components/list";
@@ -38,6 +40,12 @@ $default-fonts: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
     $background-text: $background-text,
     $link-color: $link-color,
     $font-family: $font-family
+  );
+
+  @include text-align.styles();
+  @include border.styles(
+    $border-color: $border-color,
+    $border-width: $border-width
   );
 
   @include navbar.styles(

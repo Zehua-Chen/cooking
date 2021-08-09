@@ -2,7 +2,7 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col">
-        <h1>食谱</h1>
+        <h1 class="text-center border-bottom pb-4">食谱</h1>
         <List>
           <ListItem
             variant="button"
@@ -18,6 +18,8 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped></style>
 
 <script>
 import List from "../../components/List.vue";

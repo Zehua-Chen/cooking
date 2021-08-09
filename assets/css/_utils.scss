@@ -5,23 +5,25 @@
   .container {
     // used for when containers are put inside flex boxes
     flex-grow: 1;
-    padding: space(6);
+    padding-left: space(16);
+    padding-right: space(16);
+
+    @media only screen and (max-width: 760px) {
+      padding-left: space(4);
+      padding-right: space(4);
+    }
   }
 
   .surface {
     background: $surface;
   }
 
-  .border-end {
-    border-right: $border-color solid $border-width;
-  }
-
-  .border-top {
-    border-top: $border-color solid $border-width;
-  }
-
   .ms-4 {
     margin-left: space(4);
+  }
+
+  .mt-4 {
+    margin-top: space(4);
   }
 
   .ps-4 {
@@ -30,6 +32,10 @@
 
   .pt-4 {
     padding-top: space(4);
+  }
+
+  .pb-4 {
+    padding-bottom: space(4);
   }
 
   .pe-5 {

@@ -2,6 +2,7 @@
   <article class="container mt-4">
     <div class="row">
       <div class="col">
+        <h1 class="text-center border-bottom pb-4">Zehua Chen的做饭笔记</h1>
         <List>
           <ListItem
             variant="button"
