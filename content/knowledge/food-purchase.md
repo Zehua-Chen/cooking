@@ -77,6 +77,8 @@ title: 商家
 - Oat Bread
 - Flax Bread
 
+**有些面包中含糖, 注意避免**
+
 ### 面条
 
 - Gluten free/whole grain/whole beans

@@ -9,6 +9,7 @@ title: 原材料
 | English | 中文 |
 | ------- | ---- |
 | Celery  | 西芹 |
+| Chives  | 韭菜 |
 
 ## 香料
 
