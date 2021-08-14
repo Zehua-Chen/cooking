@@ -1,8 +1,8 @@
 ---
-title: 商家
+title: 食物购买
 ---
 
-# 商家
+# 食物购买
 
 - Costco 比 Walmart 种类多
 - 网购
