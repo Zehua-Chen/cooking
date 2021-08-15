@@ -1,4 +1,15 @@
-@mixin styles($background, $background-text, $link-color, $font-family) {
+@use "./border";
+
+@mixin styles(
+  $primary,
+  $primary-text,
+  $background,
+  $background-text,
+  $link-color,
+  $border-color,
+  $border-width,
+  $font-family
+) {
   body {
     padding: 0px;
     margin: 0px;
@@ -13,5 +24,21 @@
 
   table {
     width: 100%;
+    border-collapse: collapse;
+
+    @include border.border-bottom(
+      $border-color: $border-color,
+      $border-width: $border-width
+    );
+  }
+
+  thead {
+    color: $primary-text;
+    background: $primary;
+    text-align: left;
+  }
+
+  td {
+    padding: space(10);
   }
 }

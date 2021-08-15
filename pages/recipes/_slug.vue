@@ -1,7 +1,7 @@
 <template>
   <div>
     <Commandbar>
-      <NuxtLink class="command" to="/knowledge">Back</NuxtLink>
+      <NuxtLink class="command" to="/recipes">Back</NuxtLink>
     </Commandbar>
     <Document :document="page" />
   </div>
