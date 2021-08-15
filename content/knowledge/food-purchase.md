@@ -1,8 +1,8 @@
 ---
-title: 商家
+title: 食物购买
 ---
 
-# 商家
+# 食物购买
 
 - Costco 比 Walmart 种类多
 - 网购
@@ -76,6 +76,8 @@ title: 商家
 - Sourdough
 - Oat Bread
 - Flax Bread
+
+**有些面包中含糖, 注意避免**
 
 ### 面条
 
