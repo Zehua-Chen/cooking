@@ -7,6 +7,14 @@ title: 咖啡
 - 太酸: under extract; 咖啡豆太粗
 - 太苦: over extract; 咖啡豆太细
 
+## 咖啡机
+
+- Nespresso Vertuo:
+  - 泡沫是空气打得(假的), 不是二氧化碳
+  - 咖啡胶囊贵 (\$1 一杯)
+  - Nestle (雀巢) 很邪恶, 商业行为有很大问题
+  - [The Bizarre And Surprising Coffee Of The Nespresso Vertuo](https://www.youtube.com/watch?v=pO06RC4pvr0&t=328s)
+
 ## 咖啡豆
 
 | 地区        | 炒豆商                                | 备注   |
