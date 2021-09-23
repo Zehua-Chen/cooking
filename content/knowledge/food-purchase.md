@@ -20,6 +20,9 @@ title: 食物购买
   - 牛排不能买“Blade Pasteurized”
 - **Sodium Phosphate**，保鲜剂
   - 避免购买
+- **100% Grass-fed, 100%食草牛**:
+  - 牛一吃不是草的饲料肉里的健康福利就没了
+  - 吃草的牛肉熟得快
 
 ### 海鲜
 
