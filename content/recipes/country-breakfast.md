@@ -20,3 +20,7 @@ ingredients:
 ## 注意事项
 
 - **绝对不能再铸铁锅中烧土豆, 否则铸铁锅的油膜会脱落**
+
+## 来源
+
+[Youtube](https://youtu.be/ydbMAFaA6Uw?t=270)
