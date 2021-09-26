@@ -50,6 +50,8 @@ ingredients:
   [烘焙](../knowledge/baking))
 - 如果放了黄油就不需要在锅中放油
 
+- 锅中注意补油, 不然不好翻面
+
 ## 参考
 
 [YouTube](https://www.youtube.com/watch?v=fM_ELMrEmNc)
