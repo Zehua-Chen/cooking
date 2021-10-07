@@ -24,7 +24,14 @@ title: 健康
   - 奶酪
   - 酸奶
   - 沙丁鱼, 罐头三文鱼(可食用骨头)
-  - TODO:
+  - 豆类和扁豆
+  - 杏仁
+  - 乳清蛋白 (Whey Protein)
+  - 部分绿叶蔬菜 (Leafy Green), 如蔬菜
+  - 大黄 (Rhubarb)
+  - 苋菜 (Amaranth)
+  - 毛豆豆腐 (Edamame and Tofu)
+  - 无花果 (Figs)
 
 ## 参考
 
