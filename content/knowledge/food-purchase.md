@@ -93,6 +93,57 @@ title: 食物购买
   2. Pow Pasta
   3. Wholefood chick peas pasta
 
+## 油
+
+| 中文           | English                     |
+| -------------- | --------------------------- |
+| 饱和脂肪       | Saturated Fat               |
+| 单不饱和脂肪酸 | Monounsaturated Fatty Acids |
+| 多不饱和脂肪酸 | Polyunsaturated Fatty Acid  |
+| 猪油           | Larde                       |
+| 特级初榨橄榄油 | Extra Vrigin Olive Oil      |
+| 澳洲坚果油     | Macadamia Nut Oil           |
+| 核桃籽油       | Walnut Seed Oil             |
+| 油菜籽油       | Canola Oil                  |
+| 克里斯科菜籽油 | Crisco Canola Oil           |
+| 籽油           | Seed Oil                    |
+
+- **健康油**: 区分好油坏油的主要因素为其稳不稳定, 会不会分解, 释放有害物质. 好的
+  油在高温(烟点)下稳定, 不会释放有害物质
+  - **饱和脂肪最健康**: **最稳定**, 不会造成炎症, 不会导致肥胖, 对脑子有好处
+    - 黄油
+    - 牛油果油
+    - 椰子油
+    - 猪油
+  - **单不饱和脂肪酸**: 对神经有好处; 橄榄油可以加热至 400F 左右而不释放有害物质
+    ; 400 F 往上有害物质较少
+    - 橄榄油:
+    - 特级初榨橄榄油: 有特殊香气, 适合画龙点睛
+    - Macdamia Nut oil
+  - **多不饱和脂肪酸**:
+    - 核桃籽油
+  - **其他**
+    - Cold Pressed, Virgin 葡萄籽油
+- **不健康油**: 籽油一般都不健康
+  - 克里斯科菜籽油, 油菜籽油: 极其不健康
+  - 玉米油
+
+## 乳制品
+
+### 黄油
+
+- **欧式 vs 美式**: 欧式黄油水份小, 美式黄油水份大; **欧式的好**
+  - **推荐商家**:
+    - Kerrygold Irish Butter
+    - President
+    - Plugra
+    - Vital Farms
+    - Kalona
+- **发酵**: 发酵黄油有特殊的香味
+- **Spread**: 大部分 spread 含有不健康油
+  - **推荐商家**:
+    - Miyoko's
+
 ## 营养
 
 - Vitamin C
@@ -102,3 +153,7 @@ title: 食物购买
 - Garlic
 - Collodial Silver?
 - Olive Leaf
+
+## 参考
+
+- [Which Cooking Oils are Safe? (Which to AVOID)](https://www.youtube.com/watch?v=6j60t0juXeQ)
