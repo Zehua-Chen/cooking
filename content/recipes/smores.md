@@ -1,14 +1,11 @@
 ---
 title: 饼干夹棉花糖
+ingredients:
+  - name: 饼干
+  - name: 棉花糖
+  - name: 巧克力
+    optional: true
 ---
-
-# 饼干夹棉花糖
-
-## 材料
-
-- 饼干
-- 棉花糖
-- (可选) 巧克力
 
 ## 制作
 

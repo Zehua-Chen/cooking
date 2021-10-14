@@ -1,11 +1,6 @@
 <template>
   <div class="document">
-    <div class="me-4 pe-5 d-none d-md-block">
-      <TableOfContent class="pt-4 sidebar toc" :toc="document.toc" />
-    </div>
-    <article class="container pt-4">
-      <nuxt-content :document="document" />
-    </article>
+    <slot />
   </div>
 </template>
 
@@ -15,27 +10,8 @@
   flex-direction: row;
   flex-grow: 1;
 }
-
-.toc {
-  width: 250px;
-  margin: 32px;
-
-  @media only screen and (max-width: 760px) {
-    display: none;
-  }
-}
 </style>
 
 <script>
-import TableOfContent from "./TableOfContent.vue";
-
-export default {
-  components: { TableOfContent },
-  props: {
-    document: {
-      type: Object,
-      required: true
-    }
-  }
-};
+export default {};
 </script>
