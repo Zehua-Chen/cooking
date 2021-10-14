@@ -1,17 +1,14 @@
 ---
 title: 土豆丝
+ingredients:
+  - name: 土豆丝
+  - name: 醋
+  - name: 其他蔬菜
+  - name: 蒜
+  - name: 葱
+  - name: 辣椒
+    optional: true
 ---
-
-# 土豆丝
-
-## 材料
-
-- 土豆丝
-- 醋
-- 其他蔬菜
-- 蒜
-- 葱
-- 辣椒 (可选)
 
 ## 制作
 

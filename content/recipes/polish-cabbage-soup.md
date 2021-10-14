@@ -1,23 +1,18 @@
 ---
 title: 波兰白菜汤
+ingredients:
+  - name: 胡萝卜
+  - name: 卷心菜
+  - name: 土豆
+  - name: 洋葱
+  - name: 酸菜
+  - name: 香肠
+  - name: 培根
+  - name: 辣椒粉
+  - name: 黑胡椒
+  - name: 莳萝
+  - name: 月桂叶
 ---
-
-# 波兰白菜汤
-
-## 材料
-
-- 胡萝卜
-- 卷心菜
-- 土豆
-- 洋葱
-- 酸菜
-- 香肠
-- 培根
-- 香料:
-  - 辣椒粉
-  - 黑胡椒
-  - [莳萝](../knowledge/ingredients.md)
-  - [月桂叶](../knowledge/ingredients.md)
 
 ## 参考
 

@@ -1,21 +1,23 @@
 ---
 title: 蒜香意面
+ingredients:
+  - name: 肉
+  - name: 大蒜
+  - name: 洋葱
+  - name: 黄油
+  - name: 辣椒粉 (Paprika)
+  - name: 胡椒粉
+  - name: 盐
+  - name: 意面
+  - name: 奶酪丝
+    optional: true
+  - name: 培根, 火腿
+    optional: true
 ---
 
 # 蒜香意面
 
 ## 材料
-
-- 肉
-- 大蒜
-- 洋葱
-- 黄油
-- 辣椒粉 (Paprika)
-- 胡椒粉
-- 盐
-- 意面
-- (可选) 奶酪丝
-- (可选) 培根, 火腿
 
 ## 制作
 
