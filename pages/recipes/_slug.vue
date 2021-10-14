@@ -4,12 +4,12 @@
       <NuxtLink class="command" to="/recipes">Back</NuxtLink>
     </Commandbar>
     <Document>
-      <DocumentTableOfContent :toc="page.toc" />
+      <DocumentTableOfContent :toc="toc" />
 
       <article class="container pt-4">
         <h1>{{ page.title }}</h1>
         <div v-if="page.ingredients">
-          <h2>材料</h2>
+          <h2 id="ingredients">材料</h2>
           <table>
             <thead>
               <th>材料</th>
@@ -18,8 +18,8 @@
             </thead>
             <tbody>
               <tr v-for="ingredient in page.ingredients" :key="ingredient.name">
-                <td>{{ ingredient.name }}</td>
-                <td>{{ quantity(ingredient) }}</td>
+                <td>{{ ingredientName(ingredient) }}</td>
+                <td>{{ ingredientQuantity(ingredient) }}</td>
                 <td>{{ ingredient.notes ? ingredient.notes : "" }}</td>
               </tr>
             </tbody>
@@ -39,7 +39,14 @@ import DocumentTableOfContent from "../../components/DocumentTableOfContent.vue"
 export default {
   components: { Commandbar, Document, DocumentTableOfContent },
   methods: {
-    quantity(ingredient) {
+    ingredientName(ingredient) {
+      if (ingredient.optional) {
+        return `(可选) ${ingredient.name}`;
+      }
+
+      return ingredient.name;
+    },
+    ingredientQuantity(ingredient) {
       if (ingredient.quantity && ingredient.unit) {
         return `${ingredient.quantity} (${ingredient.unit})`;
       }
@@ -49,6 +56,18 @@ export default {
       }
 
       return "";
+    }
+  },
+  computed: {
+    toc() {
+      if (this.page.ingredients) {
+        return [
+          { text: "材料", id: "ingredients", depth: 2 },
+          ...this.page.toc
+        ];
+      }
+
+      return this.page.toc;
     }
   },
   async asyncData({ $content, params }) {
