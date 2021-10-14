@@ -1,37 +1,54 @@
 ---
 title: 薄饼
+variants:
+  - name: 发酵粉
+  - name: 小苏打
+ingredients:
+  - name: 全麦面粉
+    quantity: 1.5
+    unit: cup
+  - name: 鸡蛋
+    quantity: 2
+  # ingredients for 发酵粉
+  - name: 发酵粉
+    quantity: 3
+    unit: tbsp
+    variant: 发酵粉
+  - name: 非酸性液体
+    quantity: 1.25
+    unit: cup
+    variant: 发酵粉
+  # ingredients for 小苏达
+  - name: 小苏达
+    quantity: 2
+    unit: tbsp
+    variant: 小苏打
+  - name: 白脱牛奶
+    quantity: 1.25
+    unit: cup
+    variant: 小苏打
+  # optional ingredients
+  - name: 黄油
+    quantity: 1
+    unit: tbsp
+    optional: true
+  - name: 糖浆
+    quantity: 2
+    unit: tbsp
+    optional: true
+  - name: 香精
+    optional: true
 ---
-
-# 薄饼
-
-## 材料
-
-10 张薄饼
-
-1. 1.5 cup 全麦面粉
-2. 2 个鸡蛋
-3. (可选) 适量黄油
-4. (可选) 糖或糖浆
-5. (可选) 香精 (香草, 杏仁提取物)
-
-### 拜托牛奶 + 小苏打
-
-采用小苏达则必须采用白脱牛奶或其他酸性液体, 不然面糊发泡量不足 (参考:
-[烘焙](../knowledge/baking.md))
-
-1. 2 tsp 小苏达
-2. 1.25 cup 白脱牛奶
-
-### 泡打粉 + 非酸性液体
-
-1. 2 tsp 发酵粉
-2. 1.25 cup 非酸性液体
 
 ## 制作
 
-建议单份大小: 1/4 cup
+建议单份大小: 1/4 cup, 共记 10 张
 
-- 锅中注意补油, 不然不好翻面 (TODO: 放了黄油还需要吗)
+## 注意事项
+
+- 采用小苏达则必须采用白脱牛奶或其他酸性液体, 不然面糊发泡量不足 (参考:
+  [烘焙](../knowledge/baking))
+- 如果放了黄油就不需要在锅中放油
 
 ## 参考
 
