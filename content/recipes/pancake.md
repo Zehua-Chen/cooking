@@ -11,7 +11,7 @@ ingredients:
     quantity: 2
   # ingredients for 发酵粉
   - name: 发酵粉
-    quantity: 3
+    quantity: 2
     unit: tbsp
     variant: 发酵粉
   - name: 非酸性液体
