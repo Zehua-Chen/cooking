@@ -2,19 +2,15 @@
   <div>
     <Commandbar>
       <NuxtLink class="command" to="/recipes">Back</NuxtLink>
-      <span v-if="activeVariant">
-        {{ activeVariant.name }}
-      </span>
-      <span v-if="page.variants">
-        <button
-          class="command"
+      <select v-if="page.variants" v-model="activeVariant">
+        <option
           v-for="variant in page.variants"
           :key="variant.name"
-          @click="activeVariant = variant"
+          :value="variant"
         >
           {{ variant.name }}
-        </button>
-      </span>
+        </option>
+      </select>
     </Commandbar>
     <Document>
       <DocumentTableOfContent :toc="toc" />
