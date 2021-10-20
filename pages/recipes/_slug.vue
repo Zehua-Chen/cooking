@@ -2,6 +2,15 @@
   <div>
     <Commandbar>
       <NuxtLink class="command" to="/recipes">Back</NuxtLink>
+      <select v-if="page.variants" v-model="activeVariant">
+        <option
+          v-for="variant in page.variants"
+          :key="variant.name"
+          :value="variant"
+        >
+          {{ variant.name }}
+        </option>
+      </select>
     </Commandbar>
     <Document>
       <DocumentTableOfContent :toc="toc" />
@@ -17,7 +26,7 @@
               <th>其他</th>
             </thead>
             <tbody>
-              <tr v-for="ingredient in page.ingredients" :key="ingredient.name">
+              <tr v-for="ingredient in ingredients" :key="ingredient.name">
                 <td>{{ ingredientName(ingredient) }}</td>
                 <td>{{ ingredientQuantity(ingredient) }}</td>
                 <td>{{ ingredient.notes ? ingredient.notes : "" }}</td>
@@ -38,6 +47,11 @@ import DocumentTableOfContent from "../../components/DocumentTableOfContent.vue"
 
 export default {
   components: { Commandbar, Document, DocumentTableOfContent },
+  data() {
+    return {
+      activeVariant: null
+    };
+  },
   methods: {
     ingredientName(ingredient) {
       if (ingredient.optional) {
@@ -68,6 +82,17 @@ export default {
       }
 
       return this.page.toc;
+    },
+    ingredients() {
+      if (!this.activeVariant) {
+        return this.page.ingredients;
+      }
+
+      return this.page.ingredients.filter(ingredient => {
+        return ingredient.variant
+          ? ingredient.variant == this.activeVariant.name
+          : true;
+      });
     }
   },
   async asyncData({ $content, params }) {
@@ -75,7 +100,8 @@ export default {
     const page = await $content("recipes/", slug).fetch();
 
     return {
-      page
+      page,
+      activeVariant: page.variants ? page.variants[0] : null
     };
   }
 };
