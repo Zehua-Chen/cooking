@@ -34,16 +34,7 @@
     $border-width: $border-width
   );
 
-  @include root.styles(
-    $primary: $primary,
-    $primary-text: $primary-text,
-    $background: $background,
-    $background-text: $background-text,
-    $link-color: $link-color,
-    $border-color: $border-color,
-    $border-width: $border-width,
-    $font-family: $font-family
-  );
+  @include root.styles($theme: $theme);
 
   @include text-align.styles();
   @include border.styles(
