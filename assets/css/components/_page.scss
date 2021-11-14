@@ -11,8 +11,6 @@
   $commandbar-height: 50px
 ) {
   .commandbar {
-    @extend .surface;
-
     position: sticky;
     top: 0px;
     display: flex;
@@ -21,11 +19,10 @@
 
     height: $commandbar-height;
 
-    border-top: $border-color solid $border-width;
-    border-bottom: $border-color solid $border-width;
-
     padding-left: 8px;
     padding-right: 8px;
+
+    backdrop-filter: blur(4px);
   }
 
   .command {
