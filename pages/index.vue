@@ -19,11 +19,12 @@
   </article>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import List from "../components/List.vue";
 import ListItem from "../components/ListItem.vue";
 
-export default {
+export default Vue.extend({
   components: { List, ListItem },
   computed: {
     links() {
@@ -43,5 +44,5 @@ export default {
       ];
     }
   }
-};
+});
 </script>
