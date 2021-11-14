@@ -9,7 +9,15 @@
 </template>
 
 <script>
-export default {
-  props: ["to"]
-};
+import Vue from "vue";
+
+export default Vue.extend({
+  props: {
+    to: {
+      type: String,
+      required: true,
+      wrong: false
+    }
+  }
+});
 </script>
