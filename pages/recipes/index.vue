@@ -21,10 +21,10 @@
 
 <style lang="scss" scoped></style>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
-import List from "../../components/List.vue";
-import ListItem from "../../components/ListItem.vue";
+import List from "components/List.vue";
+import ListItem from "components/ListItem.vue";
 
 export default Vue.extend({
   components: { List, ListItem },

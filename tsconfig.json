@@ -12,7 +12,10 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "components/*": ["components/*"],
+      "layouts/*": ["layouts/*"],
+      "pages/*": ["pages/*"]
     },
     "types": [
       "@types/node",
