@@ -12,12 +12,13 @@
   </div>
 </template>
 
-<script>
-import Commandbar from "../../components/Commandbar.vue";
-import Document from "../../components/Document.vue";
-import DocumentTableOfContent from "../../components/DocumentTableOfContent.vue";
+<script lang="ts">
+import Vue from "vue";
+import Commandbar from "components/Commandbar.vue";
+import Document from "components/Document.vue";
+import DocumentTableOfContent from "components/DocumentTableOfContent.vue";
 
-export default {
+export default Vue.extend({
   components: { Commandbar, Document, DocumentTableOfContent },
   async asyncData({ $content, params }) {
     const slug = params.slug || "ingredients";
@@ -27,5 +28,5 @@ export default {
       page
     };
   }
-};
+});
 </script>

@@ -24,10 +24,15 @@ import Vue from "vue";
 import List from "../components/List.vue";
 import ListItem from "../components/ListItem.vue";
 
+interface Link {
+  url: string;
+  title: string;
+}
+
 export default Vue.extend({
   components: { List, ListItem },
   computed: {
-    links() {
+    links(): Link[] {
       return [
         {
           url: "recipes/",
