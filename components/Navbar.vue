@@ -10,7 +10,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
 
 export default Vue.extend({
@@ -22,11 +22,13 @@ export default Vue.extend({
   },
   computed: {
     navbarColor() {
+      const { value: colorMode } = this.$colorMode;
+
       return {
-        "navbar-light": this.$colorMode.value === "light",
-        "bg-light": this.$colorMode.value === "light",
-        "navbar-dark": this.$colorMode.value === "dark",
-        "bg-dark": this.$colorMode.value === "dark"
+        "navbar-light": colorMode === "light",
+        "bg-light": colorMode === "light",
+        "navbar-dark": colorMode === "dark",
+        "bg-dark": colorMode === "dark"
       };
     }
   }
