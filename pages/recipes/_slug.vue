@@ -40,27 +40,35 @@
   </div>
 </template>
 
-<script>
-import Commandbar from "../../components/Commandbar.vue";
-import Document from "../../components/Document.vue";
-import DocumentTableOfContent from "../../components/DocumentTableOfContent.vue";
+<script lang="ts">
+import Vue from "vue";
+import Commandbar from "components/Commandbar.vue";
+import Document from "components/Document.vue";
+import DocumentTableOfContent from "components/DocumentTableOfContent.vue";
+import { Ingredient, Page, Variant } from "content/recipes";
 
-export default {
+interface State {
+  page: Page | null;
+  activeVariant: Variant | null;
+}
+
+export default Vue.extend({
   components: { Commandbar, Document, DocumentTableOfContent },
-  data() {
+  data(): State {
     return {
-      activeVariant: null
+      page: null,
+      activeVariant: null,
     };
   },
   methods: {
-    ingredientName(ingredient) {
+    ingredientName(ingredient: Ingredient): string {
       if (ingredient.optional) {
         return `(可选) ${ingredient.name}`;
       }
 
       return ingredient.name;
     },
-    ingredientQuantity(ingredient) {
+    ingredientQuantity(ingredient: Ingredient): string {
       if (ingredient.quantity && ingredient.unit) {
         return `${ingredient.quantity} (${ingredient.unit})`;
       }
@@ -70,39 +78,44 @@ export default {
       }
 
       return "";
-    }
+    },
   },
   computed: {
-    toc() {
-      if (this.page.ingredients) {
-        return [
-          { text: "材料", id: "ingredients", depth: 2 },
-          ...this.page.toc
-        ];
+    toc(): any[] {
+      const { page } = this;
+
+      if (page) {
+        if (page.ingredients) {
+          return [{ text: "材料", id: "ingredients", depth: 2 }, ...page.toc];
+        }
+
+        return page.toc;
       }
 
-      return this.page.toc;
+      return [];
     },
-    ingredients() {
+    ingredients(): any[] {
       if (!this.activeVariant) {
-        return this.page.ingredients;
+        return this.page?.ingredients ?? [];
       }
 
-      return this.page.ingredients.filter(ingredient => {
-        return ingredient.variant
-          ? ingredient.variant == this.activeVariant.name
-          : true;
-      });
-    }
+      return (
+        this.page?.ingredients?.filter((ingredient) => {
+          return ingredient.variant
+            ? ingredient.variant === this.activeVariant?.name
+            : true;
+        }) ?? []
+      );
+    },
   },
   async asyncData({ $content, params }) {
     const slug = params.slug || "borscht";
-    const page = await $content("recipes/", slug).fetch();
+    const page = (await $content("recipes/", slug).fetch()) as unknown as Page;
 
     return {
       page,
-      activeVariant: page.variants ? page.variants[0] : null
+      activeVariant: page.variants ? page.variants[0] : null,
     };
-  }
-};
+  },
+});
 </script>

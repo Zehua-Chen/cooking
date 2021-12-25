@@ -15,7 +15,8 @@
       "@/*": ["./*"],
       "components/*": ["components/*"],
       "layouts/*": ["layouts/*"],
-      "pages/*": ["pages/*"]
+      "pages/*": ["pages/*"],
+      "content/*": ["content/*"]
     },
     "types": [
       "@types/node",
