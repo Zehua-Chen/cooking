@@ -13,13 +13,14 @@
   </List>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import List from "./List.vue";
 import ListItem from "./ListItem.vue";
 
-export default {
+export default Vue.extend({
   name: "table-of-content",
   components: { List, ListItem },
   props: { toc: { type: Array, required: true } }
-};
+});
 </script>

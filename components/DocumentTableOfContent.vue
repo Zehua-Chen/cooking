@@ -15,10 +15,11 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import TableOfContent from "./TableOfContent.vue";
 
-export default {
+export default Vue.extend({
   components: { TableOfContent },
   props: {
     toc: {
@@ -26,5 +27,5 @@ export default {
       required: true
     }
   }
-};
+});
 </script>

@@ -32,11 +32,12 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
 
-export default {
+export default Vue.extend({
   components: { Navbar, NavLink },
   head() {
     return {
@@ -92,5 +93,5 @@ export default {
       };
     }
   }
-};
+});
 </script>

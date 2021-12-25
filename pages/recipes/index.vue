@@ -21,11 +21,12 @@
 
 <style lang="scss" scoped></style>
 
-<script>
-import List from "../../components/List.vue";
-import ListItem from "../../components/ListItem.vue";
+<script lang="ts">
+import Vue from "vue";
+import List from "components/List.vue";
+import ListItem from "components/ListItem.vue";
 
-export default {
+export default Vue.extend({
   components: { List, ListItem },
   async asyncData({ $content, params }) {
     const recipes = await $content("recipes").fetch();
@@ -39,5 +40,5 @@ export default {
       return "nuxt-link";
     }
   }
-};
+});
 </script>

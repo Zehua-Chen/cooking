@@ -8,8 +8,15 @@
   </NuxtLink>
 </template>
 
-<script>
-export default {
-  props: ["to"]
-};
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  props: {
+    to: {
+      type: String,
+      required: true
+    }
+  }
+});
 </script>
