@@ -50,10 +50,10 @@ import Commandbar from "components/Commandbar.vue";
 import CommandbarItem from "components/CommandbarItem.vue";
 import Document from "components/Document.vue";
 import DocumentTableOfContent from "components/DocumentTableOfContent.vue";
-import { Ingredient, Page, Variant } from "content/recipes";
+import { Ingredient, Recipe, Variant } from "content/recipes";
 
 interface State {
-  page: Page | null;
+  page: Recipe | null;
   activeVariant: Variant | null;
 }
 
@@ -115,7 +115,10 @@ export default Vue.extend({
   },
   async asyncData({ $content, params }) {
     const slug = params.slug || "borscht";
-    const page = (await $content("recipes/", slug).fetch()) as unknown as Page;
+    const page = (await $content(
+      "recipes/",
+      slug
+    ).fetch()) as unknown as Recipe;
 
     return {
       page,
