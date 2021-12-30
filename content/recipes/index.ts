@@ -1,3 +1,5 @@
+import { IContentDocument } from "@nuxt/content/types/content";
+
 /**
  * Ingredients of a recipe
  */
@@ -42,7 +44,7 @@ export interface Variant {
 /**
  * Defines a recipe
  */
-export interface Recipe {
+export interface Recipe extends IContentDocument {
   /**
    * Title of a recipe
    */
@@ -57,12 +59,4 @@ export interface Recipe {
    * Ingredients of this variants
    */
   ingredients?: Ingredient[];
-
-  /**
-   * Table of content
-   *
-   * Note that this property is not defined in markdown files. This property
-   * is supplied by Nuxt
-   */
-  toc: any[];
 }

@@ -91,10 +91,10 @@ export default Vue.extend({
 
       if (page) {
         if (page.ingredients) {
-          return [{ text: "材料", id: "ingredients", depth: 2 }, ...page.toc];
+          return [{ text: "材料", id: "ingredients", depth: 2 }, ...page.toc!];
         }
 
-        return page.toc;
+        return page.toc!;
       }
 
       return [];
