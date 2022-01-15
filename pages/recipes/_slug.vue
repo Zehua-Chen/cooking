@@ -1,16 +1,20 @@
 <template>
   <div>
     <Commandbar>
-      <NuxtLink class="command" to="/recipes">Back</NuxtLink>
-      <select v-if="page.variants" v-model="activeVariant">
-        <option
-          v-for="variant in page.variants"
-          :key="variant.name"
-          :value="variant"
-        >
-          {{ variant.name }}
-        </option>
-      </select>
+      <CommandbarItem>
+        <NuxtLink class="command" to="/recipes">Back</NuxtLink>
+      </CommandbarItem>
+      <CommandbarItem>
+        <select v-if="page.variants" v-model="activeVariant">
+          <option
+            v-for="variant in page.variants"
+            :key="variant.name"
+            :value="variant"
+          >
+            {{ variant.name }}
+          </option>
+        </select>
+      </CommandbarItem>
     </Commandbar>
     <Document>
       <DocumentTableOfContent :toc="toc" />
@@ -43,6 +47,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Commandbar from "components/Commandbar.vue";
+import CommandbarItem from "components/CommandbarItem.vue";
 import Document from "components/Document.vue";
 import DocumentTableOfContent from "components/DocumentTableOfContent.vue";
 import { Ingredient, Page, Variant } from "content/recipes";
@@ -53,7 +58,7 @@ interface State {
 }
 
 export default Vue.extend({
-  components: { Commandbar, Document, DocumentTableOfContent },
+  components: { Commandbar, CommandbarItem, Document, DocumentTableOfContent },
   data(): State {
     return {
       page: null,
