@@ -1,25 +1,17 @@
+@use "sass:map";
 @use "./border";
 
-@mixin styles(
-  $primary,
-  $primary-text,
-  $background,
-  $background-text,
-  $link-color,
-  $border-color,
-  $border-width,
-  $font-family
-) {
+@mixin styles($theme) {
   body {
     padding: 0px;
     margin: 0px;
-    font-family: $font-family;
-    background: $background;
-    color: $background-text;
+    font-family: map.get($theme, "font", "family");
+    background: map.get($theme, "colors", "background", "default");
+    color: map.get($theme, "colors", "background", "text");
   }
 
   a {
-    color: $link-color;
+    color: map.get($theme, "colors", "link", "default");
   }
 
   table {
@@ -27,14 +19,14 @@
     border-collapse: collapse;
 
     @include border.border-bottom(
-      $border-color: $border-color,
-      $border-width: $border-width
+      $border-color: map.get($theme, "colors", "border", "default"),
+      $border-width: map.get($theme, "shapes", "border", "width")
     );
   }
 
   thead {
-    color: $primary-text;
-    background: $primary;
+    color: map.get($theme, "colors", "primary", "text");
+    background: map.get($theme, "colors", "primary", "default");
     text-align: left;
   }
 
