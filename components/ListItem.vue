@@ -1,12 +1,14 @@
 <template>
-  <component
-    class="list-item"
-    :class="[variantClass]"
-    :is="component"
-    v-bind="componentProps"
-  >
-    <slot></slot>
-  </component>
+  <li>
+    <component
+      class="px-2 py-2 rounded w-full inline-block"
+      :class="[variantClass]"
+      :is="component"
+      v-bind="componentProps"
+    >
+      <slot></slot>
+    </component>
+  </li>
 </template>
 
 <script lang="ts">
@@ -17,7 +19,7 @@ export default Vue.extend({
     variant: {
       type: String,
       default: "plain",
-      validator: variant => {
+      validator: (variant) => {
         switch (variant) {
           case "plain":
           case "button":
@@ -25,15 +27,15 @@ export default Vue.extend({
           default:
             return false;
         }
-      }
+      },
     },
     component: {
       type: [String, Object],
-      required: true
+      required: true,
     },
     componentProps: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     variantClass() {
@@ -41,9 +43,9 @@ export default Vue.extend({
         case "plain":
           return "";
         case "button":
-          return "list-item-action";
+          return "hover:bg-slate-100";
       }
-    }
-  }
+    },
+  },
 });
 </script>

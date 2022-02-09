@@ -1,7 +1,7 @@
 <template>
-  <ul class="list-none">
+  <div class="container mx-auto">
     <slot />
-  </ul>
+  </div>
 </template>
 
 <script lang="ts">
