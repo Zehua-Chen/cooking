@@ -22,4 +22,7 @@ export default {
   },
   modules: ["@nuxt/content"],
   content: {},
+  colorMode: {
+    classSuffix: "",
+  },
 };

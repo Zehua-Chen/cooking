@@ -1,13 +1,9 @@
 <template>
-  <li>
-    <component
-      class="px-2 py-2 rounded w-full inline-block"
-      :class="[variantClass]"
-      :is="component"
-      v-bind="componentProps"
-    >
-      <slot></slot>
-    </component>
+  <li
+    class="px-2 py-2 rounded w-full inline-block dark:text-white"
+    :class="[variantClass]"
+  >
+    <slot></slot>
   </li>
 </template>
 
@@ -29,13 +25,6 @@ export default Vue.extend({
         }
       },
     },
-    component: {
-      type: [String, Object],
-      required: true,
-    },
-    componentProps: {
-      type: Object,
-    },
   },
   computed: {
     variantClass() {
@@ -43,7 +32,7 @@ export default Vue.extend({
         case "plain":
           return "";
         case "button":
-          return "hover:bg-slate-100";
+          return "hover:bg-gray-100 dark:hover:bg-gray-700";
       }
     },
   },

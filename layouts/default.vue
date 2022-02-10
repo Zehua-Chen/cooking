@@ -5,7 +5,9 @@
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
     <Nuxt class="grow flex flex-col" />
-    <footer class="grid content-center justify-center mt-2 h-20 border-t">
+    <footer
+      class="grid content-center justify-center mt-2 h-20 border-t dark:text-white"
+    >
       Made with Love by Zehua Chen
     </footer>
   </div>

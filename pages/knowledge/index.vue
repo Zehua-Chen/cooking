@@ -4,15 +4,13 @@
       <div class="col">
         <h1 class="text-center border-bottom pb-4">知识</h1>
         <List>
-          <ListItem
-            variant="button"
-            component="nuxt-link"
+          <ListItemLink
             v-for="article in articles"
             :key="article.title"
-            :componentProps="{ to: article.path }"
+            :to="article.path"
           >
             {{ article.title }}
-          </ListItem>
+          </ListItemLink>
         </List>
       </div>
     </div>
@@ -23,10 +21,10 @@
 import Vue from "vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
-import ListItem from "components/ListItem.vue";
+import ListItemLink from "components/ListItemLink.vue";
 
 export default Vue.extend({
-  components: { Container, List, ListItem },
+  components: { Container, List, ListItemLink },
   async asyncData({ $content }) {
     const articles = await $content("knowledge").fetch();
 
