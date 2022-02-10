@@ -1,30 +1,29 @@
 <template>
-  <Container>
-    <div class="row">
-      <div class="col">
-        <h1 class="text-center border-bottom pb-4">知识</h1>
-        <List>
-          <ListItemLink
-            v-for="article in articles"
-            :key="article.title"
-            :to="article.path"
-          >
-            {{ article.title }}
-          </ListItemLink>
-        </List>
-      </div>
-    </div>
-  </Container>
+  <div>
+    <PageTitle title="知识" />
+    <Container>
+      <List>
+        <ListItemLink
+          v-for="article in articles"
+          :key="article.title"
+          :to="article.path"
+        >
+          {{ article.title }}
+        </ListItemLink>
+      </List>
+    </Container>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItemLink from "components/ListItemLink.vue";
 
 export default Vue.extend({
-  components: { Container, List, ListItemLink },
+  components: { PageTitle, Container, List, ListItemLink },
   async asyncData({ $content }) {
     const articles = await $content("knowledge").fetch();
 
