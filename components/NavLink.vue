@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="navbar-item"
+    class="p-5 text-black dark:text-white border-solid border-primary-600 hover:border-b"
     :class="{ active: $route.path.includes(to) }"
     :to="to"
   >
@@ -15,8 +15,8 @@ export default Vue.extend({
   props: {
     to: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 });
 </script>

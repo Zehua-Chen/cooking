@@ -5,11 +5,13 @@
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
     <Nuxt class="grow flex flex-col" />
-    <footer
-      class="grid content-center justify-center mt-2 h-20 border-t dark:text-white"
-    >
-      Made with Love by Zehua Chen
-    </footer>
+    <Container>
+      <footer
+        class="grid content-center justify-center mt-3 h-20 border-primary-400 border-t dark:text-white"
+      >
+        Made with Love by Zehua Chen
+      </footer>
+    </Container>
   </div>
 </template>
 
@@ -17,9 +19,10 @@
 import Vue from "vue";
 import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
+import Container from "components/Container.vue";
 
 export default Vue.extend({
-  components: { Navbar, NavLink },
+  components: { Container, Navbar, NavLink },
   head() {
     return {
       title: "烹饪",
