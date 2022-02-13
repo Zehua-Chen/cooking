@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   darkMode: "class",
   content: [
@@ -8,6 +10,10 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   theme: {
+    colors: {
+      primary: colors.green,
+      background: colors.zinc,
+    },
     extend: {},
   },
   plugins: [],
