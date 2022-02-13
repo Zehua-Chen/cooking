@@ -1,6 +1,10 @@
 <template>
   <Container class="flex flex-row grow">
     <slot />
+    <slot name="toc" />
+    <article>
+      <slot name="content"></slot>
+    </article>
   </Container>
 </template>
 

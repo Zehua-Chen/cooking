@@ -1,16 +1,14 @@
 <template>
-  <TableOfContent class="mr-7 sidebar toc md:none" :toc="toc" />
+  <!--
+    https://developer.mozilla.org/en-US/docs/Web/CSS/position
+    The element is positioned according to the normal flow of the document, and
+    then offset relative to its nearest scrolling ancestor and containing block
+    (nearest block-level ancestor)
+  -->
+  <div class="mr-7 hidden md:block">
+    <TableOfContent class="w-80 top-0 sticky" :toc="toc" />
+  </div>
 </template>
-
-<style lang="scss" scoped>
-.toc {
-  width: 250px;
-
-  @media only screen and (max-width: 760px) {
-    display: none;
-  }
-}
-</style>
 
 <script lang="ts">
 import Vue from "vue";

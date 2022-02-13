@@ -4,10 +4,12 @@
       <NuxtLink class="command" to="/knowledge">Back</NuxtLink>
     </Commandbar>
     <Document>
-      <DocumentTableOfContent :toc="page.toc" />
-      <article class="container pt-4">
+      <template #toc>
+        <DocumentTableOfContent :toc="page.toc" />
+      </template>
+      <template #content>
         <nuxt-content :document="page" />
-      </article>
+      </template>
     </Document>
   </div>
 </template>
@@ -25,8 +27,8 @@ export default Vue.extend({
     const page = await $content("knowledge/", slug).fetch();
 
     return {
-      page
+      page,
     };
-  }
+  },
 });
 </script>

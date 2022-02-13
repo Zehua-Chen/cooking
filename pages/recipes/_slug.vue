@@ -17,9 +17,11 @@
       </CommandbarItem>
     </Commandbar>
     <Document>
-      <DocumentTableOfContent :toc="toc" />
+      <template #toc>
+        <DocumentTableOfContent :toc="toc" />
+      </template>
 
-      <article class="container pt-4">
+      <template #content>
         <h1>{{ page.title }}</h1>
         <div v-if="page.ingredients">
           <h2 id="ingredients">材料</h2>
@@ -39,7 +41,7 @@
           </table>
         </div>
         <nuxt-content :document="page" />
-      </article>
+      </template>
     </Document>
   </div>
 </template>
@@ -58,7 +60,12 @@ interface State {
 }
 
 export default Vue.extend({
-  components: { Commandbar, CommandbarItem, Document, DocumentTableOfContent },
+  components: {
+    Commandbar,
+    CommandbarItem,
+    Document,
+    DocumentTableOfContent,
+  },
   data(): State {
     return {
       page: null,
