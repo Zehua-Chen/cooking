@@ -1,13 +1,10 @@
 <template>
-  <div class="me-4 pe-5 d-none d-md-block">
-    <TableOfContent class="pt-4 sidebar toc" :toc="toc" />
-  </div>
+  <TableOfContent class="mr-7 sidebar toc md:none" :toc="toc" />
 </template>
 
 <style lang="scss" scoped>
 .toc {
   width: 250px;
-  margin: 32px;
 
   @media only screen and (max-width: 760px) {
     display: none;
@@ -24,8 +21,8 @@ export default Vue.extend({
   props: {
     toc: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 });
 </script>

@@ -1,9 +1,7 @@
 <template>
-  <li>
-    <NuxtLink class="p-2 w-full inline-block" :to="to">
-      <slot />
-    </NuxtLink>
-  </li>
+  <NuxtLink class="p-2 w-full inline-block" :to="to">
+    <slot />
+  </NuxtLink>
 </template>
 
 <script lang="ts">

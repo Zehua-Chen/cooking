@@ -4,7 +4,8 @@
       v-for="node in toc"
       :key="node.id"
       :class="{ 'pl-4': node.depth === 3 }"
-      ><ListItemLink :to="to(node.id)">
+    >
+      <ListItemLink :to="to(node.id)">
         {{ node.text }}
       </ListItemLink>
     </ListItem>

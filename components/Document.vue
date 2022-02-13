@@ -1,19 +1,14 @@
 <template>
-  <div class="document">
+  <Container class="flex flex-row grow">
     <slot />
-  </div>
+  </Container>
 </template>
-
-<style lang="scss" scoped>
-.document {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-}
-</style>
 
 <script lang="ts">
 import Vue from "vue";
+import Container from "components/Container.vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  components: { Container },
+});
 </script>
