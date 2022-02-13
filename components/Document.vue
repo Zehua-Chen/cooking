@@ -1,8 +1,14 @@
 <template>
-  <Container class="flex flex-row grow">
+  <Container class="flex flex-row">
     <slot />
-    <slot name="toc" />
-    <article>
+    <div>
+      <div class="mr-7 w-80 top-0 sticky hidden md:block">
+        <slot name="toc" />
+        <slot name="options" />
+      </div>
+    </div>
+
+    <article class="grow">
       <slot name="content"></slot>
     </article>
   </Container>

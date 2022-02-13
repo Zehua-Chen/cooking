@@ -1,49 +1,43 @@
 <template>
-  <div>
-    <Commandbar>
-      <CommandbarItem>
-        <NuxtLink class="command" to="/recipes">Back</NuxtLink>
-      </CommandbarItem>
-      <CommandbarItem>
-        <select v-if="page.variants" v-model="activeVariant">
-          <option
-            v-for="variant in page.variants"
-            :key="variant.name"
-            :value="variant"
-          >
-            {{ variant.name }}
-          </option>
-        </select>
-      </CommandbarItem>
-    </Commandbar>
-    <Document>
-      <template #toc>
-        <DocumentTableOfContent :toc="toc" />
-      </template>
+  <Document>
+    <template #toc>
+      <TableOfContent :toc="toc" />
+    </template>
 
-      <template #content>
-        <h1>{{ page.title }}</h1>
-        <div v-if="page.ingredients">
-          <h2 id="ingredients">材料</h2>
-          <table>
-            <thead>
-              <th>材料</th>
-              <th>量</th>
-              <th>其他</th>
-            </thead>
-            <tbody>
-              <tr v-for="ingredient in ingredients" :key="ingredient.name">
-                <td>{{ ingredientName(ingredient) }}</td>
-                <td>{{ ingredientQuantity(ingredient) }}</td>
-                <td>{{ ingredient.notes ? ingredient.notes : "" }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <nuxt-content :document="page" />
-      </template>
-    </Document>
-  </div>
+    <template #options>
+      <select v-if="page.variants" v-model="activeVariant">
+        <option
+          v-for="variant in page.variants"
+          :key="variant.name"
+          :value="variant"
+        >
+          {{ variant.name }}
+        </option>
+      </select>
+    </template>
+
+    <template #content>
+      <h1>{{ page.title }}</h1>
+      <div v-if="page.ingredients">
+        <h2 id="ingredients">材料</h2>
+        <table>
+          <thead>
+            <th>材料</th>
+            <th>量</th>
+            <th>其他</th>
+          </thead>
+          <tbody>
+            <tr v-for="ingredient in ingredients" :key="ingredient.name">
+              <td>{{ ingredientName(ingredient) }}</td>
+              <td>{{ ingredientQuantity(ingredient) }}</td>
+              <td>{{ ingredient.notes ? ingredient.notes : "" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nuxt-content :document="page" />
+    </template>
+  </Document>
 </template>
 
 <script lang="ts">
@@ -51,7 +45,7 @@ import Vue from "vue";
 import Commandbar from "components/Commandbar.vue";
 import CommandbarItem from "components/CommandbarItem.vue";
 import Document from "components/Document.vue";
-import DocumentTableOfContent from "components/DocumentTableOfContent.vue";
+import TableOfContent from "components/TableOfContent.vue";
 import { Ingredient, Recipe, Variant } from "content/recipes";
 
 interface State {
@@ -64,7 +58,7 @@ export default Vue.extend({
     Commandbar,
     CommandbarItem,
     Document,
-    DocumentTableOfContent,
+    TableOfContent,
   },
   data(): State {
     return {

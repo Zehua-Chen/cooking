@@ -4,7 +4,10 @@
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
-    <Nuxt class="grow flex flex-col" />
+    <div class="grow">
+      <Nuxt />
+    </div>
+
     <Container>
       <footer
         class="grid content-center justify-center mt-3 h-20 border-primary-400 border-t dark:text-white"
