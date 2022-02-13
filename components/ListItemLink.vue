@@ -1,7 +1,7 @@
 <template>
   <li>
     <NuxtLink
-      class="px-2 py-2 rounded w-full inline-block dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+      class="p-2 rounded w-full inline-block text-black dark:text-white outline outline-0 outline-primary-500 hover:outline-1"
       :to="to"
     >
       <slot />
