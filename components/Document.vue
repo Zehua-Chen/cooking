@@ -2,7 +2,7 @@
   <Container class="flex flex-row">
     <slot />
     <div>
-      <div class="mr-7 w-80 top-0 sticky hidden md:block">
+      <div class="mr-7 pt-2 w-80 top-0 sticky hidden md:block">
         <slot name="toc" />
         <slot name="options" />
       </div>
