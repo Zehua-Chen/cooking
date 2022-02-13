@@ -3,11 +3,40 @@
 @tailwind utilities;
 
 @layer base {
-  .dark body {
-    @apply bg-background-800;
+  body {
+    @apply bg-background-100;
   }
 
-  .light body {
-    @apply bg-background-100;
+  h1 {
+    @apply text-5xl;
+    @apply py-8;
+  }
+
+  h2 {
+    @apply text-4xl;
+    @apply py-4;
+  }
+
+  h3 {
+    @apply text-3xl;
+    @apply py-2;
+  }
+
+  ul {
+    @apply list-disc;
+    @apply pl-4;
+  }
+
+  a {
+    @apply text-primary-600;
+  }
+
+  .dark body {
+    @apply bg-background-800;
+    @apply text-white;
+  }
+
+  .dark a {
+    @apply text-primary-400;
   }
 }

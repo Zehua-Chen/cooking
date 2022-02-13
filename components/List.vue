@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-none">
+  <ul class="list-none p-0">
     <slot />
   </ul>
 </template>
