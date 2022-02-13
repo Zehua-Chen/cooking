@@ -1,6 +1,6 @@
 <template>
   <li
-    class="rounded dark:text-white text-black dark:text-white outline outline-0 outline-primary-500 hover:outline-1"
+    class="rounded dark:text-white text-black dark:text-white border-solid border border-primary-500/0 hover:border-primary-500"
     :class="[variantClass]"
   >
     <slot></slot>
