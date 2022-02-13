@@ -3,13 +3,11 @@
     <PageTitle title="食谱" />
     <Container>
       <List>
-        <ListItemLink
-          v-for="recipe in recipes"
-          :key="recipe.title"
-          :to="recipe.path"
-        >
-          {{ recipe.title }}
-        </ListItemLink>
+        <ListItem v-for="recipe in recipes" :key="recipe.title">
+          <ListItemLink :to="recipe.path">
+            {{ recipe.title }}
+          </ListItemLink>
+        </ListItem>
       </List>
     </Container>
   </div>
@@ -22,10 +20,11 @@ import Vue from "vue";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
+import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
 
 export default Vue.extend({
-  components: { PageTitle, Container, List, ListItemLink },
+  components: { PageTitle, Container, List, ListItem, ListItemLink },
   async asyncData({ $content, params }) {
     const recipes = await $content("recipes").fetch();
 

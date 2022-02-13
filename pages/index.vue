@@ -3,9 +3,11 @@
     <PageTitle title="Zehua Chen的做饭笔记" />
     <Container>
       <List>
-        <ListItemLink v-for="link in links" :to="link.url" :key="link.title">
-          {{ link.title }}
-        </ListItemLink>
+        <ListItem v-for="link in links" :key="link.title">
+          <ListItemLink :to="link.url">
+            {{ link.title }}
+          </ListItemLink>
+        </ListItem>
       </List>
     </Container>
   </div>
@@ -16,6 +18,7 @@ import Vue from "vue";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "../components/List.vue";
+import ListItem from "../components/ListItem.vue";
 import ListItemLink from "../components/ListItemLink.vue";
 
 interface Link {
@@ -24,7 +27,7 @@ interface Link {
 }
 
 export default Vue.extend({
-  components: { PageTitle, Container, List, ListItemLink },
+  components: { PageTitle, Container, List, ListItem, ListItemLink },
   computed: {
     links(): Link[] {
       return [

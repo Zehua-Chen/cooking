@@ -1,6 +1,6 @@
 <template>
   <li
-    class="px-2 py-2 rounded w-full inline-block dark:text-white"
+    class="rounded dark:text-white text-black dark:text-white outline outline-0 outline-primary-500 hover:outline-1"
     :class="[variantClass]"
   >
     <slot></slot>

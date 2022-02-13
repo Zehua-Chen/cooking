@@ -1,9 +1,6 @@
 <template>
   <li>
-    <NuxtLink
-      class="p-2 rounded w-full inline-block text-black dark:text-white outline outline-0 outline-primary-500 hover:outline-1"
-      :to="to"
-    >
+    <NuxtLink class="p-2 w-full inline-block" :to="to">
       <slot />
     </NuxtLink>
   </li>
