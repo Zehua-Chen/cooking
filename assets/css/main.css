@@ -27,6 +27,19 @@
     @apply pl-4;
   }
 
+  table {
+    @apply w-full;
+    @apply border-collapse;
+    @apply border-primary-500;
+    @apply border-solid;
+    @apply border-y;
+    @apply my-4;
+  }
+
+  thead {
+    @apply text-left;
+  }
+
   a {
     @apply text-primary-600;
   }
