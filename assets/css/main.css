@@ -27,6 +27,11 @@
     @apply pl-4;
   }
 
+  ol {
+    @apply list-decimal;
+    @apply pl-6;
+  }
+
   table {
     @apply w-full;
     @apply border-collapse;

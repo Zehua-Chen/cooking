@@ -5,7 +5,11 @@
     </template>
 
     <template #options>
-      <select v-if="page.variants" v-model="activeVariant">
+      <select
+        class="dark:text-black"
+        v-if="page.variants"
+        v-model="activeVariant"
+      >
         <option
           v-for="variant in page.variants"
           :key="variant.name"
