@@ -1,37 +1,34 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <h1 class="text-center border-bottom pb-4">知识</h1>
-        <List>
-          <ListItem
-            variant="button"
-            component="nuxt-link"
-            v-for="article in articles"
-            :key="article.title"
-            :componentProps="{ to: article.path }"
-          >
+  <div>
+    <PageTitle title="知识" />
+    <Container>
+      <List>
+        <ListItem v-for="article in articles" :key="article.title">
+          <ListItemLink :to="article.path">
             {{ article.title }}
-          </ListItem>
-        </List>
-      </div>
-    </div>
+          </ListItemLink>
+        </ListItem>
+      </List>
+    </Container>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import PageTitle from "components/PageTitle.vue";
+import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
+import ListItemLink from "components/ListItemLink.vue";
 
 export default Vue.extend({
-  components: { List, ListItem },
+  components: { PageTitle, Container, List, ListItem, ListItemLink },
   async asyncData({ $content }) {
     const articles = await $content("knowledge").fetch();
 
     return {
-      articles
+      articles,
     };
-  }
+  },
 });
 </script>

@@ -1,24 +1,21 @@
 <template>
-  <nav class="navbar">
-    <NuxtLink
-      class="navbar-item"
-      :class="{ active: $route.path == '/' }"
-      to="/"
-      >{{ home }}</NuxtLink
-    >
+  <nav class="flex flex-row justify-start">
+    <NavLink to="/">{{ home }}</NavLink>
     <slot></slot>
   </nav>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import NavLink from "components/NavLink.vue";
 
 export default Vue.extend({
+  components: { NavLink },
   props: {
     home: {
       type: String,
-      default: "Home"
-    }
+      default: "Home",
+    },
   },
   computed: {
     navbarColor() {
@@ -28,9 +25,9 @@ export default Vue.extend({
         "navbar-light": colorMode === "light",
         "bg-light": colorMode === "light",
         "navbar-dark": colorMode === "dark",
-        "bg-dark": colorMode === "dark"
+        "bg-dark": colorMode === "dark",
       };
-    }
-  }
+    },
+  },
 });
 </script>

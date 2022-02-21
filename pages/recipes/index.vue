@@ -1,44 +1,39 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <h1 class="text-center border-bottom pb-4">食谱</h1>
-        <List>
-          <ListItem
-            variant="button"
-            component="nuxt-link"
-            v-for="recipe in recipes"
-            :key="recipe.title"
-            :componentProps="{ to: recipe.path }"
-          >
+  <div>
+    <PageTitle title="食谱" />
+    <Container>
+      <List>
+        <ListItem v-for="recipe in recipes" :key="recipe.title">
+          <ListItemLink :to="recipe.path">
             {{ recipe.title }}
-          </ListItem>
-        </List>
-      </div>
-    </div>
+          </ListItemLink>
+        </ListItem>
+      </List>
+    </Container>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
-
 <script lang="ts">
 import Vue from "vue";
+import PageTitle from "components/PageTitle.vue";
+import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
+import ListItemLink from "components/ListItemLink.vue";
 
 export default Vue.extend({
-  components: { List, ListItem },
+  components: { PageTitle, Container, List, ListItem, ListItemLink },
   async asyncData({ $content, params }) {
     const recipes = await $content("recipes").fetch();
 
     return {
-      recipes
+      recipes,
     };
   },
   computed: {
     link() {
       return "nuxt-link";
-    }
-  }
+    },
+  },
 });
 </script>

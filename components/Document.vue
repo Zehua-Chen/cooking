@@ -1,19 +1,24 @@
 <template>
-  <div class="document">
+  <Container class="flex flex-row">
     <slot />
-  </div>
-</template>
+    <div>
+      <div class="mr-7 pt-2 w-80 top-0 sticky hidden md:block">
+        <slot name="toc" />
+        <slot name="options" />
+      </div>
+    </div>
 
-<style lang="scss" scoped>
-.document {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-}
-</style>
+    <article class="grow">
+      <slot name="content"></slot>
+    </article>
+  </Container>
+</template>
 
 <script lang="ts">
 import Vue from "vue";
+import Container from "components/Container.vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  components: { Container },
+});
 </script>
