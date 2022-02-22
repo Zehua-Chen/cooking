@@ -13,6 +13,7 @@ export default {
     ["@nuxt/typescript-build", { typeCheck: true }],
   ],
   build: {
+    extractCSS: true,
     postcss: {
       plugins: {
         tailwindcss: {},
