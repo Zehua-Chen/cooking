@@ -1,5 +1,8 @@
 ---
 title: 寿司
+tags:
+  - lunch
+  - dinner
 ---
 
 ## 注意事项

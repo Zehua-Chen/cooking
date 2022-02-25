@@ -4,6 +4,7 @@ export default {
   alias: {
     components: path.resolve(__dirname, "components"),
     layouts: path.resolve(__dirname, "layouts"),
+    models: path.resolve(__dirname, "models"),
   },
   target: "static",
   css: ["assets/css/main.css"],

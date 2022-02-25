@@ -1,5 +1,8 @@
 ---
 title: 烩饭
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 肉
   - name: 大米

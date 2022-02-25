@@ -1,5 +1,7 @@
 ---
 title: 罗宋汤
+tags:
+  - dinner
 ---
 
 ## 材料

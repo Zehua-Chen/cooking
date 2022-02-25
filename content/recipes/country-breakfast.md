@@ -1,5 +1,9 @@
 ---
 title: 乡村早餐
+tags:
+  - breakfast
+  - lunch
+  - dinner
 ingredients:
   - name: 土豆
   - name: 甜辣椒

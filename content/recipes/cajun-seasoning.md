@@ -1,5 +1,7 @@
 ---
 title: 印第安调料
+tags:
+  - others
 ingredients:
   - name: 盐
   - name: 黑胡椒

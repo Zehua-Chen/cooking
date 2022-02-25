@@ -1,5 +1,8 @@
 ---
 title: 蒜香意面
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 肉
   - name: 大蒜

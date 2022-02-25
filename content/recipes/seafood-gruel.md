@@ -1,5 +1,8 @@
 ---
 title: 海鲜粥
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 海鲜
     notes: 最好有虾, 虾容易出鲜味

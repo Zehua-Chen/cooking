@@ -59,4 +59,26 @@ export interface Recipe extends IContentDocument {
    * Ingredients of this variants
    */
   ingredients?: Ingredient[];
+
+  /**
+   * Tags
+   */
+  tags: Tag[];
 }
+
+export type Tag =
+  | "all"
+  | "breakfast"
+  | "lunch"
+  | "dinner"
+  | "snacks"
+  | "others";
+
+export const validTags: Tag[] = [
+  "all",
+  "breakfast",
+  "lunch",
+  "dinner",
+  "snacks",
+  "others",
+];

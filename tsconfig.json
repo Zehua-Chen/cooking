@@ -16,7 +16,8 @@
       "components/*": ["components/*"],
       "layouts/*": ["layouts/*"],
       "pages/*": ["pages/*"],
-      "content/*": ["content/*"]
+      "content/*": ["content/*"],
+      "models/*": ["models/*"]
     },
     "types": [
       "@types/node",
@@ -25,6 +26,11 @@
       "@nuxtjs/color-mode"
     ]
   },
-  "include": ["./components/**/*", "./layouts/**/*", "./pages/**/*"],
+  "include": [
+    "./components/**/*",
+    "./layouts/**/*",
+    "./pages/**/*",
+    "./models/**/*"
+  ],
   "exclude": ["./node_modules/**/*"]
 }

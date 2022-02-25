@@ -1,5 +1,7 @@
 ---
 title: 波兰白菜汤
+tags:
+  - dinner
 ingredients:
   - name: 胡萝卜
   - name: 卷心菜

@@ -1,5 +1,8 @@
 ---
 title: 意面
+tags:
+  - lunch
+  - dinner
 ---
 
 ## 材料

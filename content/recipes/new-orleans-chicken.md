@@ -1,5 +1,8 @@
 ---
 title: 新奥尔良烤鸡
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 鸡肉
   - name: 油
