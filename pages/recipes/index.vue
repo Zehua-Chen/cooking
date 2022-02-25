@@ -4,7 +4,7 @@
     <Container>
       <div class="flex justify-center pb-4 space-x-2">
         <button
-          class="rounded-full p-3"
+          class="rounded-full p-3 text-white dark:text-black"
           v-for="tag in validTags"
           :key="tag"
           :class="tagActiveClasses(isTagActive(tag))"
@@ -56,11 +56,17 @@ export default Vue.extend({
     return { validTags };
   },
   async asyncData({ $content, query }): Promise<AsyncData> {
-    console.log(tags(query));
-
     const recipes = await $content("recipes")
-      // .where({ tags: { $in: tags(query) } })
-      .fetch();
+      // TODO: use .where
+      // .where({ tags: { $eq: ["snacks"] } })
+      .fetch()
+      .then((recipes) => {
+        const tagSet = new Set(tags(query));
+
+        return recipes.filter((recipe: any) => {
+          return recipe.tags.some((t: Tag) => tagSet.has(t));
+        });
+      });
 
     const validTagsSet = new Set(validTags);
 
@@ -100,6 +106,7 @@ export default Vue.extend({
       }
 
       await this.$router.push({ path, query: { tags: tags.join(",") } });
+      await this.$nuxt.refresh();
     },
   },
   computed: {
