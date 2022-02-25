@@ -50,7 +50,7 @@ import Commandbar from "components/Commandbar.vue";
 import CommandbarItem from "components/CommandbarItem.vue";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
-import { Ingredient, Recipe, Variant } from "content/recipes";
+import { Ingredient, Recipe, Variant } from "models";
 
 interface State {
   page: Recipe | null;

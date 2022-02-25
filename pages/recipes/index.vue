@@ -2,6 +2,17 @@
   <div>
     <PageTitle title="食谱" />
     <Container>
+      <div class="flex justify-center pb-4 space-x-2">
+        <button
+          class="rounded-full p-3"
+          v-for="tag in validTags"
+          :key="tag"
+          :class="tagActiveClasses(isTagActive(tag))"
+          @click="toggleTag(tag)"
+        >
+          {{ tag }}
+        </button>
+      </div>
       <List>
         <ListItem v-for="recipe in recipes" :key="recipe.title">
           <ListItemLink :to="recipe.path">
@@ -20,18 +31,84 @@ import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
+import { validTags, Tag, Recipe } from "models";
+import { FetchReturn } from "@nuxt/content/types/query-builder";
+
+interface Data {
+  validTags: Tag[];
+}
+
+interface AsyncData {
+  recipes: FetchReturn | FetchReturn[];
+}
+
+function tags(query: any): Tag[] {
+  if (!query.tags) {
+    return validTags;
+  }
+
+  return (query.tags as string).split(",") as Tag[];
+}
 
 export default Vue.extend({
   components: { PageTitle, Container, List, ListItem, ListItemLink },
-  async asyncData({ $content, params }) {
-    const recipes = await $content("recipes").fetch();
+  data(): Data {
+    return { validTags };
+  },
+  async asyncData({ $content, query }): Promise<AsyncData> {
+    console.log(tags(query));
+
+    const recipes = await $content("recipes")
+      // .where({ tags: { $in: tags(query) } })
+      .fetch();
+
+    const validTagsSet = new Set(validTags);
+
+    recipes.forEach((recipe: Recipe) => {
+      recipe.tags.forEach((tag) => {
+        if (!validTagsSet.has(tag)) {
+          throw Error(`recipe ${recipe.title}'s tag ${tag} is not valid`);
+        }
+      });
+    });
 
     return {
       recipes,
     };
   },
+  methods: {
+    tagActiveClasses(active: boolean): any {
+      return {
+        "bg-primary-700": !active,
+        "bg-primary-500": active,
+      };
+    },
+    isTagActive(tag: Tag): boolean {
+      return this.activeTags.findIndex((t) => t === tag) !== -1;
+    },
+    async toggleTag(tag: Tag): Promise<void> {
+      const { path } = this.$route;
+      let tags = [...this.activeTags];
+
+      if (this.isTagActive(tag)) {
+        tags.splice(
+          tags.findIndex((t) => t === tag),
+          1
+        );
+      } else {
+        tags.push(tag);
+      }
+
+      await this.$router.push({ path, query: { tags: tags.join(",") } });
+    },
+  },
   computed: {
-    link() {
+    activeTags(): Tag[] {
+      const { query } = this.$route;
+
+      return tags(query);
+    },
+    link(): string {
       return "nuxt-link";
     },
   },
