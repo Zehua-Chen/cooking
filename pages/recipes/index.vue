@@ -59,6 +59,7 @@ export default Vue.extend({
     const recipes = await $content("recipes")
       // TODO: use .where
       // .where({ tags: { $eq: ["snacks"] } })
+      .sortBy("slug")
       .fetch()
       .then((recipes) => {
         const tagSet = new Set(tags(query));
@@ -105,7 +106,7 @@ export default Vue.extend({
         tags.push(tag);
       }
 
-      await this.$router.push({ path, query: { tags: tags.join(",") } });
+      await this.$router.replace({ path, query: { tags: tags.join(",") } });
       await this.$nuxt.refresh();
     },
   },
