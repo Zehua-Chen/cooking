@@ -106,8 +106,7 @@ export default Vue.extend({
         tags.push(tag);
       }
 
-      await this.$router.replace({ path, query: { tags: tags.join(",") } });
-      await this.$nuxt.refresh();
+      await this.$router.push({ path, query: { tags: tags.join(",") } });
     },
   },
   computed: {
@@ -118,6 +117,11 @@ export default Vue.extend({
     },
     link(): string {
       return "nuxt-link";
+    },
+  },
+  watch: {
+    "$route.query.tags": async function () {
+      await this.$nuxt.refresh();
     },
   },
 });
