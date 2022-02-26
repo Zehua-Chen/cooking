@@ -3,20 +3,22 @@
     <PageTitle title="食谱" />
     <Container>
       <div class="flex justify-center pb-4 space-x-2">
-        <button
-          class="rounded-full p-3 text-white dark:text-black"
+        <Tag
           v-for="tag in validTags"
           :key="tag"
-          :class="tagActiveClasses(isTagActive(tag))"
+          :active="isTagActive(tag)"
           @click="toggleTag(tag)"
         >
           {{ tag }}
-        </button>
+        </Tag>
       </div>
       <List>
         <ListItem v-for="recipe in recipes" :key="recipe.title">
           <ListItemLink :to="recipe.path">
             {{ recipe.title }}
+            <span class="space-x-2">
+              <Tag v-for="tag in recipe.tags" :key="tag" small>{{ tag }}</Tag>
+            </span>
           </ListItemLink>
         </ListItem>
       </List>
@@ -26,34 +28,35 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { FetchReturn } from "@nuxt/content/types/query-builder";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
-import { validTags, Tag, Recipe } from "models";
-import { FetchReturn } from "@nuxt/content/types/query-builder";
+import Tag from "components/Tag.vue";
+import * as models from "models";
 
 interface Data {
-  validTags: Tag[];
+  validTags: models.Tag[];
 }
 
 interface AsyncData {
   recipes: FetchReturn | FetchReturn[];
 }
 
-function tags(query: any): Tag[] {
+function tags(query: any): models.Tag[] {
   if (!query.tags) {
-    return validTags;
+    return models.validTags;
   }
 
-  return (query.tags as string).split(",") as Tag[];
+  return (query.tags as string).split(",") as models.Tag[];
 }
 
 export default Vue.extend({
-  components: { PageTitle, Container, List, ListItem, ListItemLink },
+  components: { PageTitle, Container, List, ListItem, ListItemLink, Tag },
   data(): Data {
-    return { validTags };
+    return { validTags: models.validTags };
   },
   async asyncData({ $content, query }): Promise<AsyncData> {
     const recipes = await $content("recipes")
@@ -65,13 +68,13 @@ export default Vue.extend({
         const tagSet = new Set(tags(query));
 
         return recipes.filter((recipe: any) => {
-          return recipe.tags.some((t: Tag) => tagSet.has(t));
+          return recipe.tags.some((t: models.Tag) => tagSet.has(t));
         });
       });
 
-    const validTagsSet = new Set(validTags);
+    const validTagsSet = new Set(models.validTags);
 
-    recipes.forEach((recipe: Recipe) => {
+    recipes.forEach((recipe: models.Recipe) => {
       recipe.tags.forEach((tag) => {
         if (!validTagsSet.has(tag)) {
           throw Error(`recipe ${recipe.title}'s tag ${tag} is not valid`);
@@ -84,16 +87,10 @@ export default Vue.extend({
     };
   },
   methods: {
-    tagActiveClasses(active: boolean): any {
-      return {
-        "bg-primary-700": !active,
-        "bg-primary-500": active,
-      };
-    },
-    isTagActive(tag: Tag): boolean {
+    isTagActive(tag: models.Tag): boolean {
       return this.activeTags.findIndex((t) => t === tag) !== -1;
     },
-    async toggleTag(tag: Tag): Promise<void> {
+    async toggleTag(tag: models.Tag): Promise<void> {
       const { path } = this.$route;
       let tags = [...this.activeTags];
 
@@ -110,7 +107,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    activeTags(): Tag[] {
+    activeTags(): models.Tag[] {
       const { query } = this.$route;
 
       return tags(query);

@@ -9,20 +9,16 @@ export default {
   target: "static",
   css: ["assets/css/main.css"],
   buildModules: [
-    "@nuxt/postcss8",
     "@nuxtjs/color-mode",
     ["@nuxt/typescript-build", { typeCheck: true }],
   ],
   build: {
-    extractCSS: true,
-    postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-      },
-    },
+    // extract css during development would cause the browser to cache the
+    // style sheet. Changes to stylesheet would therefore not be reflected
+    // correctly
+    extractCSS: process.env.NODE_ENV === "production",
   },
-  modules: ["@nuxt/content"],
+  modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
   content: {},
   colorMode: {
     classSuffix: "",
