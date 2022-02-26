@@ -46,8 +46,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Commandbar from "components/Commandbar.vue";
-import CommandbarItem from "components/CommandbarItem.vue";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
 import { Ingredient, Recipe, Variant } from "models";
@@ -59,8 +57,6 @@ interface State {
 
 export default Vue.extend({
   components: {
-    Commandbar,
-    CommandbarItem,
     Document,
     TableOfContent,
   },
