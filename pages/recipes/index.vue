@@ -9,7 +9,7 @@
           :active="isTagActive(tag)"
           @click="toggleTag(tag)"
         >
-          {{ tag }}
+          {{ $t(tag) }}
         </Tag>
       </div>
       <List>
@@ -17,7 +17,9 @@
           <ListItemLink :to="recipe.path">
             {{ recipe.title }}
             <span class="space-x-2">
-              <Tag v-for="tag in recipe.tags" :key="tag" small>{{ tag }}</Tag>
+              <Tag v-for="tag in recipe.tags" :key="tag" small>
+                {{ $t(tag) }}
+              </Tag>
             </span>
           </ListItemLink>
         </ListItem>
