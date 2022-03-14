@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageTitle title="食谱" />
-    <div class="sticky top-0 backdrop-blur">
+    <div class="sticky top-0 bg-background-100 dark:bg-background-800">
       <Container class="flex pb-2 pt-2 justify-center space-x-2">
         <Tag
           v-for="tag in validTags"
