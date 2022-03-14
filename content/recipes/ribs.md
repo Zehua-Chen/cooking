@@ -1,5 +1,7 @@
 ---
 title: 排骨
+tags:
+  - dinner
 ingredients:
   - name: 排骨
 ---

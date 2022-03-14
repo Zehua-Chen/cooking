@@ -1,5 +1,7 @@
 ---
 title: 牛排
+tags:
+  - dinner
 ingredients:
   - name: 牛排
     quantity: 1

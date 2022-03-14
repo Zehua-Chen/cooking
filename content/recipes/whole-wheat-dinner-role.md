@@ -1,5 +1,7 @@
 ---
 title: 全麦餐包
+tags:
+  - others
 ingredients:
   - name: 全麦面粉
     quantity: 400

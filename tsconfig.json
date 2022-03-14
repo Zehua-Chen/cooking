@@ -16,15 +16,22 @@
       "components/*": ["components/*"],
       "layouts/*": ["layouts/*"],
       "pages/*": ["pages/*"],
-      "content/*": ["content/*"]
+      "content/*": ["content/*"],
+      "models/*": ["models/*"]
     },
     "types": [
       "@types/node",
       "@nuxt/types",
       "@nuxt/content",
-      "@nuxtjs/color-mode"
+      "@nuxtjs/color-mode",
+      "@nuxtjs/i18n"
     ]
   },
-  "include": ["./components/**/*", "./layouts/**/*", "./pages/**/*"],
+  "include": [
+    "./components/**/*",
+    "./layouts/**/*",
+    "./pages/**/*",
+    "./models/**/*"
+  ],
   "exclude": ["./node_modules/**/*"]
 }

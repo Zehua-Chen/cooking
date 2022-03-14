@@ -1,5 +1,9 @@
 ---
 title: 薄饼
+tags:
+  - breakfast
+  - lunch
+  - dinner
 variants:
   - name: 发酵粉
   - name: 小苏打

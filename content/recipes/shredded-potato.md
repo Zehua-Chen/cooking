@@ -1,5 +1,8 @@
 ---
 title: 土豆丝
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 土豆丝
   - name: 醋

@@ -1,5 +1,8 @@
 ---
 title: 动物肝脏
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 动物肝脏
   - name: 西红柿

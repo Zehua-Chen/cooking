@@ -1,5 +1,7 @@
 ---
 title: 饼干夹棉花糖
+tags:
+  - snacks
 ingredients:
   - name: 饼干
   - name: 棉花糖

@@ -1,5 +1,8 @@
 ---
 title: 西红柿炖豆子
+tags:
+  - lunch
+  - dinner
 ingredients:
   - name: 豆子
     notes: 推荐海军豆
