@@ -1,8 +1,8 @@
 <template>
   <div>
     <PageTitle title="食谱" />
-    <Container>
-      <div class="flex justify-center pb-4 space-x-2">
+    <div class="sticky top-0 backdrop-blur">
+      <Container class="flex pb-2 pt-2 justify-center space-x-2">
         <Tag
           v-for="tag in validTags"
           :key="tag"
@@ -11,7 +11,9 @@
         >
           {{ $t(tag) }}
         </Tag>
-      </div>
+      </Container>
+    </div>
+    <Container>
       <List>
         <ListItem v-for="recipe in recipes" :key="recipe.title">
           <ListItemLink :to="recipe.path">
