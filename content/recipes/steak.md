@@ -10,6 +10,12 @@ ingredients:
 
 ## 制作
 
+### 烤牛排
+
+[How to Cook Steak Perfectly Every Time](https://youtu.be/nsw0Px-Pho8)
+
+### 煎牛排
+
 1. 用厨房纸把水吸干
 2. 抹盐, 胡椒
 3. 如果牛排有肥肉, 用刀在肥肉上划几刀
@@ -21,6 +27,4 @@ ingredients:
 9. 一面煎一分钟左右
 10. 出锅, 让牛排静置一会
 
-## 参考
-
-- [YouTube](https://www.youtube.com/watch?v=8ZnzNO_Uk0Q&list=WL&index=182)
+[8 分鐘在家煎出極品牛排！一個小技巧煎出完美焦脆外皮、肉質粉嫩又不帶血水](https://www.youtube.com/watch?v=8ZnzNO_Uk0Q&list=WL&index=182)
