@@ -10,7 +10,13 @@ ingredients:
 
 ## 制作
 
+- 烤牛排比较容易做到 5 至 7 分熟
+
 ### 烤牛排
+
+1. 牛排正反面涂盐, 黑胡椒, 白胡椒, 并腌制半小时
+2. 锅里煎制焦黄
+3. 烤箱烤 375F 20 分钟左右
 
 [How to Cook Steak Perfectly Every Time](https://youtu.be/nsw0Px-Pho8)
 
