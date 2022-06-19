@@ -1,6 +1,7 @@
 import path from "path";
+import { defineNuxtConfig } from "nuxt";
 
-export default {
+export default defineNuxtConfig({
   alias: {
     components: path.resolve(__dirname, "components"),
     layouts: path.resolve(__dirname, "layouts"),
@@ -8,6 +9,9 @@ export default {
   },
   target: "static",
   css: ["assets/css/main.css"],
+  typescript: {
+    strict: true,
+  },
   buildModules: [
     // "@nuxtjs/color-mode",
     // ["@nuxt/typescript-build", { typeCheck: true }],
@@ -41,4 +45,4 @@ export default {
   //     },
   //   },
   // },
-};
+});
