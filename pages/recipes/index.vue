@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { FetchReturn } from "@nuxt/content/types/query-builder";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
@@ -57,7 +57,7 @@ function tags(query: any): models.Tag[] {
   return (query.tags as string).split(",") as models.Tag[];
 }
 
-export default Vue.extend({
+export default defineComponent({
   components: { PageTitle, Container, List, ListItem, ListItemLink, Tag },
   data(): Data {
     return { validTags: models.validTags };

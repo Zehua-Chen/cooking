@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import NavLink from "components/NavLink.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { NavLink },
   props: {
     home: {

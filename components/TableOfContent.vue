@@ -13,12 +13,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import List from "./List.vue";
 import ListItem from "./ListItem.vue";
 import ListItemLink from "./ListItemLink.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "table-of-content",
   components: { List, ListItem, ListItemLink },
   props: { toc: { type: Array, required: true } },

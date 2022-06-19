@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
 import { Ingredient, Recipe, Variant } from "models";
@@ -55,7 +55,7 @@ interface State {
   activeVariant: Variant | null;
 }
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     Document,
     TableOfContent,
