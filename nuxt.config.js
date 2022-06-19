@@ -12,10 +12,6 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  buildModules: [
-    // "@nuxtjs/color-mode",
-    // ["@nuxt/typescript-build", { typeCheck: true }],
-  ],
   build: {
     // extract css during development would cause the browser to cache the
     // style sheet. Changes to stylesheet would therefore not be reflected
@@ -23,7 +19,10 @@ export default defineNuxtConfig({
     extractCSS: process.env.NODE_ENV === "production",
   },
   modules: [
-    // "@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/i18n"
+    // "@nuxt/content", 
+    "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss", 
+    // "@nuxtjs/i18n"
   ],
   content: {},
   colorMode: {
