@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     extractCSS: process.env.NODE_ENV === "production",
   },
   modules: [
-    // "@nuxt/content", 
+    "@nuxt/content", 
     "@nuxtjs/color-mode",
     "@nuxtjs/tailwindcss", 
     // "@nuxtjs/i18n"
