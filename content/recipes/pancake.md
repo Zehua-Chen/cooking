@@ -16,7 +16,7 @@ ingredients:
   # ingredients for 发酵粉
   - name: 发酵粉
     quantity: 2
-    unit: tbsp
+    unit: tsp
     variant: 发酵粉
   - name: 非酸性液体
     quantity: 1.25
@@ -25,7 +25,7 @@ ingredients:
   # ingredients for 小苏达
   - name: 小苏达
     quantity: 2
-    unit: tbsp
+    unit: tsp
     variant: 小苏打
   - name: 白脱牛奶
     quantity: 1.25
@@ -37,7 +37,7 @@ ingredients:
     unit: tbsp
     optional: true
   - name: 糖浆
-    quantity: 2
+    quantity: 1
     unit: tbsp
     optional: true
   - name: 香精
