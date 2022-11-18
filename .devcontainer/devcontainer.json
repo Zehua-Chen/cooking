@@ -1,6 +1,6 @@
 {
   "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:16",
   // Features to add to the dev container. More info: https://containers.dev/implementors/features.
   "features": {
     "ghcr.io/NicoVIII/devcontainer-features/pnpm:1": {}
