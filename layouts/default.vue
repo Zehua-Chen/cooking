@@ -49,10 +49,6 @@ export default defineComponent({
           href: "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap",
           rel: "stylesheet",
         },
-        {
-          href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-          rel: "stylesheet",
-        },
       ],
       script: [],
     };

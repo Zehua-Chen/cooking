@@ -3,45 +3,45 @@
     class="rounded-full text-white"
     :class="[fontClasses, colorClasses, spaceClasses]"
     v-bind="$attrs"
-    v-on="$listeners"
   >
+    <span v-if="active" class="material-symbols-outlined"> check_circle </span>
     <slot></slot>
   </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  props: {
-    small: {
-      type: Boolean,
-      default: false,
-    },
-    active: {
-      type: Boolean,
-      default: false,
-    },
+<script lang="ts" setup>
+const props = defineProps({
+  small: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    fontClasses(): any {
-      return {
-        "text-base": !this.small,
-        "text-xs": this.small,
-      };
-    },
-    spaceClasses(): any {
-      return {
-        "p-3": !this.small,
-        "p-1": this.small,
-      };
-    },
-    colorClasses(): any {
-      return {
-        "bg-primary-700": !this.active,
-        "bg-primary-500": this.active,
-      };
-    },
+  active: {
+    type: Boolean,
+    default: false,
   },
 });
+
+useHead({
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0",
+    },
+  ],
+});
+
+const fontClasses = computed(() => ({
+  "text-base": !props.small,
+  "text-xs": props.small,
+}));
+
+const spaceClasses = computed(() => ({
+  "p-3": !props.small,
+  "p-1": props.small,
+}));
+
+const colorClasses = computed(() => ({
+  "bg-primary-700": !props.active,
+  "bg-primary-500": props.active,
+}));
 </script>

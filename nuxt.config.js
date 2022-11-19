@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     models: path.resolve(__dirname, "models"),
   },
   modules: ["@nuxt/content", "@nuxtjs/i18n"],
+  content: {},
   i18n: {
     locales: ["zh_CN"],
     defaultLocale: "zh_CN",
