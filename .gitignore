@@ -4,6 +4,7 @@ _site/
 node_modules/
 .nuxt/
 
-dist/
+dist
+.output/
 
 .DS_Store

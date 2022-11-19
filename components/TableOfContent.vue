@@ -12,20 +12,19 @@
   </List>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { TocLink } from "@nuxt/content/dist/runtime/types";
 import List from "./List.vue";
 import ListItem from "./ListItem.vue";
 import ListItemLink from "./ListItemLink.vue";
 
-export default defineComponent({
-  name: "table-of-content",
-  components: { List, ListItem, ListItemLink },
-  props: { toc: { type: Array, required: true } },
-  methods: {
-    to(id: string): string {
-      return `#${id}`;
-    },
-  },
-});
+export interface TableOfContentProps {
+  toc: TocLink[];
+}
+
+function to(id: string): string {
+  return `#${id}`;
+}
+
+defineProps<TableOfContentProps>();
 </script>

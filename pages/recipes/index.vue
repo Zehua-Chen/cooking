@@ -39,10 +39,6 @@ import ListItemLink from "components/ListItemLink.vue";
 import Tag from "components/Tag.vue";
 import * as models from "models";
 
-interface Data {
-  validTags: models.Tag[];
-}
-
 function tagsFromQuery(query: any): models.Tag[] {
   if (!query.tags) {
     return models.validTags;
@@ -88,41 +84,3 @@ const { data: recipes } = await useAsyncData("recipes", () =>
   queryContent("/recipes").find()
 );
 </script>
-
-<!-- <script lang="ts">
-export default defineNuxtComponent({
-  async asyncData(props) {
-    console.log("asyncData()");
-    console.log(props);
-
-    const recipes = await $content("recipes")
-      // TODO: use .where
-      // .where({ tags: { $eq: ["snacks"] } })
-      .sortBy("slug")
-      .fetch()
-      .then((recipes) => {
-        const tagSet = new Set(tags(query));
-
-        return recipes.filter((recipe: any) => {
-          return recipe.tags.some((t: models.Tag) => tagSet.has(t));
-        });
-      });
-
-    const validTagsSet = new Set(models.validTags);
-
-    recipes.forEach((recipe: models.Recipe) => {
-      recipe.tags.forEach((tag) => {
-        if (!validTagsSet.has(tag)) {
-          throw Error(`recipe ${recipe.title}'s tag ${tag} is not valid`);
-        }
-      });
-    });
-
-    return {
-      data: {
-        recipes,
-      },
-    };
-  },
-});
-</script> -->
