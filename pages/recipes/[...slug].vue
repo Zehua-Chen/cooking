@@ -53,7 +53,7 @@ import { TocLink } from "@nuxt/content/dist/runtime/types";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
 
-import { Ingredient, Recipe, Variant } from "models";
+import { Ingredient } from "models";
 
 function ingredientRowStyles(ingredient: Ingredient): any {
   return {
