@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { Document, TableOfContent },
   async asyncData({ $content, params }) {
     const slug = params.slug || "ingredients";

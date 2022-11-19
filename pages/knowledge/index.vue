@@ -14,14 +14,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { PageTitle, Container, List, ListItem, ListItemLink },
   async asyncData({ $content }) {
     const articles = await $content("knowledge").fetch();

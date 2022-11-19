@@ -19,12 +19,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
 import Container from "components/Container.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { Container, Navbar, NavLink },
   head() {
     return {
