@@ -16,7 +16,7 @@
     <Container>
       <List>
         <ListItem v-for="recipe in recipes" :key="recipe.title">
-          <ListItemLink :to="recipe.path">
+          <ListItemLink :to="recipe._path">
             {{ recipe.title }}
             <span class="space-x-2">
               <Tag v-for="tag in recipe.tags" :key="tag" small>
@@ -30,9 +30,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { FetchReturn } from "@nuxt/content/types/query-builder";
+<script lang="ts" setup async>
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
@@ -45,11 +43,7 @@ interface Data {
   validTags: models.Tag[];
 }
 
-interface AsyncData {
-  recipes: FetchReturn | FetchReturn[];
-}
-
-function tags(query: any): models.Tag[] {
+function tagsFromQuery(query: any): models.Tag[] {
   if (!query.tags) {
     return models.validTags;
   }
@@ -57,12 +51,50 @@ function tags(query: any): models.Tag[] {
   return (query.tags as string).split(",") as models.Tag[];
 }
 
-export default defineComponent({
-  components: { PageTitle, Container, List, ListItem, ListItemLink, Tag },
-  data(): Data {
-    return { validTags: models.validTags };
-  },
-  async asyncData({ $content, query }): Promise<AsyncData> {
+const route = useRoute();
+const router = useRouter();
+
+const validTags = ref(models.validTags);
+const activeTags = computed(() => {
+  return tagsFromQuery(route.query);
+});
+
+function isTagActive(tag: models.Tag): boolean {
+  return activeTags.value.findIndex((t) => t === tag) !== -1;
+}
+
+async function toggleTag(tag: models.Tag): Promise<void> {
+  const { path } = route;
+  let tags = [...activeTags.value];
+
+  if (isTagActive(tag)) {
+    tags.splice(
+      tags.findIndex((t) => t === tag),
+      1
+    );
+  } else {
+    tags.push(tag);
+  }
+
+  await router.push({ path, query: { tags: tags.join(",") } });
+}
+
+watch(
+  () => route.query,
+  () => refreshNuxtData()
+);
+
+const { data: recipes } = await useAsyncData("recipes", () =>
+  queryContent("/recipes").find()
+);
+</script>
+
+<!-- <script lang="ts">
+export default defineNuxtComponent({
+  async asyncData(props) {
+    console.log("asyncData()");
+    console.log(props);
+
     const recipes = await $content("recipes")
       // TODO: use .where
       // .where({ tags: { $eq: ["snacks"] } })
@@ -87,43 +119,10 @@ export default defineComponent({
     });
 
     return {
-      recipes,
+      data: {
+        recipes,
+      },
     };
   },
-  methods: {
-    isTagActive(tag: models.Tag): boolean {
-      return this.activeTags.findIndex((t) => t === tag) !== -1;
-    },
-    async toggleTag(tag: models.Tag): Promise<void> {
-      const { path } = this.$route;
-      let tags = [...this.activeTags];
-
-      if (this.isTagActive(tag)) {
-        tags.splice(
-          tags.findIndex((t) => t === tag),
-          1
-        );
-      } else {
-        tags.push(tag);
-      }
-
-      await this.$router.push({ path, query: { tags: tags.join(",") } });
-    },
-  },
-  computed: {
-    activeTags(): models.Tag[] {
-      const { query } = this.$route;
-
-      return tags(query);
-    },
-    link(): string {
-      return "nuxt-link";
-    },
-  },
-  watch: {
-    "$route.query.tags": async function () {
-      await this.$nuxt.refresh();
-    },
-  },
 });
-</script>
+</script> -->

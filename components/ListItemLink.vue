@@ -4,15 +4,11 @@
   </NuxtLink>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  props: {
-    to: {
-      type: String,
-      required: true,
-    },
+<script lang="ts" setup>
+defineProps({
+  to: {
+    type: String,
+    default: "/404",
   },
 });
 </script>
