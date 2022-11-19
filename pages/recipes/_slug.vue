@@ -31,7 +31,11 @@
             <th>其他</th>
           </thead>
           <tbody>
-            <tr v-for="ingredient in ingredients" :key="ingredient.name">
+            <tr
+              v-for="ingredient in ingredients"
+              :key="ingredient.name"
+              :class="ingredientRowStyles(ingredient)"
+            >
               <td>{{ ingredientName(ingredient) }}</td>
               <td>{{ ingredientQuantity(ingredient) }}</td>
               <td>{{ ingredient.notes ? ingredient.notes : "" }}</td>
@@ -67,6 +71,12 @@ export default Vue.extend({
     };
   },
   methods: {
+    ingredientRowStyles(ingredient: Ingredient): any {
+      return {
+        "text-gray-600": ingredient.optional,
+        "dark:text-gray-400": ingredient.optional,
+      };
+    },
     ingredientName(ingredient: Ingredient): string {
       if (ingredient.optional) {
         return `(可选) ${ingredient.name}`;
