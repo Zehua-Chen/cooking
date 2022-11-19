@@ -15,7 +15,7 @@
     </div>
     <Container>
       <List>
-        <ListItem v-for="recipe in recipes" :key="recipe.title">
+        <ListItem v-for="recipe in activeRecipes" :key="recipe.title">
           <ListItemLink :to="recipe._path">
             {{ recipe.title }}
             <span class="space-x-2">
@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup async>
+import { LocationQuery } from "vue-router";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
@@ -39,7 +40,7 @@ import ListItemLink from "components/ListItemLink.vue";
 import Tag from "components/Tag.vue";
 import * as models from "models";
 
-function tagsFromQuery(query: any): models.Tag[] {
+function tagsFromQuery(query: LocationQuery): models.Tag[] {
   if (!query.tags) {
     return models.validTags;
   }
@@ -51,9 +52,15 @@ const route = useRoute();
 const router = useRouter();
 
 const validTags = ref(models.validTags);
-const activeTags = computed(() => {
-  return tagsFromQuery(route.query);
-});
+const activeTags = ref(models.validTags);
+
+watch(
+  () => route.query,
+  () => {
+    activeTags.value = tagsFromQuery(route.query);
+  },
+  { immediate: true }
+);
 
 function isTagActive(tag: models.Tag): boolean {
   return activeTags.value.findIndex((t) => t === tag) !== -1;
@@ -75,12 +82,27 @@ async function toggleTag(tag: models.Tag): Promise<void> {
   await router.push({ path, query: { tags: tags.join(",") } });
 }
 
-watch(
-  () => route.query,
-  () => refreshNuxtData()
-);
-
 const { data: recipes } = await useAsyncData("recipes", () =>
   queryContent("/recipes").find()
 );
+
+const activeRecipes = computed(() => {
+  return recipes.value?.filter((parsedContent) => {
+    const recipe = parsedContent as models.Recipe;
+
+    for (
+      let recipeTagIndex = 0;
+      recipeTagIndex < recipe.tags.length;
+      recipeTagIndex++
+    ) {
+      const recipeTag = recipe.tags[recipeTagIndex];
+
+      if (activeTags.value.findIndex((t) => t === recipeTag) !== -1) {
+        return true;
+      }
+    }
+
+    return false;
+  });
+});
 </script>
