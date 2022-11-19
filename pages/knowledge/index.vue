@@ -4,7 +4,7 @@
     <Container>
       <List>
         <ListItem v-for="article in articles" :key="article.title">
-          <ListItemLink :to="article.path">
+          <ListItemLink :to="article._path">
             {{ article.title }}
           </ListItemLink>
         </ListItem>
