@@ -13,22 +13,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
 
-export default defineComponent({
-  components: { PageTitle, Container, List, ListItem, ListItemLink },
-  async asyncData({ $content }) {
-    const articles = await $content("knowledge").fetch();
-
-    return {
-      articles,
-    };
-  },
-});
+const { data: articles } = await useAsyncData(() =>
+  queryContent("/knowledge").find()
+);
 </script>
