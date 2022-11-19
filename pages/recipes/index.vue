@@ -48,39 +48,39 @@ function tagsFromQuery(query: LocationQuery): models.Tag[] {
   return (query.tags as string).split(",") as models.Tag[];
 }
 
-const route = useRoute();
-const router = useRouter();
-
-const validTags = ref(models.validTags);
-const activeTags = ref(models.validTags);
-
-watch(
-  () => route.query,
-  () => {
-    activeTags.value = tagsFromQuery(route.query);
-  },
-  { immediate: true }
-);
+function queryFromTags(tags: models.Tag[]): LocationQuery {
+  return { tags: tags.join(",") };
+}
 
 function isTagActive(tag: models.Tag): boolean {
   return activeTags.value.findIndex((t) => t === tag) !== -1;
 }
 
 async function toggleTag(tag: models.Tag): Promise<void> {
-  const { path } = route;
-  let tags = [...activeTags.value];
-
   if (isTagActive(tag)) {
-    tags.splice(
-      tags.findIndex((t) => t === tag),
+    activeTags.value.splice(
+      activeTags.value.findIndex((t) => t === tag),
       1
     );
   } else {
-    tags.push(tag);
+    activeTags.value.push(tag);
   }
-
-  await router.push({ path, query: { tags: tags.join(",") } });
 }
+
+const route = useRoute();
+const router = useRouter();
+
+const validTags = ref(models.validTags);
+const activeTags = ref<models.Tag[]>([]);
+
+watchEffect(() => {
+  activeTags.value = tagsFromQuery(route.query);
+});
+
+watchEffect(() => {
+  const { path } = route;
+  router.push({ path, query: queryFromTags(activeTags.value) });
+});
 
 const { data: recipes } = await useAsyncData("recipes", () =>
   queryContent("/recipes").find()
@@ -97,7 +97,7 @@ const activeRecipes = computed(() => {
     ) {
       const recipeTag = recipe.tags[recipeTagIndex];
 
-      if (activeTags.value.findIndex((t) => t === recipeTag) !== -1) {
+      if (isTagActive(recipeTag)) {
         return true;
       }
     }
