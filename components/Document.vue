@@ -14,11 +14,6 @@
   </Container>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import Container from "components/Container.vue";
-
-export default defineComponent({
-  components: { Container },
-});
 </script>
