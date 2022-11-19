@@ -73,14 +73,22 @@ const router = useRouter();
 const validTags = ref(models.validTags);
 const activeTags = ref<models.Tag[]>([]);
 
-watchEffect(() => {
-  activeTags.value = tagsFromQuery(route.query);
-});
+watch(
+  () => route.query.tags,
+  () => {
+    activeTags.value = tagsFromQuery(route.query);
+  },
+  { immediate: true }
+);
 
-watchEffect(() => {
-  const { path } = route;
-  router.push({ path, query: queryFromTags(activeTags.value) });
-});
+watch(
+  activeTags,
+  () => {
+    const { path } = route;
+    router.push({ path, query: queryFromTags(activeTags.value) });
+  },
+  { deep: true }
+);
 
 const { data: recipes } = await useAsyncData("recipes", () =>
   queryContent("/recipes").find()
