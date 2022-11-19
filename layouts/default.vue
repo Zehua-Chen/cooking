@@ -5,7 +5,7 @@
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
     <div class="grow">
-      <Nuxt />
+      <slot />
     </div>
 
     <Container>
