@@ -1,6 +1,6 @@
 <template>
   <button
-    class="rounded-full text-white"
+    class="rounded-full text-white inline-flex items-center"
     :class="[fontClasses, colorClasses, spaceClasses]"
     v-bind="$attrs"
   >
