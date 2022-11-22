@@ -1,0 +1,5 @@
+[build]
+  publish = ".output/public"
+
+  # Default build command.
+  command = "pnpm generate"
