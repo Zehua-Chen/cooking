@@ -1,12 +1,13 @@
 <template>
-  <button
+  <component
     class="rounded-full text-white inline-flex items-center"
+    :is="type"
     :class="[fontClasses, colorClasses, spaceClasses]"
     v-bind="$attrs"
   >
     <span v-if="active" class="material-symbols-outlined"> check_circle </span>
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script lang="ts" setup>
@@ -18,6 +19,10 @@ const props = defineProps({
   active: {
     type: Boolean,
     default: false,
+  },
+  type: {
+    type: String,
+    default: "button",
   },
 });
 

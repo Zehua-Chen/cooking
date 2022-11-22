@@ -19,7 +19,7 @@
           <ListItemLink :to="recipe._path">
             <span class="space-x-2">
               {{ recipe.title }}
-              <Tag v-for="tag in recipe.tags" :key="tag" small>
+              <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
                 {{ $t(tag) }}
               </Tag>
             </span>
