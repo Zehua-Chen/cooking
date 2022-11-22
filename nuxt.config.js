@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     layouts: path.resolve(__dirname, "layouts"),
     models: path.resolve(__dirname, "models"),
   },
-  modules: ["@nuxt/content", "@nuxtjs/i18n"],
+  css: ["assets/css/main.css"],
+  modules: ["@nuxt/content", "@nuxtjs/i18n", "@nuxtjs/tailwindcss"],
   content: {},
   i18n: {
     locales: ["zh_CN"],
