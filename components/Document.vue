@@ -14,11 +14,6 @@
   </Container>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script lang="ts" setup>
 import Container from "components/Container.vue";
-
-export default Vue.extend({
-  components: { Container },
-});
 </script>

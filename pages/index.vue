@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "../components/List.vue";
@@ -26,7 +26,7 @@ interface Link {
   title: string;
 }
 
-export default Vue.extend({
+export default defineComponent({
   components: { PageTitle, Container, List, ListItem, ListItemLink },
   computed: {
     links(): Link[] {

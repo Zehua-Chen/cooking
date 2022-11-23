@@ -4,14 +4,11 @@
   </NuxtLink>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    to: {
-      type: String,
-      required: true,
-    },
+<script lang="ts" setup>
+defineProps({
+  to: {
+    type: String,
+    default: "/404",
   },
 });
 </script>

@@ -1,4 +1,4 @@
-import { IContentDocument } from "@nuxt/content/types/content";
+import { ParsedContent } from "@nuxt/content/dist/runtime/types";
 
 /**
  * Ingredients of a recipe
@@ -29,6 +29,7 @@ export interface Ingredient {
    * contains name of the variant
    */
   variant?: string;
+  notes?: string;
 }
 
 /**
@@ -44,7 +45,7 @@ export interface Variant {
 /**
  * Defines a recipe
  */
-export interface Recipe extends IContentDocument {
+export interface Recipe extends ParsedContent {
   /**
    * Title of a recipe
    */

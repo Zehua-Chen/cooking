@@ -15,11 +15,11 @@
     </div>
     <Container>
       <List>
-        <ListItem v-for="recipe in recipes" :key="recipe.title">
-          <ListItemLink :to="recipe.path">
-            {{ recipe.title }}
+        <ListItem v-for="recipe in activeRecipes" :key="recipe.title">
+          <ListItemLink :to="recipe._path">
             <span class="space-x-2">
-              <Tag v-for="tag in recipe.tags" :key="tag" small>
+              {{ recipe.title }}
+              <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
                 {{ $t(tag) }}
               </Tag>
             </span>
@@ -30,9 +30,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { FetchReturn } from "@nuxt/content/types/query-builder";
+<script lang="ts" setup async>
+import { LocationQuery } from "vue-router";
 import PageTitle from "components/PageTitle.vue";
 import Container from "components/Container.vue";
 import List from "components/List.vue";
@@ -41,15 +40,7 @@ import ListItemLink from "components/ListItemLink.vue";
 import Tag from "components/Tag.vue";
 import * as models from "models";
 
-interface Data {
-  validTags: models.Tag[];
-}
-
-interface AsyncData {
-  recipes: FetchReturn | FetchReturn[];
-}
-
-function tags(query: any): models.Tag[] {
+function tagsFromQuery(query: LocationQuery): models.Tag[] {
   if (!query.tags) {
     return models.validTags;
   }
@@ -57,73 +48,69 @@ function tags(query: any): models.Tag[] {
   return (query.tags as string).split(",") as models.Tag[];
 }
 
-export default Vue.extend({
-  components: { PageTitle, Container, List, ListItem, ListItemLink, Tag },
-  data(): Data {
-    return { validTags: models.validTags };
+function queryFromTags(tags: models.Tag[]): LocationQuery {
+  return { tags: tags.join(",") };
+}
+
+function isTagActive(tag: models.Tag): boolean {
+  return activeTags.value.findIndex((t) => t === tag) !== -1;
+}
+
+async function toggleTag(tag: models.Tag): Promise<void> {
+  if (isTagActive(tag)) {
+    activeTags.value.splice(
+      activeTags.value.findIndex((t) => t === tag),
+      1
+    );
+  } else {
+    activeTags.value.push(tag);
+  }
+}
+
+const route = useRoute();
+const router = useRouter();
+
+const validTags = ref(models.validTags);
+const activeTags = ref<models.Tag[]>([]);
+
+watch(
+  () => route.query.tags,
+  () => {
+    activeTags.value = tagsFromQuery(route.query);
   },
-  async asyncData({ $content, query }): Promise<AsyncData> {
-    const recipes = await $content("recipes")
-      // TODO: use .where
-      // .where({ tags: { $eq: ["snacks"] } })
-      .sortBy("slug")
-      .fetch()
-      .then((recipes) => {
-        const tagSet = new Set(tags(query));
+  { immediate: true }
+);
 
-        return recipes.filter((recipe: any) => {
-          return recipe.tags.some((t: models.Tag) => tagSet.has(t));
-        });
-      });
-
-    const validTagsSet = new Set(models.validTags);
-
-    recipes.forEach((recipe: models.Recipe) => {
-      recipe.tags.forEach((tag) => {
-        if (!validTagsSet.has(tag)) {
-          throw Error(`recipe ${recipe.title}'s tag ${tag} is not valid`);
-        }
-      });
-    });
-
-    return {
-      recipes,
-    };
+watch(
+  activeTags,
+  () => {
+    const { path } = route;
+    router.push({ path, query: queryFromTags(activeTags.value) });
   },
-  methods: {
-    isTagActive(tag: models.Tag): boolean {
-      return this.activeTags.findIndex((t) => t === tag) !== -1;
-    },
-    async toggleTag(tag: models.Tag): Promise<void> {
-      const { path } = this.$route;
-      let tags = [...this.activeTags];
+  { deep: true }
+);
 
-      if (this.isTagActive(tag)) {
-        tags.splice(
-          tags.findIndex((t) => t === tag),
-          1
-        );
-      } else {
-        tags.push(tag);
+const { data: recipes } = await useAsyncData("recipes", () =>
+  queryContent("/recipes").find()
+);
+
+const activeRecipes = computed(() => {
+  return recipes.value?.filter((parsedContent) => {
+    const recipe = parsedContent as models.Recipe;
+
+    for (
+      let recipeTagIndex = 0;
+      recipeTagIndex < recipe.tags.length;
+      recipeTagIndex++
+    ) {
+      const recipeTag = recipe.tags[recipeTagIndex];
+
+      if (isTagActive(recipeTag)) {
+        return true;
       }
+    }
 
-      await this.$router.push({ path, query: { tags: tags.join(",") } });
-    },
-  },
-  computed: {
-    activeTags(): models.Tag[] {
-      const { query } = this.$route;
-
-      return tags(query);
-    },
-    link(): string {
-      return "nuxt-link";
-    },
-  },
-  watch: {
-    "$route.query.tags": async function () {
-      await this.$nuxt.refresh();
-    },
-  },
+    return false;
+  });
 });
 </script>

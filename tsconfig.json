@@ -1,4 +1,5 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ES2018",
     "module": "ESNext",
@@ -9,29 +10,7 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
-      "components/*": ["components/*"],
-      "layouts/*": ["layouts/*"],
-      "pages/*": ["pages/*"],
-      "content/*": ["content/*"],
-      "models/*": ["models/*"]
-    },
-    "types": [
-      "@types/node",
-      "@nuxt/types",
-      "@nuxt/content",
-      "@nuxtjs/color-mode",
-      "@nuxtjs/i18n"
-    ]
+    "baseUrl": "."
   },
-  "include": [
-    "./components/**/*",
-    "./layouts/**/*",
-    "./pages/**/*",
-    "./models/**/*"
-  ],
   "exclude": ["./node_modules/**/*"]
 }
