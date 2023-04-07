@@ -1,29 +1,30 @@
 <template>
   <component
     class="rounded-full text-white inline-flex items-center"
-    :is="type"
+    :is="component"
     :class="[fontClasses, colorClasses, spaceClasses]"
     v-bind="$attrs"
   >
-    <span v-if="active" class="material-symbols-outlined"> check_circle </span>
+    <span class="material-symbols-outlined" aria-hidden="true" v-if="active">
+      check_circle
+    </span>
     <slot></slot>
   </component>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  small: {
-    type: Boolean,
-    default: false,
-  },
-  active: {
-    type: Boolean,
-    default: false,
-  },
-  type: {
-    type: String,
-    default: "button",
-  },
+import { Component } from "vue";
+
+export interface TagProps {
+  small?: boolean;
+  active?: boolean;
+  component?: string | Component;
+}
+
+const props = withDefaults(defineProps<TagProps>(), {
+  small: false,
+  active: false,
+  component: "button",
 });
 
 useHead({
