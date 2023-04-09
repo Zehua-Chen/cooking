@@ -3,7 +3,7 @@
     <PageTitle title="Zehua Chen的做饭笔记" />
     <Container>
       <List>
-        <ListItem v-for="link in links" :key="link.title">
+        <ListItem v-for="link in links" variant="button" :key="link.title">
           <ListItemLink :to="link.url">
             {{ link.title }}
           </ListItemLink>

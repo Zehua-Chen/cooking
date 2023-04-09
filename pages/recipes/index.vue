@@ -17,7 +17,11 @@
     </div>
     <Container class="RecipesPage_recipesContainer">
       <List>
-        <ListItem v-for="recipe in activeRecipes" :key="recipe.title">
+        <ListItem
+          v-for="recipe in activeRecipes"
+          variant="button"
+          :key="recipe.title"
+        >
           <ListItemLink
             class="RecipesPage_recipesContainer_recipe"
             :to="recipe._path"
