@@ -1,8 +1,10 @@
 <template>
   <div>
     <PageTitle title="食谱" />
-    <div class="sticky top-0 bg-background-100 dark:bg-background-800">
-      <Container class="flex pb-2 pt-2 justify-center space-x-2">
+    <div
+      class="RecipesPage_tagsContainer RecipesPage_tagsContainer__background"
+    >
+      <Container class="RecipesPage_tagsContainer_tags">
         <Tag
           v-for="tag in validTags"
           :key="tag"
@@ -13,22 +15,50 @@
         </Tag>
       </Container>
     </div>
-    <Container>
+    <Container class="RecipesPage_recipesContainer">
       <List>
         <ListItem v-for="recipe in activeRecipes" :key="recipe.title">
-          <ListItemLink :to="recipe._path">
-            <span class="space-x-2">
-              {{ recipe.title }}
-              <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
-                {{ $t(tag) }}
-              </Tag>
-            </span>
+          <ListItemLink
+            class="RecipesPage_recipesContainer_recipe"
+            :to="recipe._path"
+          >
+            {{ recipe.title }}
+            <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
+              {{ $t(tag) }}
+            </Tag>
           </ListItemLink>
         </ListItem>
       </List>
     </Container>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.RecipesPage_tagsContainer {
+  position: sticky;
+  top: 0;
+}
+
+.RecipesPage_tagsContainer__background {
+  background: var(--cooking-background);
+}
+
+.RecipesPage_tagsContainer_tags {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.RecipesPage_recipesContainer {
+  padding-top: 10px;
+}
+
+.RecipesPage_recipesContainer_recipe {
+  display: flex;
+  gap: 5px;
+}
+</style>
 
 <script lang="ts" setup async>
 import { LocationQuery } from "vue-router";

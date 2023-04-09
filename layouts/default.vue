@@ -9,7 +9,7 @@
     </div>
 
     <Container>
-      <footer class="DefaultLayout__footer DefaultLayout__footer--primary">
+      <footer class="DefaultLayout_footer DefaultLayout_footer__primary">
         Made with Love by Zehua Chen
       </footer>
     </Container>
@@ -23,7 +23,7 @@
   min-height: 100vh;
 }
 
-.DefaultLayout__footer {
+.DefaultLayout_footer {
   display: grid;
   justify-content: center;
   align-content: center;
@@ -32,7 +32,7 @@
   border-top-width: 1px;
 }
 
-.DefaultLayout__footer--primary {
+.DefaultLayout_footer__primary {
   border-top-color: var(--cooking-primary);
 }
 </style>
