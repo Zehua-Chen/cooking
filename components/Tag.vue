@@ -13,12 +13,10 @@
 </template>
 
 <script lang="ts" setup>
-import { Component } from "vue";
-
 export interface TagProps {
   small?: boolean;
   active?: boolean;
-  component?: string | Component;
+  component?: any;
 }
 
 const props = withDefaults(defineProps<TagProps>(), {

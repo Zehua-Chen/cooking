@@ -5,10 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Component } from "vue";
-
 export interface ContainerProps {
-  component?: string | Component;
+  component?: any;
 }
 
 withDefaults(defineProps<ContainerProps>(), {
