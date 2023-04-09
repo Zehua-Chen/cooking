@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="DefaultLayout">
     <Navbar home="烹饪">
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
@@ -9,14 +9,33 @@
     </div>
 
     <Container>
-      <footer
-        class="grid content-center justify-center mt-3 h-20 border-primary-400 border-t dark:text-white"
-      >
+      <footer class="DefaultLayout__footer DefaultLayout__footer--primary">
         Made with Love by Zehua Chen
       </footer>
     </Container>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.DefaultLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.DefaultLayout__footer {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 80px;
+  margin-top: 10px;
+  border-top-width: 1px;
+}
+
+.DefaultLayout__footer--primary {
+  border-top-color: var(--cooking-primary);
+}
+</style>
 
 <script lang="ts" setup>
 import Navbar from "../components/Navbar.vue";

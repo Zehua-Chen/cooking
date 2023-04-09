@@ -58,3 +58,8 @@
     @apply text-primary-400;
   }
 }
+
+body {
+  --cooking-primary: rgb(34 197 94);
+  --cooking-background: rgb(244 244 245);
+}
