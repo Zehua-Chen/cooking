@@ -4,7 +4,7 @@
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
-    <div class="grow">
+    <div class="DefaultLayout_content">
       <slot />
     </div>
 
@@ -21,6 +21,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.DefaultLayout_content {
+  flex-grow: 1;
 }
 
 .DefaultLayout_footer {
