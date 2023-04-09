@@ -1,9 +1,5 @@
 <template>
-  <NuxtLink
-    class="NavLink NavLink__primary"
-    :class="{ active: $route.path.includes(to) }"
-    :to="to"
-  >
+  <NuxtLink class="NavLink NavLink__primary" :to="to">
     <slot></slot>
   </NuxtLink>
 </template>
@@ -27,15 +23,11 @@
 }
 </style>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  props: {
-    to: {
-      type: String,
-      required: true,
-    },
+<script lang="ts" setup>
+defineProps({
+  to: {
+    type: String,
+    required: true,
   },
 });
 </script>

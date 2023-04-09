@@ -1,18 +1,41 @@
 <template>
-  <Container class="flex flex-row">
+  <Container class="Document">
     <slot />
     <div>
-      <div class="mr-7 pt-2 w-80 top-0 sticky hidden md:block">
+      <div class="Document_toc">
         <slot name="toc" />
         <slot name="options" />
       </div>
     </div>
 
-    <article class="grow">
+    <article class="Document_content">
       <slot name="content"></slot>
     </article>
   </Container>
 </template>
+
+<style lang="scss" scoped>
+.Document {
+  display: flex;
+  flex-direction: row;
+}
+
+.Document_toc {
+  display: none;
+  position: sticky;
+  top: 0;
+  margin-top: 10px;
+  width: 320px;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.Document_content {
+  flex-grow: 1;
+}
+</style>
 
 <script lang="ts" setup>
 import Container from "components/Container.vue";

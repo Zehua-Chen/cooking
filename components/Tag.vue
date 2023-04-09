@@ -1,8 +1,8 @@
 <template>
   <component
-    class="rounded-full text-white inline-flex items-center"
+    class="Tag Tag__primary"
     :is="component"
-    :class="[fontClasses, colorClasses, spaceClasses]"
+    :class="classes"
     v-bind="$attrs"
   >
     <span class="material-symbols-outlined" aria-hidden="true" v-if="active">
@@ -11,6 +11,32 @@
     <slot></slot>
   </component>
 </template>
+
+<style lang="scss" scoped>
+.Tag {
+  border-radius: 50vh;
+  display: inline-flex;
+  align-items: center;
+}
+
+.Tag__big {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.Tag__small {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.Tag__primary {
+  color: var(--cooking-primary-text);
+  background: var(--cooking-primary);
+}
+.Tag__primaryActive {
+  background: var(--cooking-primary-active);
+}
+</style>
 
 <script lang="ts" setup>
 export interface TagProps {
@@ -34,18 +60,9 @@ useHead({
   ],
 });
 
-const fontClasses = computed(() => ({
-  "text-base": !props.small,
-  "text-xs": props.small,
-}));
-
-const spaceClasses = computed(() => ({
-  "p-3": !props.small,
-  "p-1": props.small,
-}));
-
-const colorClasses = computed(() => ({
-  "bg-primary-700": !props.active,
-  "bg-primary-500": props.active,
+const classes = computed(() => ({
+  Tag__big: !props.small,
+  Tag__small: props.small,
+  Tag__primaryActive: props.active,
 }));
 </script>

@@ -13,29 +13,12 @@
 }
 </style>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import NavLink from "components/NavLink.vue";
 
-export default defineComponent({
-  components: { NavLink },
-  props: {
-    home: {
-      type: String,
-      default: "Home",
-    },
-  },
-  computed: {
-    navbarColor() {
-      const { value: colorMode } = this.$colorMode;
+export interface NavbarProps {
+  home: string;
+}
 
-      return {
-        "navbar-light": colorMode === "light",
-        "bg-light": colorMode === "light",
-        "navbar-dark": colorMode === "dark",
-        "bg-dark": colorMode === "dark",
-      };
-    },
-  },
-});
+withDefaults(defineProps<NavbarProps>(), { home: "Home" });
 </script>

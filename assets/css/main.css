@@ -60,7 +60,9 @@
 }
 
 body {
-  --cooking-primary: rgb(34 197 94);
+  --cooking-primary: #17853f;
+  --cooking-primary-active: #22C55E;
+  --cooking-primary-text: white;
   --cooking-background: rgb(244 244 245);
   --cooking-text: black;
 }
