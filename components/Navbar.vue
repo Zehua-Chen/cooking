@@ -1,9 +1,17 @@
 <template>
-  <nav class="flex flex-row justify-start">
+  <nav class="Navbar">
     <NavLink to="/">{{ home }}</NavLink>
     <slot></slot>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from "vue";
