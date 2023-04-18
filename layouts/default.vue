@@ -1,22 +1,45 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="DefaultLayout">
     <Navbar home="烹饪">
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
-    <div class="grow">
+    <div class="DefaultLayout_content">
       <slot />
     </div>
 
-    <Container>
-      <footer
-        class="grid content-center justify-center mt-3 h-20 border-primary-400 border-t dark:text-white"
-      >
-        Made with Love by Zehua Chen
-      </footer>
-    </Container>
+    <footer class="DefaultLayout_footer DefaultLayout_footer__primary">
+      Made with Love by Zehua Chen
+    </footer>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.DefaultLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.DefaultLayout_content {
+  flex-grow: 1;
+}
+
+.DefaultLayout_footer {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 80px;
+  margin-top: 10px;
+
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.DefaultLayout_footer__primary {
+  border-top-color: var(--cooking-primary);
+}
+</style>
 
 <script lang="ts" setup>
 import Navbar from "../components/Navbar.vue";

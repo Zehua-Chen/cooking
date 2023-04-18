@@ -7,13 +7,8 @@ export default defineNuxtConfig({
     layouts: path.resolve(__dirname, "layouts"),
     models: path.resolve(__dirname, "models"),
   },
-  css: ["assets/css/main.css"],
-  modules: [
-    "@nuxt/content",
-    "@nuxtjs/i18n",
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
-  ],
+  css: ["assets/css/main.scss"],
+  modules: ["@nuxt/content", "@nuxtjs/i18n", "@nuxtjs/color-mode"],
   content: {},
   i18n: {
     locales: ["zh_CN"],
@@ -39,23 +34,3 @@ export default defineNuxtConfig({
     strict: true,
   },
 });
-
-// export default {
-//   target: "static",
-//   css: ["assets/css/main.css"],
-//   buildModules: [
-//     "@nuxtjs/color-mode",
-//     ["@nuxt/typescript-build", { typeCheck: true }],
-//   ],
-//   build: {
-//     // extract css during development would cause the browser to cache the
-//     // style sheet. Changes to stylesheet would therefore not be reflected
-//     // correctly
-//     extractCSS: process.env.NODE_ENV === "production",
-//   },
-//   modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
-//   content: {},
-//   colorMode: {
-//     classSuffix: "",
-//   },
-// };

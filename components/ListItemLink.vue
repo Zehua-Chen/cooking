@@ -1,8 +1,18 @@
 <template>
-  <NuxtLink class="p-2 w-full inline-block text-black dark:text-white" :to="to">
+  <NuxtLink class="ListItemLink" :to="to">
     <slot />
   </NuxtLink>
 </template>
+
+<style lang="scss" scoped>
+.ListItemLink {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--cooking-text);
+}
+</style>
 
 <script lang="ts" setup>
 defineProps({

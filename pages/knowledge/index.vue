@@ -3,7 +3,11 @@
     <PageTitle title="知识" />
     <Container>
       <List>
-        <ListItem v-for="article in articles" :key="article.title">
+        <ListItem
+          v-for="article in articles"
+          variant="button"
+          :key="article.title"
+        >
           <ListItemLink :to="article._path">
             {{ article.title }}
           </ListItemLink>

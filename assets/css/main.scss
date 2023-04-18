@@ -1,0 +1,59 @@
+@use "./link" as link;
+@use "./colors" as colors;
+
+html {
+  --cooking-primary: #17853f;
+  --cooking-primary-active: #22c55e;
+  --cooking-primary-text: white;
+  --cooking-background: #f4f4f5;
+  --cooking-text: black;
+
+  &.dark {
+    --cooking-background: #27272a;
+    --cooking-text: white;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--cooking-background);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.light {
+  body {
+    color: var(--cooking-text);
+  }
+}
+
+.dark {
+  body {
+    color: var(--cooking-text);
+  }
+}
+
+a {
+  @include link.clear-link-styles();
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  text-align: start;
+  min-width: 50px;
+}
+
+tr:nth-child(odd) {
+  background: lightgray;
+  color: colors.$black;
+}
+
+td {
+  padding: 5px 0;
+}

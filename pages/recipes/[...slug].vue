@@ -5,11 +5,7 @@
     </template>
 
     <template #options>
-      <select
-        class="dark:text-black"
-        v-if="page?.variants"
-        v-model="activeVariant"
-      >
+      <select v-if="page?.variants" v-model="activeVariant">
         <option
           v-for="variant in page.variants"
           :key="variant.name"
@@ -48,6 +44,12 @@
   </Document>
 </template>
 
+<style lang="scss" scoped>
+.RecipePage_optionalIngredient {
+  color: grey;
+}
+</style>
+
 <script lang="ts" setup>
 import { TocLink } from "@nuxt/content/dist/runtime/types";
 import Document from "components/Document.vue";
@@ -57,8 +59,7 @@ import { Ingredient } from "models";
 
 function ingredientRowStyles(ingredient: Ingredient): any {
   return {
-    "text-gray-600": ingredient.optional,
-    "dark:text-gray-400": ingredient.optional,
+    RecipePage_optionalIngredient: ingredient.optional,
   };
 }
 
