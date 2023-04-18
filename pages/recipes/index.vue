@@ -61,6 +61,7 @@
 .RecipesPage_recipesContainer_recipe {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 </style>
 

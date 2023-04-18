@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     layouts: path.resolve(__dirname, "layouts"),
     models: path.resolve(__dirname, "models"),
   },
-  css: ["assets/css/main.css"],
+  css: ["assets/css/main.scss"],
   modules: ["@nuxt/content", "@nuxtjs/i18n", "@nuxtjs/color-mode"],
   content: {},
   i18n: {

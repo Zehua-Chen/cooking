@@ -8,11 +8,9 @@
       <slot />
     </div>
 
-    <Container>
-      <footer class="DefaultLayout_footer DefaultLayout_footer__primary">
-        Made with Love by Zehua Chen
-      </footer>
-    </Container>
+    <footer class="DefaultLayout_footer DefaultLayout_footer__primary">
+      Made with Love by Zehua Chen
+    </footer>
   </div>
 </template>
 
@@ -33,6 +31,8 @@
   align-content: center;
   height: 80px;
   margin-top: 10px;
+
+  border-top-style: solid;
   border-top-width: 1px;
 }
 

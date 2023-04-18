@@ -13,10 +13,16 @@
 </template>
 
 <style lang="scss" scoped>
+@use "assets/css/button" as *;
+@use "assets/css/link" as *;
+
 .Tag {
   border-radius: 50vh;
   display: inline-flex;
   align-items: center;
+
+  @include clear-button-styles();
+  @include clear-link-styles();
 }
 
 .Tag__big {

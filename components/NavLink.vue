@@ -5,19 +5,23 @@
 </template>
 
 <style lang="scss" scoped>
+@use "assets/css/link" as *;
+
 .NavLink {
   padding: 20px;
   color: var(--cooking-text);
 
   border-bottom: solid 1px transparent;
+
+  @include clear-link-styles();
 }
 
 .NavLink__primary {
-  &:hover {
-    border-bottom-color: var(--cooking-primary);
+  &.router-link-active {
+    border-bottom-color: var(--cooking-primary-active);
   }
 
-  &.router-link-active {
+  &:hover {
     border-bottom-color: var(--cooking-primary);
   }
 }
