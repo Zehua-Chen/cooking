@@ -89,6 +89,10 @@ const { data: page } = await useAsyncData("page", () =>
   queryContent(`/recipes/${route.params.slug}`).findOne()
 );
 
+onBeforeRouteUpdate(() => console.log("onBeforeRouteUpdate()"));
+onBeforeUpdate(() => console.log("onBeforeUpdate()"));
+onBeforeUnmount(() => console.log("onBeforeUnmount()"));
+
 const activeVariant = ref(page.value?.variants ? page.value.variants[0] : null);
 
 const toc = computed<TocLink[]>(() => {
