@@ -69,10 +69,10 @@ export interface Recipe extends ParsedContent {
 
 export type Tag = "breakfast" | "lunch" | "dinner" | "snacks" | "others";
 
-export const validTags: Tag[] = [
+export const VALID_TAGS: readonly Tag[] = Object.freeze([
   "breakfast",
   "lunch",
   "dinner",
   "snacks",
   "others",
-];
+]);

@@ -77,7 +77,7 @@ import * as models from "models";
 
 function tagsFromQuery(query: LocationQuery): models.Tag[] {
   if (!query.tags) {
-    return models.validTags;
+    return [...models.VALID_TAGS];
   }
 
   return (query.tags as string).split(",") as models.Tag[];
@@ -105,7 +105,7 @@ async function toggleTag(tag: models.Tag): Promise<void> {
 const route = useRoute();
 const router = useRouter();
 
-const validTags = ref(models.validTags);
+const validTags = computed(() => models.VALID_TAGS);
 const activeTags = ref<models.Tag[]>([]);
 
 watch(
