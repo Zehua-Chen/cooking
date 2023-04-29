@@ -54,6 +54,7 @@
 import { TocLink } from "@nuxt/content/dist/runtime/types";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
+import { usePageSlug } from "utils";
 
 import { Ingredient } from "models";
 
@@ -83,15 +84,13 @@ function ingredientQuantity(ingredient: Ingredient): string {
   return "";
 }
 
-const route = useRoute();
+const recipeSlug = usePageSlug();
 
-const { data: page } = await useAsyncData("page", () =>
-  queryContent(`/recipes/${route.params.slug}`).findOne()
+const { data: page } = await useAsyncData(
+  `recipes/${recipeSlug}`,
+  () => queryContent(`/recipes/${recipeSlug}`).findOne(),
+  { watch: [() => recipeSlug] }
 );
-
-onBeforeRouteUpdate(() => console.log("onBeforeRouteUpdate()"));
-onBeforeUpdate(() => console.log("onBeforeUpdate()"));
-onBeforeUnmount(() => console.log("onBeforeUnmount()"));
 
 const activeVariant = ref(page.value?.variants ? page.value.variants[0] : null);
 
