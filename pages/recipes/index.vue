@@ -27,7 +27,13 @@
             :to="recipe._path"
           >
             {{ recipe.title }}
-            <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
+            <Tag
+              v-for="tag in recipe.tags"
+              :key="tag"
+              small
+              type="span"
+              component="span"
+            >
               {{ $t(tag) }}
             </Tag>
           </ListItemLink>

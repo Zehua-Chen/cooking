@@ -12,8 +12,6 @@
   color: var(--cooking-text);
 
   border-bottom: solid 1px transparent;
-
-  @include clear-link-styles();
 }
 
 .NavLink__primary {

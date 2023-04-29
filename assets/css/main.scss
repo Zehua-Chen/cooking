@@ -36,7 +36,12 @@ body {
 }
 
 a {
-  @include link.clear-link-styles();
+  all: unset;
+  cursor: pointer;
+}
+
+button {
+  all: unset;
 }
 
 table {
