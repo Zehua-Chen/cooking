@@ -17,8 +17,8 @@ import { usePageSlug } from "utils";
 const knowledgeSlug = usePageSlug();
 
 const { data: page } = await useAsyncData(
-  `knowledge/${knowledgeSlug}`,
-  () => queryContent(`knowledge/${knowledgeSlug}`).findOne(),
-  { watch: [() => knowledgeSlug] }
+  `knowledge/${knowledgeSlug.value}`,
+  () => queryContent(`knowledge/${knowledgeSlug.value}`).findOne(),
+  { watch: [knowledgeSlug] }
 );
 </script>

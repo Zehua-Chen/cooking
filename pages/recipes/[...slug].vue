@@ -56,7 +56,7 @@ import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
 import { usePageSlug } from "utils";
 
-import { Ingredient } from "models";
+import { Ingredient, Recipe } from "models";
 
 function ingredientRowStyles(ingredient: Ingredient): any {
   return {
@@ -87,9 +87,12 @@ function ingredientQuantity(ingredient: Ingredient): string {
 const recipeSlug = usePageSlug();
 
 const { data: page } = await useAsyncData(
-  `recipes/${recipeSlug}`,
-  () => queryContent(`/recipes/${recipeSlug}`).findOne(),
-  { watch: [() => recipeSlug] }
+  `recipes/${recipeSlug.value}`,
+  () => queryContent<Recipe>(`/recipes/${recipeSlug.value}`).findOne(),
+  {
+    watch: [recipeSlug],
+    pick: ["variants", "ingredients", "body", "title"],
+  }
 );
 
 const activeVariant = ref(page.value?.variants ? page.value.variants[0] : null);
@@ -109,7 +112,7 @@ const toc = computed<TocLink[]>(() => {
   return [];
 });
 
-const ingredients = computed(() => {
+const ingredients = computed<Ingredient[]>(() => {
   if (!activeVariant.value) {
     return page.value?.ingredients ?? [];
   }

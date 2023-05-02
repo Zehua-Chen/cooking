@@ -4,6 +4,7 @@
     <Container>
       <List>
         <ListItem
+          v-if="articles"
           v-for="article in articles"
           variant="button"
           :key="article.title"
@@ -23,8 +24,9 @@ import Container from "components/Container.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
+import { Knowledge } from "models";
 
 const { data: articles } = await useAsyncData(() =>
-  queryContent("/knowledge").find()
+  queryContent<Knowledge>("/knowledge").find()
 );
 </script>
