@@ -87,10 +87,10 @@ function ingredientQuantity(ingredient: Ingredient): string {
 const recipeSlug = usePageSlug();
 
 const { data: page } = await useAsyncData(
-  `recipes/${recipeSlug}`,
-  () => queryContent<Recipe>(`/recipes/${recipeSlug}`).findOne(),
+  `recipes/${recipeSlug.value}`,
+  () => queryContent<Recipe>(`/recipes/${recipeSlug.value}`).findOne(),
   {
-    watch: [() => recipeSlug],
+    watch: [recipeSlug],
     pick: ["variants", "ingredients", "body", "title"],
   }
 );
