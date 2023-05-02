@@ -18,6 +18,7 @@
     <Container class="RecipesPage_recipesContainer">
       <List>
         <ListItem
+          v-if="activeRecipes"
           v-for="recipe in activeRecipes"
           variant="button"
           :key="recipe.title"
@@ -132,7 +133,7 @@ watch(
 );
 
 const { data: recipes } = await useAsyncData("recipes", () =>
-  queryContent("/recipes").find()
+  queryContent<models.Recipe>("/recipes").find()
 );
 
 const activeRecipes = computed(() => {
