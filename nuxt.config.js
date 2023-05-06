@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     utils: path.resolve(__dirname, "utils"),
   },
   css: ["assets/css/main.scss"],
-  modules: ["@nuxt/content", "@nuxtjs/i18n", "@nuxtjs/color-mode"],
+  modules: ["@nuxt/content", "@nuxtjs/i18n"],
   content: {},
   i18n: {
     locales: ["zh_CN"],

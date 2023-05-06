@@ -1,1 +1,15 @@
-$black: black;
+:root {
+  --cooking-primary: #17853f;
+  --cooking-primary-active: #22c55e;
+  --cooking-primary-text: white;
+  --cooking-background: #f4f4f5;
+  --cooking-text: black;
+  --cooking-black: $black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cooking-background: #27272a;
+    --cooking-text: white;
+  }
+}
