@@ -1,5 +1,5 @@
 <template>
-  <Container class="Document">
+  <TextContent class="Document">
     <slot />
     <div>
       <div class="Document_toc">
@@ -11,7 +11,7 @@
     <article class="Document_content">
       <slot name="content"></slot>
     </article>
-  </Container>
+  </TextContent>
 </template>
 
 <style lang="scss" scoped>
@@ -38,5 +38,5 @@
 </style>
 
 <script lang="ts" setup>
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 </script>

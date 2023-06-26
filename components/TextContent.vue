@@ -1,20 +1,22 @@
 <template>
-  <component :is="component" class="Container">
+  <component :is="component" class="TextContent">
     <slot></slot>
   </component>
 </template>
 
 <style lang="scss" scoped>
-.Container {
+@use "styles/responsive" as *;
+
+.TextContent {
   width: 100%;
   padding: 0 20px;
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: $tablet-min) {
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: $tablet-min) {
     max-width: 640px;
   }
 

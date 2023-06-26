@@ -4,9 +4,9 @@
       <NavLink to="/recipes">食谱</NavLink>
       <NavLink to="/knowledge">知识</NavLink>
     </Navbar>
-    <div class="DefaultLayout_content">
+    <main class="DefaultLayout_content">
       <slot />
-    </div>
+    </main>
 
     <footer class="DefaultLayout_footer DefaultLayout_footer__primary">
       Made with Love by Zehua Chen
@@ -44,7 +44,6 @@
 <script lang="ts" setup>
 import Navbar from "../components/Navbar.vue";
 import NavLink from "../components/NavLink.vue";
-import Container from "components/Container.vue";
 import { Noscript, Script } from "@unhead/schema";
 
 const development = process.env.NODE_ENV === "development";

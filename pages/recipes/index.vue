@@ -4,7 +4,7 @@
     <div
       class="RecipesPage_tagsContainer RecipesPage_tagsContainer__background"
     >
-      <Container class="RecipesPage_tagsContainer_tags">
+      <TextContent class="RecipesPage_tagsContainer_tags">
         <Tag
           v-for="tag in validTags"
           :key="tag"
@@ -13,9 +13,9 @@
         >
           {{ $t(tag) }}
         </Tag>
-      </Container>
+      </TextContent>
     </div>
-    <Container class="RecipesPage_recipesContainer">
+    <TextContent class="RecipesPage_recipesContainer">
       <List>
         <ListItem
           v-if="activeRecipes"
@@ -40,7 +40,7 @@
           </ListItemLink>
         </ListItem>
       </List>
-    </Container>
+    </TextContent>
   </div>
 </template>
 
@@ -75,7 +75,7 @@
 <script lang="ts" setup async>
 import { LocationQuery } from "vue-router";
 import PageTitle from "components/PageTitle.vue";
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";

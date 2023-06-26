@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageTitle title="Zehua Chen的做饭笔记" />
-    <Container>
+    <TextContent>
       <List>
         <ListItem v-for="link in links" variant="button" :key="link.title">
           <ListItemLink :to="link.url">
@@ -9,14 +9,13 @@
           </ListItemLink>
         </ListItem>
       </List>
-    </Container>
+    </TextContent>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import PageTitle from "components/PageTitle.vue";
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 import List from "../components/List.vue";
 import ListItem from "../components/ListItem.vue";
 import ListItemLink from "../components/ListItemLink.vue";
@@ -26,25 +25,20 @@ interface Link {
   title: string;
 }
 
-export default defineComponent({
-  components: { PageTitle, Container, List, ListItem, ListItemLink },
-  computed: {
-    links(): Link[] {
-      return [
-        {
-          url: "recipes/",
-          title: "菜谱",
-        },
-        {
-          url: "knowledge/ingredients",
-          title: "食材",
-        },
-        {
-          url: "knowledge/food-purchase",
-          title: "食品采购",
-        },
-      ];
+const links = computed<Link[]>(() => {
+  return [
+    {
+      url: "recipes/",
+      title: "菜谱",
     },
-  },
+    {
+      url: "knowledge/ingredients",
+      title: "食材",
+    },
+    {
+      url: "knowledge/food-purchase",
+      title: "食品采购",
+    },
+  ];
 });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <PageTitle title="知识" />
-    <Container>
+    <TextContent>
       <List>
         <ListItem
           v-if="articles"
@@ -14,13 +14,13 @@
           </ListItemLink>
         </ListItem>
       </List>
-    </Container>
+    </TextContent>
   </div>
 </template>
 
 <script lang="ts" setup>
 import PageTitle from "components/PageTitle.vue";
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
