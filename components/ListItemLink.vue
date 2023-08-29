@@ -5,12 +5,16 @@
 </template>
 
 <style lang="scss" scoped>
-.ListItemLink {
-  display: inline-block;
-  width: 100%;
-  padding: 10px;
-  text-decoration: none;
-  color: var(--cooking-text);
+@use "styles/layers";
+
+@layer components {
+  .ListItemLink {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--cooking-text);
+  }
 }
 </style>
 

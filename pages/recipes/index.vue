@@ -45,30 +45,34 @@
 </template>
 
 <style lang="scss" scoped>
-.RecipesPage_tagsContainer {
-  position: sticky;
-  top: 0;
-}
+@use "styles/layers";
 
-.RecipesPage_tagsContainer__background {
-  background: var(--cooking-background);
-}
+@layer pages {
+  .RecipesPage_tagsContainer {
+    position: sticky;
+    top: 0;
+  }
 
-.RecipesPage_tagsContainer_tags {
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
+  .RecipesPage_tagsContainer__background {
+    background: var(--cooking-background);
+  }
 
-.RecipesPage_recipesContainer {
-  padding-top: 10px;
-}
+  .RecipesPage_tagsContainer_tags {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
 
-.RecipesPage_recipesContainer_recipe {
-  display: flex;
-  gap: 5px;
-  align-items: center;
+  .RecipesPage_recipesContainer {
+    padding-top: 10px;
+  }
+
+  .RecipesPage_recipesContainer_recipe {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
 }
 </style>
 

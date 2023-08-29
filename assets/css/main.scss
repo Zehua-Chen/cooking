@@ -1,52 +1,56 @@
 @use "./link" as link;
 @use "./colors" as colors;
+@use "styles/layers";
 
-body {
-  margin: 0;
-  padding: 0;
-
-  color: var(--cooking-text);
-  background-color: var(--cooking-background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.light {
+@layer base {
   body {
+    margin: 0;
+    padding: 0;
+
     color: var(--cooking-text);
+    background-color: var(--cooking-background);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
   }
-}
 
-.dark {
-  body {
-    color: var(--cooking-text);
+  .light {
+    body {
+      color: var(--cooking-text);
+    }
   }
-}
 
-a {
-  all: unset;
-  cursor: pointer;
-}
+  .dark {
+    body {
+      color: var(--cooking-text);
+    }
+  }
 
-button {
-  all: unset;
-}
+  a {
+    all: unset;
+    cursor: pointer;
+  }
 
-table {
-  width: 100%;
-  border-spacing: 0;
-}
+  button {
+    all: unset;
+  }
 
-th {
-  text-align: start;
-  min-width: 50px;
-}
+  table {
+    width: 100%;
+    border-spacing: 0;
+  }
 
-tr:nth-child(odd) {
-  background: lightgray;
-  color: var(--cooking-black);
-}
+  th {
+    text-align: start;
+    min-width: 50px;
+  }
 
-td {
-  padding: 5px 0;
+  tr:nth-child(odd) {
+    background: lightgray;
+    color: var(--cooking-black);
+  }
+
+  td {
+    padding: 5px 0;
+  }
 }

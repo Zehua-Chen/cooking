@@ -13,8 +13,12 @@
 </template>
 
 <style lang="scss" scoped>
-.TableOfContent_item__indented {
-  padding-left: 20px;
+@use "styles/layers";
+
+@layer components {
+  .TableOfContent_item__indented {
+    padding-left: 20px;
+  }
 }
 </style>
 

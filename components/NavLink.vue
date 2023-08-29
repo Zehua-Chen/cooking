@@ -8,29 +8,32 @@
 
 <style lang="scss" scoped>
 @use "assets/css/link" as *;
+@use "styles/layers";
 
-.NavLink {
-  all: unset;
-  display: inline-block;
-}
-
-%NavLink_link {
-  display: inline-block;
-  padding: 20px;
-  color: var(--cooking-text);
-
-  border-bottom: solid 1px transparent;
-}
-
-.NavLink_link__primary {
-  @extend %NavLink_link;
-
-  &.router-link-active {
-    border-bottom-color: var(--cooking-primary-active);
+@layer components {
+  .NavLink {
+    all: unset;
+    display: inline-block;
   }
 
-  &:hover {
-    border-bottom-color: var(--cooking-primary);
+  %NavLink_link {
+    display: inline-block;
+    padding: 20px;
+    color: var(--cooking-text);
+
+    border-bottom: solid 1px transparent;
+  }
+
+  .NavLink_link__primary {
+    @extend %NavLink_link;
+
+    &.router-link-active {
+      border-bottom-color: var(--cooking-primary-active);
+    }
+
+    &:hover {
+      border-bottom-color: var(--cooking-primary);
+    }
   }
 }
 </style>

@@ -5,8 +5,12 @@
 </template>
 
 <style lang="scss" scoped>
-.List {
-  list-style: none;
-  padding: 0;
+@use "styles/layers";
+
+@layer components {
+  .List {
+    list-style: none;
+    padding: 0;
+  }
 }
 </style>

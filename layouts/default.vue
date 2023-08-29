@@ -15,29 +15,33 @@
 </template>
 
 <style lang="scss" scoped>
-.DefaultLayout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+@use "styles/layers";
 
-.DefaultLayout_content {
-  flex-grow: 1;
-}
+@layer layouts {
+  .DefaultLayout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-.DefaultLayout_footer {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  height: 80px;
-  margin-top: 10px;
+  .DefaultLayout_content {
+    flex-grow: 1;
+  }
 
-  border-top-style: solid;
-  border-top-width: 1px;
-}
+  .DefaultLayout_footer {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 80px;
+    margin-top: 10px;
 
-.DefaultLayout_footer__primary {
-  border-top-color: var(--cooking-primary);
+    border-top-style: solid;
+    border-top-width: 1px;
+  }
+
+  .DefaultLayout_footer__primary {
+    border-top-color: var(--cooking-primary);
+  }
 }
 </style>
 

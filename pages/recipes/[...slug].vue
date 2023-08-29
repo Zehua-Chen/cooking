@@ -45,8 +45,12 @@
 </template>
 
 <style lang="scss" scoped>
-.RecipePage_optionalIngredient {
-  color: grey;
+@use "styles/layers";
+
+@layer pages {
+  .RecipePage_optionalIngredient {
+    color: grey;
+  }
 }
 </style>
 
