@@ -5,12 +5,16 @@
 </template>
 
 <style lang="scss">
-.PageTitle {
-  text-align: center;
+@use "styles/layers";
 
-  font-size: 30px;
-  font-weight: 700;
-  padding: 70px 0;
+@layer components {
+  .PageTitle {
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 700;
+    padding: 70px 0;
+  }
 }
 </style>
 

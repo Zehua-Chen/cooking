@@ -5,16 +5,20 @@
 </template>
 
 <style lang="scss" scoped>
-.ListItem {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  border-color: transparent;
-}
+@use "styles/layers";
 
-.ListItem__button {
-  &:hover {
-    border-color: var(--cooking-primary);
+@layer components {
+  .ListItem {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: transparent;
+  }
+
+  .ListItem__button {
+    &:hover {
+      border-color: var(--cooking-primary);
+    }
   }
 }
 </style>

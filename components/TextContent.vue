@@ -6,22 +6,25 @@
 
 <style lang="scss" scoped>
 @use "styles/responsive" as *;
+@use "styles/layers";
 
-.TextContent {
-  width: 100%;
-  padding: 0 20px;
+@layer components {
+  .TextContent {
+    width: 100%;
+    padding: 0 20px;
 
-  @media screen and (min-width: $tablet-min) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+    @media screen and (min-width: $tablet-min) {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  @media screen and (min-width: $tablet-min) {
-    max-width: 640px;
-  }
+    @media screen and (min-width: $tablet-min) {
+      max-width: 640px;
+    }
 
-  @media screen and (min-width: 1024px) {
-    max-width: 1024px;
+    @media screen and (min-width: 1024px) {
+      max-width: 1024px;
+    }
   }
 }
 </style>

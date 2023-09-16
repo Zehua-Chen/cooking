@@ -8,14 +8,18 @@
 </template>
 
 <style lang="scss" scoped>
-.Navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+@use "styles/layers";
 
-.Navbar_list {
-  all: unset;
+@layer components {
+  .Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .Navbar_list {
+    all: unset;
+  }
 }
 </style>
 

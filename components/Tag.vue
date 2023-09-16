@@ -13,32 +13,36 @@
 </template>
 
 <style lang="scss" scoped>
-.Tag {
-  border-radius: 50vh;
-  display: inline-flex;
-  align-items: center;
-}
+@use "styles/layers";
 
-.Tag__interactive {
-  cursor: pointer;
-}
+@layer components {
+  .Tag {
+    border-radius: 50vh;
+    display: inline-flex;
+    align-items: center;
+  }
 
-.Tag__big {
-  font-size: 16px;
-  padding: 15px;
-}
+  .Tag__interactive {
+    cursor: pointer;
+  }
 
-.Tag__small {
-  font-size: 12px;
-  padding: 5px;
-}
+  .Tag__big {
+    font-size: 16px;
+    padding: 15px;
+  }
 
-.Tag__primary {
-  color: var(--cooking-primary-text);
-  background: var(--cooking-primary);
-}
-.Tag__primaryActive {
-  background: var(--cooking-primary-active);
+  .Tag__small {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .Tag__primary {
+    color: var(--cooking-primary-text);
+    background: var(--cooking-primary);
+  }
+  .Tag__primaryActive {
+    background: var(--cooking-primary-active);
+  }
 }
 </style>
 
