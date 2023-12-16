@@ -11,7 +11,7 @@
           :active="isTagActive(tag)"
           @click="toggleTag(tag)"
         >
-          {{ $t(tag) }}
+          {{ i18nMessages[tag] }}
         </Tag>
       </TextContent>
     </div>
@@ -35,7 +35,7 @@
               type="span"
               component="span"
             >
-              {{ $t(tag) }}
+              {{ i18nMessages[tag] }}
             </Tag>
           </ListItemLink>
         </ListItem>
@@ -159,4 +159,12 @@ const activeRecipes = computed(() => {
     return false;
   });
 });
+
+const i18nMessages = {
+  breakfast: "早餐",
+  lunch: "午餐",
+  dinner: "晚餐",
+  snacks: "零食",
+  others: "其他",
+};
 </script>

@@ -10,25 +10,8 @@ export default defineNuxtConfig({
     styles: path.resolve(__dirname, "styles"),
   },
   css: ["assets/css/main.scss"],
-  modules: ["@nuxt/content", "@nuxtjs/i18n"],
+  modules: ["@nuxt/content"],
   content: {},
-  i18n: {
-    locales: ["zh_CN"],
-    defaultLocale: "zh_CN",
-    vueI18n: {
-      legacy: false,
-      locale: "zh_CN",
-      messages: {
-        zh_CN: {
-          breakfast: "早饭",
-          lunch: "午饭",
-          dinner: "晚饭",
-          snacks: "零食",
-          others: "其他",
-        },
-      },
-    },
-  },
   colorMode: {
     classSuffix: "",
   },
