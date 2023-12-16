@@ -12,9 +12,13 @@
 <script lang="ts" setup>
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
+import { usePageSlug } from "utils";
 
-const route = useRoute();
-const { data: page } = await useAsyncData(() =>
-  queryContent(`knowledge/${route.params.slug}`).findOne()
+const knowledgeSlug = usePageSlug();
+
+const { data: page } = await useAsyncData(
+  `knowledge/${knowledgeSlug.value}`,
+  () => queryContent(`knowledge/${knowledgeSlug.value}`).findOne(),
+  { watch: [knowledgeSlug] }
 );
 </script>

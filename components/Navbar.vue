@@ -1,33 +1,35 @@
 <template>
-  <nav class="flex flex-row justify-start">
-    <NavLink to="/">{{ home }}</NavLink>
-    <slot></slot>
-  </nav>
+  <TextContent class="Navbar" component="nav">
+    <ul class="Navbar_list">
+      <NavLink to="/">{{ home }}</NavLink>
+      <slot></slot>
+    </ul>
+  </TextContent>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<style lang="scss" scoped>
+@use "styles/layers";
+
+@layer components {
+  .Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .Navbar_list {
+    all: unset;
+  }
+}
+</style>
+
+<script lang="ts" setup>
+import TextContent from "components/TextContent.vue";
 import NavLink from "components/NavLink.vue";
 
-export default defineComponent({
-  components: { NavLink },
-  props: {
-    home: {
-      type: String,
-      default: "Home",
-    },
-  },
-  computed: {
-    navbarColor() {
-      const { value: colorMode } = this.$colorMode;
+export interface NavbarProps {
+  home: string;
+}
 
-      return {
-        "navbar-light": colorMode === "light",
-        "bg-light": colorMode === "light",
-        "navbar-dark": colorMode === "dark",
-        "bg-dark": colorMode === "dark",
-      };
-    },
-  },
-});
+withDefaults(defineProps<NavbarProps>(), { home: "Home" });
 </script>

@@ -1,26 +1,32 @@
 <template>
   <div>
     <PageTitle title="知识" />
-    <Container>
+    <TextContent>
       <List>
-        <ListItem v-for="article in articles" :key="article.title">
+        <ListItem
+          v-if="articles"
+          v-for="article in articles"
+          variant="button"
+          :key="article.title"
+        >
           <ListItemLink :to="article._path">
             {{ article.title }}
           </ListItemLink>
         </ListItem>
       </List>
-    </Container>
+    </TextContent>
   </div>
 </template>
 
 <script lang="ts" setup>
 import PageTitle from "components/PageTitle.vue";
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
+import { Knowledge } from "models";
 
 const { data: articles } = await useAsyncData(() =>
-  queryContent("/knowledge").find()
+  queryContent<Knowledge>("/knowledge").find()
 );
 </script>

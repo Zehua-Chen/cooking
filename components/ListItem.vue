@@ -1,40 +1,51 @@
 <template>
-  <li
-    class="rounded dark:text-white text-black dark:text-white border-solid border border-primary-500/0 hover:border-primary-500"
-    :class="[variantClass]"
-  >
+  <li class="ListItem" :class="[variantClass]">
     <slot></slot>
   </li>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<style lang="scss" scoped>
+@use "styles/layers";
 
-export default defineComponent({
-  props: {
-    variant: {
-      type: String,
-      default: "plain",
-      validator: (variant) => {
-        switch (variant) {
-          case "plain":
-          case "button":
-            return true;
-          default:
-            return false;
-        }
-      },
-    },
-  },
-  computed: {
-    variantClass() {
-      switch (this.variant) {
+@layer components {
+  .ListItem {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: transparent;
+  }
+
+  .ListItem__button {
+    &:hover {
+      border-color: var(--cooking-primary);
+    }
+  }
+}
+</style>
+
+<script lang="ts" setup>
+const props = defineProps({
+  variant: {
+    type: String,
+    default: "plain",
+    validator: (variant) => {
+      switch (variant) {
         case "plain":
-          return "";
         case "button":
-          return "hover:bg-gray-100 dark:hover:bg-gray-700";
+          return true;
+        default:
+          return false;
       }
     },
   },
+});
+
+const variantClass = computed(() => {
+  switch (props.variant) {
+    case "plain":
+      return "";
+    case "button":
+      return "ListItem__button";
+  }
 });
 </script>

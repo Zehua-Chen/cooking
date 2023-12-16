@@ -1,8 +1,10 @@
 <template>
   <div>
     <PageTitle title="食谱" />
-    <div class="sticky top-0 bg-background-100 dark:bg-background-800">
-      <Container class="flex pb-2 pt-2 justify-center space-x-2">
+    <div
+      class="RecipesPage_tagsContainer RecipesPage_tagsContainer__background"
+    >
+      <TextContent class="RecipesPage_tagsContainer_tags">
         <Tag
           v-for="tag in validTags"
           :key="tag"
@@ -11,29 +13,73 @@
         >
           {{ $t(tag) }}
         </Tag>
-      </Container>
+      </TextContent>
     </div>
-    <Container>
+    <TextContent class="RecipesPage_recipesContainer">
       <List>
-        <ListItem v-for="recipe in activeRecipes" :key="recipe.title">
-          <ListItemLink :to="recipe._path">
-            <span class="space-x-2">
-              {{ recipe.title }}
-              <Tag v-for="tag in recipe.tags" :key="tag" small type="span">
-                {{ $t(tag) }}
-              </Tag>
-            </span>
+        <ListItem
+          v-if="activeRecipes"
+          v-for="recipe in activeRecipes"
+          variant="button"
+          :key="recipe.title"
+        >
+          <ListItemLink
+            class="RecipesPage_recipesContainer_recipe"
+            :to="recipe._path"
+          >
+            {{ recipe.title }}
+            <Tag
+              v-for="tag in recipe.tags"
+              :key="tag"
+              small
+              type="span"
+              component="span"
+            >
+              {{ $t(tag) }}
+            </Tag>
           </ListItemLink>
         </ListItem>
       </List>
-    </Container>
+    </TextContent>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@use "styles/layers";
+
+@layer pages {
+  .RecipesPage_tagsContainer {
+    position: sticky;
+    top: 0;
+  }
+
+  .RecipesPage_tagsContainer__background {
+    background: var(--cooking-background);
+  }
+
+  .RecipesPage_tagsContainer_tags {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .RecipesPage_recipesContainer {
+    padding-top: 10px;
+  }
+
+  .RecipesPage_recipesContainer_recipe {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+}
+</style>
 
 <script lang="ts" setup async>
 import { LocationQuery } from "vue-router";
 import PageTitle from "components/PageTitle.vue";
-import Container from "components/Container.vue";
+import TextContent from "components/TextContent.vue";
 import List from "components/List.vue";
 import ListItem from "components/ListItem.vue";
 import ListItemLink from "components/ListItemLink.vue";
@@ -42,7 +88,7 @@ import * as models from "models";
 
 function tagsFromQuery(query: LocationQuery): models.Tag[] {
   if (!query.tags) {
-    return models.validTags;
+    return [...models.VALID_TAGS];
   }
 
   return (query.tags as string).split(",") as models.Tag[];
@@ -70,7 +116,7 @@ async function toggleTag(tag: models.Tag): Promise<void> {
 const route = useRoute();
 const router = useRouter();
 
-const validTags = ref(models.validTags);
+const validTags = computed(() => models.VALID_TAGS);
 const activeTags = ref<models.Tag[]>([]);
 
 watch(
@@ -91,7 +137,7 @@ watch(
 );
 
 const { data: recipes } = await useAsyncData("recipes", () =>
-  queryContent("/recipes").find()
+  queryContent<models.Recipe>("/recipes").find()
 );
 
 const activeRecipes = computed(() => {

@@ -3,7 +3,7 @@
     <ListItem
       v-for="node in toc"
       :key="node.id"
-      :class="{ 'pl-4': node.depth === 3 }"
+      :class="{ TableOfContent_item__indented: node.depth === 3 }"
     >
       <ListItemLink :to="to(node.id)">
         {{ node.text }}
@@ -11,6 +11,16 @@
     </ListItem>
   </List>
 </template>
+
+<style lang="scss" scoped>
+@use "styles/layers";
+
+@layer components {
+  .TableOfContent_item__indented {
+    padding-left: 20px;
+  }
+}
+</style>
 
 <script lang="ts" setup>
 import { TocLink } from "@nuxt/content/dist/runtime/types";

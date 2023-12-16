@@ -1,22 +1,48 @@
 <template>
-  <NuxtLink
-    class="p-5 text-black dark:text-white border-solid border-b border-primary-600/0 hover:border-primary-600"
-    :class="{ active: $route.path.includes(to) }"
-    :to="to"
-  >
-    <slot></slot>
-  </NuxtLink>
+  <li class="NavLink">
+    <NuxtLink class="NavLink_link__primary" :to="to">
+      <slot></slot>
+    </NuxtLink>
+  </li>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<style lang="scss" scoped>
+@use "assets/css/link" as *;
+@use "styles/layers";
 
-export default defineComponent({
-  props: {
-    to: {
-      type: String,
-      required: true,
-    },
+@layer components {
+  .NavLink {
+    all: unset;
+    display: inline-block;
+  }
+
+  %NavLink_link {
+    display: inline-block;
+    padding: 20px;
+    color: var(--cooking-text);
+
+    border-bottom: solid 1px transparent;
+  }
+
+  .NavLink_link__primary {
+    @extend %NavLink_link;
+
+    &.router-link-active {
+      border-bottom-color: var(--cooking-primary-active);
+    }
+
+    &:hover {
+      border-bottom-color: var(--cooking-primary);
+    }
+  }
+}
+</style>
+
+<script lang="ts" setup>
+defineProps({
+  to: {
+    type: String,
+    required: true,
   },
 });
 </script>

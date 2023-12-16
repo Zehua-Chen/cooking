@@ -5,11 +5,7 @@
     </template>
 
     <template #options>
-      <select
-        class="dark:text-black"
-        v-if="page?.variants"
-        v-model="activeVariant"
-      >
+      <select v-if="page?.variants" v-model="activeVariant">
         <option
           v-for="variant in page.variants"
           :key="variant.name"
@@ -48,17 +44,27 @@
   </Document>
 </template>
 
+<style lang="scss" scoped>
+@use "styles/layers";
+
+@layer pages {
+  .RecipePage_optionalIngredient {
+    color: grey;
+  }
+}
+</style>
+
 <script lang="ts" setup>
 import { TocLink } from "@nuxt/content/dist/runtime/types";
 import Document from "components/Document.vue";
 import TableOfContent from "components/TableOfContent.vue";
+import { usePageSlug } from "utils";
 
-import { Ingredient } from "models";
+import { Ingredient, Recipe } from "models";
 
 function ingredientRowStyles(ingredient: Ingredient): any {
   return {
-    "text-gray-600": ingredient.optional,
-    "dark:text-gray-400": ingredient.optional,
+    RecipePage_optionalIngredient: ingredient.optional,
   };
 }
 
@@ -82,10 +88,15 @@ function ingredientQuantity(ingredient: Ingredient): string {
   return "";
 }
 
-const route = useRoute();
+const recipeSlug = usePageSlug();
 
-const { data: page } = await useAsyncData("page", () =>
-  queryContent(`/recipes/${route.params.slug}`).findOne()
+const { data: page } = await useAsyncData(
+  `recipes/${recipeSlug.value}`,
+  () => queryContent<Recipe>(`/recipes/${recipeSlug.value}`).findOne(),
+  {
+    watch: [recipeSlug],
+    pick: ["variants", "ingredients", "body", "title"],
+  }
 );
 
 const activeVariant = ref(page.value?.variants ? page.value.variants[0] : null);
@@ -105,7 +116,7 @@ const toc = computed<TocLink[]>(() => {
   return [];
 });
 
-const ingredients = computed(() => {
+const ingredients = computed<Ingredient[]>(() => {
   if (!activeVariant.value) {
     return page.value?.ingredients ?? [];
   }

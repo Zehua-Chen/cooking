@@ -1,10 +1,22 @@
 <template>
-  <div class="grid h-40 content-center justify-center">
-    <h1 class="text-3xl font-bold text-black dark:text-white">
-      {{ title }}
-    </h1>
-  </div>
+  <h1 class="PageTitle">
+    {{ title }}
+  </h1>
 </template>
+
+<style lang="scss">
+@use "styles/layers";
+
+@layer components {
+  .PageTitle {
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 700;
+    padding: 70px 0;
+  }
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from "vue";
