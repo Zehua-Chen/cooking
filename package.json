@@ -23,6 +23,7 @@
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "typescript": "^5.0.4",
+    "update-browserslist-db": "^1.0.13",
     "vue-tsc": "^1.6.3"
   }
 }
