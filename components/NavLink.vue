@@ -9,6 +9,7 @@
 <style lang="scss" scoped>
 @use "assets/css/link" as *;
 @use "styles/layers";
+@use "styles/anchor";
 
 @layer components {
   .NavLink {
@@ -17,11 +18,14 @@
   }
 
   %NavLink_link {
+    @extend %AnchorWithoutFocus;
+
     display: inline-block;
     padding: 20px;
     color: var(--cooking-text);
 
     border-bottom: solid 1px transparent;
+    text-decoration: none;
   }
 
   .NavLink_link__primary {
@@ -31,7 +35,9 @@
       border-bottom-color: var(--cooking-primary-active);
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       border-bottom-color: var(--cooking-primary);
     }
   }

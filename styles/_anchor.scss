@@ -1,0 +1,6 @@
+%AnchorWithoutFocus {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
