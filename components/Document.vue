@@ -1,11 +1,9 @@
 <template>
   <TextContent class="Document">
     <slot />
-    <div>
-      <div class="Document_toc">
-        <slot name="toc" />
-        <slot name="options" />
-      </div>
+    <div class="Document_toc">
+      <slot name="toc" />
+      <slot name="options" />
     </div>
 
     <article class="Document_content">
@@ -19,16 +17,23 @@
 
 @layer components {
   .Document {
+    position: relative;
     display: flex;
     flex-direction: row;
+    // make sure the table of content is not full height; otherwise sticky
+    // does not work
+    align-items: flex-start;
   }
 
   .Document_toc {
-    display: none;
+    flex: 0 1 auto;
     position: sticky;
     top: 0;
-    margin-top: 10px;
-    width: 320px;
+    padding-top: 10px;
+    padding-right: 20px;
+    min-width: 240px;
+
+    display: none;
 
     @media screen and (min-width: 768px) {
       display: block;
@@ -36,7 +41,7 @@
   }
 
   .Document_content {
-    flex-grow: 1;
+    flex: 1 1 auto;
   }
 }
 </style>

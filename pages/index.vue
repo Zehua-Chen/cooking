@@ -3,10 +3,13 @@
     <PageTitle title="Zehua Chen的做饭笔记" />
     <TextContent>
       <List>
-        <ListItem v-for="link in links" variant="button" :key="link.title">
-          <ListItemLink :to="link.url">
-            {{ link.title }}
-          </ListItemLink>
+        <ListItem
+          v-for="link in links"
+          variant="link"
+          :key="link.title"
+          :to="link.url"
+        >
+          {{ link.title }}
         </ListItem>
       </List>
     </TextContent>
@@ -18,7 +21,6 @@ import PageTitle from "components/PageTitle.vue";
 import TextContent from "components/TextContent.vue";
 import List from "../components/List.vue";
 import ListItem from "../components/ListItem.vue";
-import ListItemLink from "../components/ListItemLink.vue";
 
 interface Link {
   url: string;

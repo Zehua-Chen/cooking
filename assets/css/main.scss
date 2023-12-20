@@ -1,4 +1,3 @@
-@use "./link" as link;
 @use "./colors" as colors;
 @use "styles/layers";
 
@@ -14,19 +13,12 @@
       sans-serif;
   }
 
-  .light {
-    body {
-      color: var(--cooking-text);
-    }
-  }
-
-  .dark {
-    body {
-      color: var(--cooking-text);
-    }
+  body {
+    color: var(--cooking-text);
   }
 
   a {
+    color: var(--cooking-text);
     cursor: pointer;
   }
 

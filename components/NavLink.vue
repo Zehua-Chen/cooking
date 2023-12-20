@@ -7,7 +7,6 @@
 </template>
 
 <style lang="scss" scoped>
-@use "assets/css/link" as *;
 @use "styles/layers";
 @use "styles/anchor";
 

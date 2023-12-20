@@ -20,13 +20,11 @@
         <ListItem
           v-if="activeRecipes"
           v-for="recipe in activeRecipes"
-          variant="button"
+          variant="link"
           :key="recipe.title"
+          :to="recipe._path"
         >
-          <ListItemLink
-            class="RecipesPage_recipesContainer_recipe"
-            :to="recipe._path"
-          >
+          <div class="RecipesPage_recipesContainer_recipe">
             {{ recipe.title }}
             <Tag
               v-for="tag in recipe.tags"
@@ -37,7 +35,7 @@
             >
               {{ i18nMessages[tag] }}
             </Tag>
-          </ListItemLink>
+          </div>
         </ListItem>
       </List>
     </TextContent>

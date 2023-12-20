@@ -4,10 +4,10 @@
       v-for="node in toc"
       :key="node.id"
       :class="{ TableOfContent_item__indented: node.depth === 3 }"
+      variant="link"
+      :to="to(node.id)"
     >
-      <ListItemLink :to="to(node.id)">
-        {{ node.text }}
-      </ListItemLink>
+      {{ node.text }}
     </ListItem>
   </List>
 </template>
@@ -26,7 +26,6 @@
 import { TocLink } from "@nuxt/content/dist/runtime/types";
 import List from "./List.vue";
 import ListItem from "./ListItem.vue";
-import ListItemLink from "./ListItemLink.vue";
 
 export interface TableOfContentProps {
   toc: TocLink[];
