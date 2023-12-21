@@ -39,6 +39,11 @@
   .Tag__primary {
     color: var(--cooking-primary-text);
     background: var(--cooking-primary);
+
+    &:focus,
+    &:focus-visible {
+      outline: solid 2px var(--cooking-primary-focus);
+    }
   }
   .Tag__primaryActive {
     background: var(--cooking-primary-active);
