@@ -1,7 +1,7 @@
 <template>
   <List>
     <ListItem
-      v-for="node in toc"
+      v-for="node in flatToc"
       :key="node.id"
       :class="{ TableOfContent_item__indented: node.depth === 3 }"
       variant="link"
@@ -35,5 +35,15 @@ function to(id: string): string {
   return `#${id}`;
 }
 
-defineProps<TableOfContentProps>();
+function getFlatToc(toc: TocLink[]): TocLink[] {
+  return toc.reduce((flatToc, toc) => {
+    flatToc.push(toc);
+    flatToc.push(...(toc.children ?? []));
+    return flatToc;
+  }, [] as TocLink[]);
+}
+
+const props = defineProps<TableOfContentProps>();
+
+const flatToc = computed(() => getFlatToc(props.toc));
 </script>
